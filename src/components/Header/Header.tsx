@@ -1,21 +1,21 @@
 import React from 'react';
-// Import các icon cần thiết từ thư viện FontAwesome (giống style trong ảnh)
-import { FaSearch, FaLanguage, FaBars, FaUserPlus, FaUser } from 'react-icons/fa';
+import { FaSearch, FaBars, FaUserPlus, FaUser } from 'react-icons/fa';
+import LanguageIcon from '../../assets/Header/LanguageIcon.png';
 
 interface HeaderProps {
-  // Bạn có thể thêm props nếu cần xử lý sự kiện click
   onMenuClick?: () => void;
 }
 
 const Header: React.FC<HeaderProps> = ({ onMenuClick }) => {
   return (
-    <header className="w-full bg-[#1e2336] text-white py-3 px-4 shadow-md">
-      <div className="container mx-auto flex items-center justify-between">
+    // Z-index thấp hơn Navbar (Navbar là 50), position relative để nội dung hiển thị đúng
+    <header className="w-full bg-[#1e2336] text-white py-3 px-4 shadow-md relative z-10">
+      <div className="container mx-auto flex items-center justify-between font-josefin">
         
-        {/* --- LEFT SECTION: SEARCH BAR --- */}
-        <div className="flex items-center gap-4 flex-1">
+        {/* LEFT SECTION */}
+        <div className="flex items-center gap-4 flex-1 h-20">
           {/* Search Input Group */}
-          <div className="flex items-center bg-white rounded overflow-hidden max-w-[300px] w-full h-10">
+          <div className="flex items-center bg-white rounded overflow-hidden max-w-65 w-full h-10">
             <input 
               type="text" 
               placeholder="Search Music Here.." 
@@ -26,35 +26,31 @@ const Header: React.FC<HeaderProps> = ({ onMenuClick }) => {
             </button>
           </div>
 
-          {/* Trending Text: Chỉ hiện trên màn hình lớn (Large Desktop) */}
-          {/* hidden lg:block: Ẩn ở mobile/tablet, hiện ở màn hình lg trở lên */}
-          <div className="hidden xl:block text-sm text-gray-300 truncate">
+          <div className="hidden xl:block text-sm text-gray-300 truncate ml-8.75">
             <span className="text-[#38bdf8] font-medium">Trending Songs :</span> Dream your moments, Until I Met You, Gim
           </div>
         </div>
 
-        {/* --- RIGHT SECTION --- */}
+        {/* RIGHT SECTION */}
         <div className="flex items-center gap-4">
           
-          {/* Language Selector: Ẩn trên Mobile, Hiện trên Tablet/Desktop */}
-          <div className="hidden md:flex items-center gap-2 cursor-pointer hover:text-[#38bdf8] transition-colors">
+          <div className="hidden md:flex items-center gap-2 cursor-pointer hover:text-[#38bdf8] transition-colors ml-51.5 mr-15.5">
             <span className="text-sm">Languages</span>
-            <FaLanguage size={20} />
+            {/* Đảm bảo ảnh tồn tại hoặc comment dòng dưới nếu chưa có ảnh */}
+            <img src={LanguageIcon} alt="Language" className="w-5 h-5 object-contain" />
           </div>
 
           {/* BUTTON GROUP */}
-          
-          {/* 1. Phiên bản Desktop/Tablet (Hiện Chữ) */}
           <div className="hidden md:flex items-center gap-3">
-            <button className="px-6 py-2 rounded-full bg-gradient-to-r from-[#38bdf8] to-[#22d3ee] text-white text-sm font-semibold shadow-lg hover:opacity-90 transition-opacity">
+            <button className="px-6 py-2 h-12 max-w-25 rounded-full bg-linear-to-r from-[#38bdf8] to-[#22d3ee] text-white text-sm font-semibold shadow-lg hover:opacity-90 transition-opacity">
               Register
             </button>
-            <button className="px-6 py-2 rounded-full bg-gradient-to-r from-[#38bdf8] to-[#22d3ee] text-white text-sm font-semibold shadow-lg hover:opacity-90 transition-opacity">
+            <button className="px-6 py-2 h-12 max-w-25 rounded-full bg-linear-to-r from-[#38bdf8] to-[#22d3ee] text-white text-sm font-semibold shadow-lg hover:opacity-90 transition-opacity ml-4">
               Login
             </button>
           </div>
 
-          {/* 2. Phiên bản Mobile (Hiện Icon tròn) */}
+          {/* MOBILE ICONS */}
           <div className="flex md:hidden items-center gap-2">
             <button className="w-10 h-10 rounded-full bg-[#38bdf8] flex items-center justify-center text-white shadow-md">
               <FaUserPlus />
@@ -64,10 +60,6 @@ const Header: React.FC<HeaderProps> = ({ onMenuClick }) => {
             </button>
           </div>
 
-          {/* HAMBURGER MENU */}
-          {/* Logic: Hiện trên Mobile và Tablet. Ẩn trên Desktop cực lớn (nếu muốn giống ảnh 1) 
-              Tuy nhiên ảnh 2 (Tablet) có menu, ảnh 1 (Desktop) không có.
-              Ta dùng logic: block xl:hidden (Hiện tất cả, chỉ ẩn khi màn hình cực lớn) */}
           <button 
             className="block xl:hidden text-white text-2xl ml-2 focus:outline-none"
             onClick={onMenuClick}
