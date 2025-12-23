@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600;700&display=swap');
+
+.footer-responsive {
+    width: 1440px; 
+    max-width: 100%;
+    min-height: 602px;
+    font-family: 'Josefin Sans', sans-serif;
+    margin: 0 auto;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1200px) {
+    .footer-responsive {
+        width: 100% !important;
+        height: auto;
+        min-height: auto;
+    }
+    .footer-responsive > div {
+        padding: 60px 40px !important;
+    }
+    .footer-responsive .grid > div:nth-child(2) > div {
+        flex-direction: row !important;
+        flex-wrap: wrap !important;
+        gap: 10px !important;
+        justify-content: flex-start !important;
+    }
+    .footer-responsive .grid > div:nth-child(2) > div > a {
+        margin-top: 0 !important;
+        margin-bottom: 5px !important;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .footer-responsive {
+        width: 100% !important;
+        height: auto;
+    }
+    .footer-responsive .grid > div {
+        display: flex;
+        flex-direction: column;
+        align-items: center !important;
+        text-align: center !important;
+        padding: 0 10px;
+    }
+    .footer-responsive .w-10 {
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+    .footer-responsive ul li {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 10px !important;
+    }
+    .footer-responsive ul li > div:last-child {
+        text-align: center !important;
+    }
+    .footer-responsive .grid > div:nth-child(2) > div {
+        flex-direction: row !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        gap: 10px !important;
+    }
+    .footer-responsive .grid > div:nth-child(2) > div > a {
+        margin-top: 0 !important; 
+        margin-bottom: 5px !important;
+    }
+    .footer-responsive form {
+        width: 100%;
+        align-items: center !important;
+    }
+    .footer-responsive form input {
+        text-align: center;
+    }
+    .footer-responsive .flex.gap-2 {
+        justify-content: center !important;
+    }
+    .footer-responsive > div {
+        padding: 40px 20px !important;
+    }
+}
