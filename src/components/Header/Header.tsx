@@ -1,6 +1,7 @@
 import React from 'react';
 import { FaSearch, FaBars, FaUserPlus, FaUser } from 'react-icons/fa';
 import LanguageIcon from '../../assets/Header/LanguageIcon.png';
+import '../../assets/css/HeaderAndNavbar.css';
 
 interface HeaderProps {
   onMenuClick?: () => void;
@@ -8,9 +9,8 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({ onMenuClick }) => {
   return (
-    // Z-index thấp hơn Navbar (Navbar là 50), position relative để nội dung hiển thị đúng
-    <header className="w-full bg-[#1e2336] text-white py-3 px-4 shadow-md relative z-10">
-      <div className="container mx-auto flex items-center justify-between font-josefin">
+    <header className="w-full bg-[#1e2336] text-white py-3 px-4 shadow-md relative z-10 header-josefin">
+      <div className="container mx-auto flex items-center justify-between">
         
         {/* LEFT SECTION */}
         <div className="flex items-center gap-4 flex-1 h-20">
@@ -21,7 +21,7 @@ const Header: React.FC<HeaderProps> = ({ onMenuClick }) => {
               placeholder="Search Music Here.." 
               className="px-4 py-2 w-full text-gray-700 text-sm outline-none border-none placeholder-gray-400"
             />
-            <button className="h-full px-4 bg-[#38bdf8] hover:bg-[#22d3ee] text-white flex items-center justify-center transition-colors">
+            <button className="h-full px-4 bg-[#38bdf8] hover:bg-[#22d3ee] text-white flex items-center justify-center transition-colors cursor-pointer">
               <FaSearch />
             </button>
           </div>
@@ -36,16 +36,15 @@ const Header: React.FC<HeaderProps> = ({ onMenuClick }) => {
           
           <div className="hidden md:flex items-center gap-2 cursor-pointer hover:text-[#38bdf8] transition-colors ml-51.5 mr-15.5">
             <span className="text-sm">Languages</span>
-            {/* Đảm bảo ảnh tồn tại hoặc comment dòng dưới nếu chưa có ảnh */}
             <img src={LanguageIcon} alt="Language" className="w-5 h-5 object-contain" />
           </div>
 
           {/* BUTTON GROUP */}
           <div className="hidden md:flex items-center gap-3">
-            <button className="px-6 py-2 h-12 max-w-25 rounded-full bg-linear-to-r from-[#38bdf8] to-[#22d3ee] text-white text-sm font-semibold shadow-lg hover:opacity-90 transition-opacity">
+            <button className="px-6 py-2 h-12 max-w-25 rounded-full bg-linear-to-r from-[#38bdf8] to-[#22d3ee] text-white text-sm font-semibold shadow-lg hover:opacity-90 transition-opacity cursor-pointer">
               Register
             </button>
-            <button className="px-6 py-2 h-12 max-w-25 rounded-full bg-linear-to-r from-[#38bdf8] to-[#22d3ee] text-white text-sm font-semibold shadow-lg hover:opacity-90 transition-opacity ml-4">
+            <button className="px-6 py-2 h-12 max-w-25 rounded-full bg-linear-to-r from-[#38bdf8] to-[#22d3ee] text-white text-sm font-semibold shadow-lg hover:opacity-90 transition-opacity ml-4 cursor-pointer">
               Login
             </button>
           </div>

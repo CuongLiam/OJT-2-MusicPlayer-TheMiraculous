@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 
-// IMPORT ICONS
 import DiscoverIcon from '../../assets/Header/DiscoverIcon.png';
 import AlbumIcon from '../../assets/Header/AlbumIcon.png';
 import ArtistsIcon from '../../assets/Header/ArtistsIcon.png';
@@ -10,12 +9,13 @@ import TopTracksIcon from '../../assets/Header/TopTracksIcon.png';
 import DownloadsIcon from '../../assets/Header/DownloadsIcon.png';
 import FavoritesIcon from '../../assets/Header/FavoritesIcon.png';
 import HistoryIcon from '../../assets/Header/HistoryIcon.png';
+import '../../assets/css/HeaderAndNavbar.css';
 
 interface NavbarProps {
   defaultOpen?: boolean;
 }
 
-const Navbar: React.FC<NavbarProps> = ({ defaultOpen = true }) => {
+const Navbar: React.FC<NavbarProps> = ({ defaultOpen = false }) => {
   const [isOpen, setIsOpen] = useState(defaultOpen);
   const [activeItem, setActiveItem] = useState('Discover');
 
@@ -35,17 +35,16 @@ const Navbar: React.FC<NavbarProps> = ({ defaultOpen = true }) => {
 
   const toggleNavbar = () => setIsOpen(!isOpen);
 
-  // CẬP NHẬT: Hàm render icon với filter chuẩn hơn
   const renderIcon = (icon: string, isActive: boolean) => {
     return (
       <img 
         src={icon} 
         alt="icon" 
         className={`
-          w-6 h-6 object-contain transition-all duration-200
+          w-6 h-6 object-contain transition-all duration-300
           ${isActive 
-            ? 'brightness-0 invert' // Khi active: Biến icon thành màu TRẮNG hoàn toàn
-            : 'opacity-50 grayscale hover:opacity-100' // Khi thường: Xám và mờ
+            ? 'brightness-0 invert' 
+            : 'opacity-50 grayscale hover:opacity-100' 
           }
         `} 
       />
@@ -56,7 +55,7 @@ const Navbar: React.FC<NavbarProps> = ({ defaultOpen = true }) => {
     <nav 
       className={`
         fixed top-0 left-0 h-screen z-50 flex flex-col justify-between py-6
-        bg-[#1b2039] text-gray-300 transition-all duration-300 ease-in-out border-r border-gray-800
+        bg-[#1b2039] text-gray-300 transition-all duration-300 ease-in-out border-r border-gray-800 navbar-josefin
         ${isOpen ? 'w-45 md:w-62.5' : 'w-20'} 
       `}
     >
@@ -64,14 +63,13 @@ const Navbar: React.FC<NavbarProps> = ({ defaultOpen = true }) => {
         onClick={toggleNavbar}
         className={`
           absolute -right-3 top-1/2 transform -translate-y-1/2 z-50
-          p-1 rounded-full shadow-lg transition-all duration-300
-          bg-cyan-500 text-white hover:bg-cyan-600
+          p-1 rounded-full cursor-pointer shadow-lg transition-all duration-300
+          bg-[#1a1f38] text-white hover:bg-cyan-600
         `}
       >
         {isOpen ? <FiChevronLeft size={20} /> : <FiChevronRight size={20} />}
       </button>
 
-      {/* --- PHẦN TRÊN: LOGO & MAIN MENU --- */}
       <div className="flex flex-col w-full">
         <div className={`flex flex-col items-center justify-center mb-8 transition-all duration-300 ${isOpen ? 'px-4' : 'px-0'}`}>
           <div className="relative mb-3">
@@ -79,9 +77,17 @@ const Navbar: React.FC<NavbarProps> = ({ defaultOpen = true }) => {
               <span className="text-white font-bold text-xl">M</span>
             </div>
           </div>
-          <h1 className={`font-bold text-white text-sm tracking-wide transition-opacity duration-200 ${isOpen ? 'opacity-100 block' : 'opacity-0 hidden'}`}>
-            The Miraculous
-          </h1>
+          
+          <div 
+             className={`
+               overflow-hidden transition-all duration-300 ease-in-out text-center
+               ${isOpen ? 'max-h-10 opacity-100 mt-2' : 'max-h-0 opacity-0 mt-0'}
+             `}
+          >
+             <h1 className="font-bold text-white text-sm tracking-wide whitespace-nowrap">
+                The Miraculous
+             </h1>
+          </div>
         </div>
 
         <ul className="flex flex-col w-full space-y-2">
@@ -96,11 +102,16 @@ const Navbar: React.FC<NavbarProps> = ({ defaultOpen = true }) => {
                     ${isActive ? 'bg-cyan-500 text-white' : 'hover:text-white hover:bg-white/5'}
                   `}
                 >
-                  <div className={`flex items-center justify-center w-6 h-6`}>
+                  <div className={`flex items-center justify-center w-6 h-6 shrink-0`}>
                     {renderIcon(item.icon, isActive)}
                   </div>
                   
-                  <span className={`ml-4 text-sm font-medium whitespace-nowrap transition-all duration-200 ${isOpen ? 'opacity-100 w-auto' : 'opacity-0 w-0 overflow-hidden'}`}>
+                  <span 
+                    className={`
+                      text-sm font-medium whitespace-nowrap overflow-hidden transition-all duration-300 ease-in-out
+                      ${isOpen ? 'max-w-37.5 ml-4 opacity-100' : 'max-w-0 ml-0 opacity-0'}
+                    `}
+                  >
                     {item.name}
                   </span>
                 </div>
@@ -110,7 +121,6 @@ const Navbar: React.FC<NavbarProps> = ({ defaultOpen = true }) => {
         </ul>
       </div>
 
-      {/* --- PHẦN DƯỚI: SECONDARY MENU (ĐÃ SỬA LỖI MÀU CHỮ) --- */}
       <div className="flex flex-col w-full pb-4">
         <ul className="flex flex-col w-full space-y-2">
           {secondaryMenuItems.map((item) => {
@@ -124,15 +134,14 @@ const Navbar: React.FC<NavbarProps> = ({ defaultOpen = true }) => {
                     ${isActive ? 'bg-cyan-500 text-white' : 'hover:text-white hover:bg-white/5'}
                   `}
                 >
-                  <div className={`flex items-center justify-center w-6 h-6`}>
+                  <div className={`flex items-center justify-center w-6 h-6 shrink-0`}>
                      {renderIcon(item.icon, isActive)}
                   </div>
 
-                  {/* CẬP NHẬT: Thêm logic đổi màu text khi active */}
                   <span 
                     className={`
-                      ml-4 text-sm font-medium whitespace-nowrap transition-all duration-200 
-                      ${isOpen ? 'opacity-100 w-auto' : 'opacity-0 w-0 overflow-hidden'}
+                      text-sm font-medium whitespace-nowrap overflow-hidden transition-all duration-300 ease-in-out
+                      ${isOpen ? 'max-w-37.5 ml-4 opacity-100' : 'max-w-0 ml-0 opacity-0'}
                       ${isActive ? 'text-white' : 'text-gray-400'} 
                     `}
                   >
