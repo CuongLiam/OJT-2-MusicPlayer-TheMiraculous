@@ -1,5 +1,7 @@
 import Header from './components/Header/Header'
 import Navbar from './components/Header/Navbar'
+// import SignInModal from './components/auth/SignInModal'
+// import SignUpModal from './components/auth/SignUpModal'
 
 export default function App() {
   return (
