@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react'; 
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 
 import DiscoverIcon from '../../assets/Header/DiscoverIcon.png';
@@ -12,12 +12,12 @@ import HistoryIcon from '../../assets/Header/HistoryIcon.png';
 import '../../assets/css/HeaderAndNavbar.css';
 
 interface NavbarProps {
-  defaultOpen?: boolean;
+  isOpen: boolean;
+  toggleNavbar: () => void;
 }
 
-const Navbar: React.FC<NavbarProps> = ({ defaultOpen = false }) => {
-  const [isOpen, setIsOpen] = useState(defaultOpen);
-  const [activeItem, setActiveItem] = useState('Discover');
+const Navbar: React.FC<NavbarProps> = ({ isOpen, toggleNavbar }) => {
+  const [activeItem, setActiveItem] = React.useState('Discover'); 
 
   const mainMenuItems = [
     { name: 'Discover', icon: DiscoverIcon },
@@ -32,8 +32,6 @@ const Navbar: React.FC<NavbarProps> = ({ defaultOpen = false }) => {
     { name: 'Favourites', icon: FavoritesIcon },
     { name: 'History', icon: HistoryIcon },
   ];
-
-  const toggleNavbar = () => setIsOpen(!isOpen);
 
   const renderIcon = (icon: string, isActive: boolean) => {
     return (
@@ -60,7 +58,7 @@ const Navbar: React.FC<NavbarProps> = ({ defaultOpen = false }) => {
       `}
     >
       <button 
-        onClick={toggleNavbar}
+        onClick={toggleNavbar} 
         className={`
           absolute -right-3 top-1/2 transform -translate-y-1/2 z-50
           p-1 rounded-full cursor-pointer shadow-lg transition-all duration-300
@@ -70,7 +68,8 @@ const Navbar: React.FC<NavbarProps> = ({ defaultOpen = false }) => {
         {isOpen ? <FiChevronLeft size={20} /> : <FiChevronRight size={20} />}
       </button>
 
-      <div className="flex flex-col w-full">
+      
+      <div className="flex flex-col w-full max-h-screen">
         <div className={`flex flex-col items-center justify-center mb-8 transition-all duration-300 ${isOpen ? 'px-4' : 'px-0'}`}>
           <div className="relative mb-3">
             <div className="w-12 h-12 rounded-full bg-linear-to-br from-cyan-400 to-blue-500 flex items-center justify-center shadow-[0_0_15px_rgba(6,182,212,0.6)]">
@@ -153,7 +152,6 @@ const Navbar: React.FC<NavbarProps> = ({ defaultOpen = false }) => {
           })}
         </ul>
       </div>
-
     </nav>
   );
 };

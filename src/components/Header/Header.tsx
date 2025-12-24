@@ -9,12 +9,10 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({ onMenuClick }) => {
   return (
-    <header className="w-full bg-[#1e2336] text-white py-3 px-4 shadow-md relative z-10 header-josefin">
+    <header className="max-w-360 bg-[#1e2336] text-white py-3 px-4 shadow-md relative z-10 header-josefin">
       <div className="container mx-auto flex items-center justify-between">
         
-        {/* LEFT SECTION */}
         <div className="flex items-center gap-4 flex-1 h-20">
-          {/* Search Input Group */}
           <div className="flex items-center bg-white rounded overflow-hidden max-w-65 w-full h-10">
             <input 
               type="text" 
@@ -31,7 +29,6 @@ const Header: React.FC<HeaderProps> = ({ onMenuClick }) => {
           </div>
         </div>
 
-        {/* RIGHT SECTION */}
         <div className="flex items-center gap-4">
           
           <div className="hidden md:flex items-center gap-2 cursor-pointer hover:text-[#38bdf8] transition-colors ml-51.5 mr-15.5">
@@ -39,7 +36,6 @@ const Header: React.FC<HeaderProps> = ({ onMenuClick }) => {
             <img src={LanguageIcon} alt="Language" className="w-5 h-5 object-contain" />
           </div>
 
-          {/* BUTTON GROUP */}
           <div className="hidden md:flex items-center gap-3">
             <button className="px-6 py-2 h-12 max-w-25 rounded-full bg-linear-to-r from-[#38bdf8] to-[#22d3ee] text-white text-sm font-semibold shadow-lg hover:opacity-90 transition-opacity cursor-pointer">
               Register
@@ -49,7 +45,6 @@ const Header: React.FC<HeaderProps> = ({ onMenuClick }) => {
             </button>
           </div>
 
-          {/* MOBILE ICONS */}
           <div className="flex md:hidden items-center gap-2">
             <button className="w-10 h-10 rounded-full bg-[#38bdf8] flex items-center justify-center text-white shadow-md">
               <FaUserPlus />

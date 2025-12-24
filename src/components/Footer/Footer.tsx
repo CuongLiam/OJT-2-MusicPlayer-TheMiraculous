@@ -16,7 +16,7 @@ interface SocialIconProps {
 export default function Footer() {
   return (
     <>
-      <div className="w-full flex justify-center bg-[#020d1c]">
+      <div className="max-w-360 flex justify-center bg-[#020d1c]">
         <footer
           className="relative text-gray-300 footer-responsive"
           style={{

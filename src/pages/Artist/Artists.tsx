@@ -1,4 +1,7 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react'; 
+import Header from '../../components/Header/Header';
+import Navbar from '../../components/Header/Navbar';
+import Footer from '../../components/Footer/Footer';
 
 interface Artist {
   id: number;
@@ -33,41 +36,43 @@ const ALL_ARTISTS: Artist[] = [
 ];
 
 const SectionHeader = ({ title, showViewMore = false }: { title: string, showViewMore?: boolean }) => (
-  <div className="flex justify-between items-end mb-6 border-b border-gray-800 pb-2">
-    <div className="relative pb-2">
-      <h2 className="text-xl md:text-2xl font-semibold text-cyan-400 tracking-wide">{title}</h2>
-      <span className="absolute -bottom-2.5 left-0 w-12 h-1 bg-cyan-500 rounded-full"></span>
-    </div>
-    {showViewMore && (
-      <button className="text-sm text-gray-400 hover:text-white transition-colors cursor-pointer mb-2">
-        View More
-      </button>
-    )}
-  </div>
-);
-
-const ArtistCard = ({ artist }: { artist: Artist }) => {
-  return (
-    <div className="group cursor-pointer">
-      <div className={`relative overflow-hidden rounded-xl aspect-square mb-3 bg-gray-800 transition-all duration-300 
-        ${artist.isActive ? 'ring-2 ring-cyan-500 ring-offset-2 ring-offset-[#0f1218]' : 'group-hover:ring-2 group-hover:ring-cyan-500/50 group-hover:ring-offset-1 group-hover:ring-offset-[#0f1218]'}
-      `}>
-        <img 
-          src={artist.image} 
-          alt={artist.name} 
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-        />
-        <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors"></div>
+    <div className="flex justify-between items-end mb-6 border-b border-gray-800 pb-2">
+      <div className="relative pb-2">
+        <h2 className="text-xl md:text-2xl font-semibold text-cyan-400 tracking-wide">{title}</h2>
+        <span className="absolute -bottom-2.5 left-0 w-12 h-1 bg-cyan-500 rounded-full"></span>
       </div>
-      <h3 className="text-sm md:text-[15px] text-gray-200 font-medium truncate group-hover:text-cyan-400 transition-colors">
-        {artist.name}
-      </h3>
+      {showViewMore && (
+        <button className="text-sm text-gray-400 hover:text-white transition-colors cursor-pointer mb-2">
+          View More
+        </button>
+      )}
     </div>
   );
+  
+const ArtistCard = ({ artist }: { artist: Artist }) => {
+    return (
+      <div className="group cursor-pointer">
+        <div className={`relative overflow-hidden rounded-xl aspect-square mb-3 bg-gray-800 transition-all duration-300 
+          ${artist.isActive ? 'ring-2 ring-cyan-500 ring-offset-2 ring-offset-[#0f1218]' : 'group-hover:ring-2 group-hover:ring-cyan-500/50 group-hover:ring-offset-1 group-hover:ring-offset-[#0f1218]'}
+        `}>
+          <img 
+            src={artist.image} 
+            alt={artist.name} 
+            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+          />
+          <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors"></div>
+        </div>
+        <h3 className="text-sm md:text-[15px] text-gray-200 font-medium truncate group-hover:text-cyan-400 transition-colors">
+          {artist.name}
+        </h3>
+      </div>
+    );
 };
 
 const Artists: React.FC = () => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
+  
+  const [isNavbarOpen, setIsNavbarOpen] = useState(false);
 
   const scroll = (direction: 'left' | 'right') => {
     if (scrollContainerRef.current) {
@@ -82,47 +87,66 @@ const Artists: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#0f1218] text-white p-4 md:p-8 lg:px-12 font-sans overflow-x-hidden">
+    <div className="w-full min-h-screen bg-[#0f1218] flex">
       
-      <section className="mb-12 relative group/slider">
-        <SectionHeader title="Featured Artists" />
-        
-        <button 
-          onClick={() => scroll('left')}
-          className="absolute -left-3 md:-left-12 top-1/2 -translate-y-1/2 z-20 w-10 h-10 flex items-center justify-center bg-gray-800 border border-gray-700 hover:bg-cyan-600 hover:border-cyan-500 rounded-full text-white shadow-xl opacity-0 group-hover/slider:opacity-100 transition-all duration-300 md:flex cursor-pointer"
-        >
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6"/></svg>
-        </button>
-        
-        <button 
-          onClick={() => scroll('right')}
-          className="absolute -right-3 md:-right-12 top-1/2 -translate-y-1/2 z-20 w-10 h-10 flex items-center justify-center bg-gray-800 border border-gray-700 hover:bg-cyan-600 hover:border-cyan-500 rounded-full text-white shadow-xl opacity-0 group-hover/slider:opacity-100 transition-all duration-300 md:flex cursor-pointer"
-        >
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
-        </button>
+      <Navbar 
+        isOpen={isNavbarOpen} 
+        toggleNavbar={() => setIsNavbarOpen(!isNavbarOpen)} 
+      />
 
-        <div 
-          ref={scrollContainerRef}
-          className="flex gap-6 overflow-x-auto pb-4 scrollbar-hide snap-x snap-mandatory scroll-smooth"
-          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }} 
-        >
-          {FEATURED_ARTISTS.map((artist) => (
-            <div key={artist.id} className="min-w-40 md:min-w-50 snap-start">
-              <ArtistCard artist={artist} />
+      <div 
+        className={`
+            flex-1 flex flex-col min-h-screen transition-all duration-300 ease-in-out
+            ${isNavbarOpen ? 'ml-45 md:ml-62.5' : 'ml-20'} 
+        `}
+      >
+        <Header />
+        
+        <main className="flex-1 max-w-360 text-white p-4 md:p-8 lg:px-12 font-sans overflow-x-hidden bg-[#0e1117]">
+          
+          <section className="mb-12 relative group/slider">
+            <SectionHeader title="Featured Artists" />
+            
+            <button 
+              onClick={() => scroll('left')}
+              className="absolute -left-3 md:-left-6 top-1/2 -translate-y-1/2 z-20 w-10 h-10 flex items-center justify-center bg-gray-800 border border-gray-700 hover:bg-cyan-600 hover:border-cyan-500 rounded-full text-white shadow-xl opacity-0 group-hover/slider:opacity-100 transition-all duration-300 md:flex cursor-pointer"
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+            </button>
+            
+            <button 
+              onClick={() => scroll('right')}
+              className="absolute -right-3 md:-right-6 top-1/2 -translate-y-1/2 z-20 w-10 h-10 flex items-center justify-center bg-gray-800 border border-gray-700 hover:bg-cyan-600 hover:border-cyan-500 rounded-full text-white shadow-xl opacity-0 group-hover/slider:opacity-100 transition-all duration-300 md:flex cursor-pointer"
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+            </button>
+
+            <div 
+              ref={scrollContainerRef}
+              className="flex gap-6 overflow-x-auto pb-4 scrollbar-hide snap-x snap-mandatory scroll-smooth"
+              style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }} 
+            >
+              {FEATURED_ARTISTS.map((artist) => (
+                <div key={artist.id} className="min-w-40 md:min-w-50 snap-start">
+                  <ArtistCard artist={artist} />
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
-      </section>
+          </section>
 
-      <section>
-        <SectionHeader title="Top Artists" showViewMore={true} />
+          <section>
+            <SectionHeader title="Top Artists" showViewMore={true} />
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-x-6 gap-y-8">
-          {ALL_ARTISTS.map((artist) => (
-            <ArtistCard key={artist.id} artist={artist} />
-          ))}
-        </div>
-      </section>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-x-6 gap-y-8">
+              {ALL_ARTISTS.map((artist) => (
+                <ArtistCard key={artist.id} artist={artist} />
+              ))}
+            </div>
+          </section>
+        </main>
+        
+        <Footer />
+      </div>
     </div>
   );
 };
