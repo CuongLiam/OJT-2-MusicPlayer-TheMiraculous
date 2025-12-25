@@ -9,7 +9,7 @@ import TopTracksIcon from '../../assets/Header/TopTracksIcon.png';
 import DownloadsIcon from '../../assets/Header/DownloadsIcon.png';
 import FavoritesIcon from '../../assets/Header/FavoritesIcon.png';
 import HistoryIcon from '../../assets/Header/HistoryIcon.png';
-import '../../assets/css/HeaderAndNavbar.css';
+import '../../assets/css/Font.css';
 
 interface NavbarProps {
   isOpen: boolean;
@@ -52,9 +52,9 @@ const Navbar: React.FC<NavbarProps> = ({ isOpen, toggleNavbar }) => {
   return (
     <nav 
       className={`
-        fixed top-0 left-0 h-screen z-50 flex flex-col justify-between py-6
+        fixed top-0 left-0 z-50 flex flex-col justify-between py-6
         bg-[#1b2039] text-gray-300 transition-all duration-300 ease-in-out border-r border-gray-800 navbar-josefin
-        ${isOpen ? 'w-45 md:w-62.5' : 'w-20'} 
+        ${isOpen ? 'w-45 md:w-62.5 h-152.75' : 'w-20 h-148.25'} 
       `}
     >
       <button 

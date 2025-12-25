@@ -1,7 +1,7 @@
 import React from 'react';
 import { FaSearch, FaBars, FaUserPlus, FaUser } from 'react-icons/fa';
 import LanguageIcon from '../../assets/Header/LanguageIcon.png';
-import '../../assets/css/HeaderAndNavbar.css';
+import '../../assets/css/Font.css';
 
 interface HeaderProps {
   onMenuClick?: () => void;
