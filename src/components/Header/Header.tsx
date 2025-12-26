@@ -9,7 +9,7 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({ onMenuClick }) => {
   return (
-    <header className="max-w-360 bg-[#1e2336] text-white py-3 px-4 shadow-md relative z-10 header-josefin">
+    <header className="max-w-360 bg-[#1e2336] text-white py-3 px-4 shadow-md relative z-10 header-josefin select-none">
       <div className="container mx-auto flex items-center justify-between">
         
         <div className="flex items-center gap-4 flex-1 h-20">

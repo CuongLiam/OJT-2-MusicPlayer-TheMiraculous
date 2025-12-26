@@ -1,5 +1,9 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import Header from '../../components/Header/Header';
+import Navbar from '../../components/Header/Navbar';
+import Footer from '../../components/Footer/Footer';
+import '../../assets/css/Font.css';
 
 interface Song {
   id: number;
@@ -52,6 +56,7 @@ const MOCK_DATA: GenreSection[] = [
 
 export default function MoreGenres() {
   const rowRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const [isNavbarOpen, setIsNavbarOpen] = useState(false);
 
   const handleScroll = (index: number, direction: 'left' | 'right') => {
     const row = rowRefs.current[index];
@@ -62,51 +67,66 @@ export default function MoreGenres() {
   };
 
   return (
-    <div className="min-h-screen bg-[#10141f] text-white p-4 md:p-8 lg:px-12 font-sans">
-      <div className="max-w-350uto">
-        {MOCK_DATA.map((section, idx) => (
-          <div key={idx} className="mb-10 last:mb-0 relative group">
-            <div className="flex justify-between items-end mb-4 px-4 md:px-0">
-              <h2 className="text-xl md:text-2xl font-bold text-[#19A7CE] tracking-wide relative inline-block">
-                {section.title}
-                <span className="absolute -bottom-2 left-0 w-1/2 h-0.75 bg-[#19A7CE] rounded-full"></span>
-              </h2>
-              <a href="#" className="text-gray-400 hover:text-white text-xs md:text-sm font-medium transition-colors">View More</a>
-            </div>
+    <div className="w-full max-w-360 min-h-screen bg-[#14182a] flex select-none">
+      <Navbar
+        isOpen={isNavbarOpen}
+        toggleNavbar={() => setIsNavbarOpen(!isNavbarOpen)}
+      />
 
-            <button 
-              onClick={() => handleScroll(idx, 'left')}
-              className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-black/50 hover:bg-black/80 p-2 rounded-full text-white hidden md:group-hover:block transition-all backdrop-blur-sm -ml-4"
-            >
-              <ChevronLeft size={24} />
-            </button>
-            <button 
-              onClick={() => handleScroll(idx, 'right')}
-              className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-black/50 hover:bg-black/80 p-2 rounded-full text-white hidden md:group-hover:block transition-all backdrop-blur-sm -mr-4"
-            >
-              <ChevronRight size={24} />
-            </button>
+      <div
+        className="flex-1 flex flex-col min-h-screen ml-20 transition-all duration-300 ease-in-out"
+      >
+        <Header />
 
-            <div 
-              ref={(el) => { rowRefs.current[idx] = el; }}
-              className="flex overflow-x-auto gap-4 md:gap-6 pb-4 scrollbar-hide snap-x snap-mandatory px-4 md:px-0"
-              style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-            >
-              {section.songs.map((song) => (
-                <div key={song.id} className="flex-none w-full md:w-[calc(50%-12px)] lg:w-[calc(16.666%-20px)] snap-start group/card cursor-pointer">
-                  <div className="relative aspect-square overflow-hidden rounded-lg mb-3">
-                    <img src={song.image} alt={song.title} className="w-full h-full object-cover transition-transform duration-500 group-hover/card:scale-110" />
-                    <div className="absolute inset-0 bg-black/20 opacity-0 group-hover/card:opacity-100 transition-opacity duration-300" />
-                  </div>
-                  <div className="flex flex-col">
-                    <h3 className="text-white font-bold text-base md:text-lg leading-tight truncate">{song.title}</h3>
-                    <p className="text-gray-400 text-xs md:text-sm truncate mt-1">{song.artist}</p>
-                  </div>
+        <main className="flex-1 max-w-360 mx-auto w-full text-white p-4 md:py-8 md:px-16 more-genres-josefin pb-28 bg-[#14182a]">
+          <div className="max-w-350uto">
+            {MOCK_DATA.map((section, idx) => (
+              <div key={idx} className="mb-10 last:mb-0 relative group">
+                <div className="flex justify-between items-end mb-4 px-4 md:px-0">
+                  <h2 className="text-xl md:text-2xl font-bold text-[#19A7CE] tracking-wide relative inline-block">
+                    {section.title}
+                    <span className="absolute -bottom-2 left-0 w-1/2 h-0.75 bg-[#19A7CE] rounded-full"></span>
+                  </h2>
+                  <a href="#" className="text-gray-400 hover:text-white text-xs md:text-sm font-medium transition-colors">View More</a>
                 </div>
-              ))}
-            </div>
+
+                <button
+                  onClick={() => handleScroll(idx, 'left')}
+                  className="absolute -left-12 top-1/2 -translate-y-1/2 z-10 bg-black/50 hover:bg-black/80 p-2 rounded-full text-white hidden md:group-hover:block transition-all backdrop-blur-sm"
+                >
+                  <ChevronLeft size={24} />
+                </button>
+                <button
+                  onClick={() => handleScroll(idx, 'right')}
+                  className="absolute -right-12 top-1/2 -translate-y-1/2 z-10 bg-black/50 hover:bg-black/80 p-2 rounded-full text-white hidden md:group-hover:block transition-all backdrop-blur-sm"
+                >
+                  <ChevronRight size={24} />
+                </button>
+
+                <div
+                  ref={(el) => { rowRefs.current[idx] = el; }}
+                  className="flex overflow-x-auto gap-4 md:gap-6 pb-4 scrollbar-hide snap-x snap-mandatory px-4 md:px-0"
+                  style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+                >
+                  {section.songs.map((song) => (
+                    <div key={song.id} className="flex-none w-full md:w-[calc(50%-12px)] lg:w-[calc(16.666%-20px)] snap-start group/card cursor-pointer">
+                      <div className="relative aspect-square overflow-hidden rounded-lg mb-3">
+                        <img src={song.image} alt={song.title} className="w-full h-full object-cover transition-transform duration-500 group-hover/card:scale-110" />
+                        <div className="absolute inset-0 bg-black/20 opacity-0 group-hover/card:opacity-100 transition-opacity duration-300" />
+                      </div>
+                      <div className="flex flex-col">
+                        <h3 className="text-white font-bold text-base md:text-lg leading-tight truncate">{song.title}</h3>
+                        <p className="text-gray-400 text-xs md:text-sm truncate mt-1">{song.artist}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
           </div>
-        ))}
+        </main>
+
+        <Footer />
       </div>
     </div>
   );

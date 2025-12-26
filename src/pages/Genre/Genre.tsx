@@ -111,7 +111,7 @@ const Genre = () => {
   const [isNavbarOpen, setIsNavbarOpen] = useState(false);
 
   return (
-    <div className="w-full max-w-360 min-h-screen bg-[#14182a] flex">
+    <div className="w-full max-w-360 min-h-screen bg-[#14182a] flex select-none">
       <Navbar
         isOpen={isNavbarOpen}
         toggleNavbar={() => setIsNavbarOpen(!isNavbarOpen)}

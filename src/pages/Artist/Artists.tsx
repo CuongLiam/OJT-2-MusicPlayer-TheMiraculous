@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 import Header from '../../components/Header/Header';
 import Navbar from '../../components/Header/Navbar';
 import Footer from '../../components/Footer/Footer';
-// import MusicPlayerBar from '../../components/Bar/MusicPlayerBar';
+import MusicPlayerBar from '../../components/Bar/MusicPlayerBar';
 import '../../assets/css/Font.css';
 
 interface Artist {
@@ -89,7 +89,7 @@ const Artists: React.FC = () => {
   };
 
   return (
-    <div className="w-full max-w-360 min-h-screen bg-[#0f1218] flex">
+    <div className="w-full max-w-360 min-h-screen bg-[#14182a] flex select-none">
 
       <Navbar
         isOpen={isNavbarOpen}
@@ -97,28 +97,25 @@ const Artists: React.FC = () => {
       />
 
       <div
-        className={`
-            flex-1 flex flex-col min-h-screen transition-all duration-300 ease-in-out
-            ${isNavbarOpen ? 'ml-45 md:ml-62.5' : 'ml-20'} 
-        `}
+        className="flex-1 flex flex-col min-h-screen ml-20 transition-all duration-300 ease-in-out"
       >
         <Header />
 
-        <main className="flex-1 max-w-360 mx-auto w-full text-white p-3 sm:p-5 md:p-8 lg:px-12 font-sans overflow-x-hidden bg-[#14182a] pb-28 artists-josefin">
+        <main className="flex-1 max-w-360 mx-auto w-full text-white p-3 sm:p-5 md:py-8 md:px-16 font-sans overflow-x-hidden bg-[#14182a] pb-28 artists-josefin">
 
           <section className="mb-12 relative group/slider">
             <SectionHeader title="Featured Artists" />
 
             <button
               onClick={() => scroll('left')}
-              className="absolute -left-3 md:-left-6 top-1/2 -translate-y-1/2 z-20 w-10 h-10 flex items-center justify-center bg-gray-800 border border-gray-700 hover:bg-cyan-600 hover:border-cyan-500 rounded-full text-white shadow-xl opacity-0 group-hover/slider:opacity-100 transition-all duration-300 md:flex cursor-pointer"
+              className="absolute -left-12 top-1/2 -translate-y-1/2 z-20 w-10 h-10 flex items-center justify-center bg-gray-800 border border-gray-700 hover:bg-cyan-600 hover:border-cyan-500 rounded-full text-white shadow-xl opacity-0 group-hover/slider:opacity-100 transition-all duration-300 md:flex cursor-pointer"
             >
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6" /></svg>
             </button>
 
             <button
               onClick={() => scroll('right')}
-              className="absolute -right-3 md:-right-6 top-1/2 -translate-y-1/2 z-20 w-10 h-10 flex items-center justify-center bg-gray-800 border border-gray-700 hover:bg-cyan-600 hover:border-cyan-500 rounded-full text-white shadow-xl opacity-0 group-hover/slider:opacity-100 transition-all duration-300 md:flex cursor-pointer"
+              className="absolute -right-12 top-1/2 -translate-y-1/2 z-20 w-10 h-10 flex items-center justify-center bg-gray-800 border border-gray-700 hover:bg-cyan-600 hover:border-cyan-500 rounded-full text-white shadow-xl opacity-0 group-hover/slider:opacity-100 transition-all duration-300 md:flex cursor-pointer"
             >
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6" /></svg>
             </button>
@@ -148,7 +145,7 @@ const Artists: React.FC = () => {
         </main>
 
         <Footer />
-        {/* <MusicPlayerBar isSidebarOpen={isNavbarOpen} /> */}
+        <MusicPlayerBar isSidebarOpen={isNavbarOpen} />
       </div>
     </div>
   );
