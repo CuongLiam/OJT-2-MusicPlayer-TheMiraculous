@@ -2,7 +2,7 @@ import Header from "../../components/Header/Header";
 import Navbar from "../../components/Header/Navbar";
 import Footer from "../../components/Footer/Footer";
 import Banner from "../../components/Home/HomeBanner";
-import RecentlyPlayed from "../../components/Home/RecentlyPlayed"
+import HomePageInfo from "../../components/Home/HomePageInfo"
 import { useRef, useState } from "react";
 
 export default function Home() {
@@ -38,7 +38,7 @@ export default function Home() {
         <Header />
         <main className="bg-[#14182A]">
           <Banner/>
-          <RecentlyPlayed/>
+          <HomePageInfo/>
         </main>
         <Footer />
       </div>
