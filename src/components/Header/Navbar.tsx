@@ -50,7 +50,7 @@ const Navbar: React.FC<NavbarProps> = ({ isOpen, toggleNavbar }) => {
   };
 
   return (
-    <nav className={`fixed top-0 left-0 z-50 flex flex-col pt-6 pb-11 bg-[#1b2039] text-gray-300 transition-all duration-300 ease-in-out border-r border-gray-800 navbar-josefin select-none ${isOpen ? 'w-45 md:w-62.5' : 'w-20'} h-160`}>
+    <nav className={`fixed top-0 left-0 z-100 flex flex-col pt-6 pb-11 bg-[#1b2039] text-gray-300 transition-all duration-300 ease-in-out border-r border-gray-800 navbar-josefin select-none ${isOpen ? 'w-45 md:w-62.5' : 'w-20'} h-160`}>
       <button 
         onClick={toggleNavbar} 
         className={`

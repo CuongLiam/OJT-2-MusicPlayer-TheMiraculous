@@ -19,7 +19,7 @@ const MusicPlayerBar: React.FC<MusicPlayerBarProps> = ({ isSidebarOpen }) => {
         fixed bottom-0 right-0 z-50 px-4 py-3 
         bg-[#525252]/95 backdrop-blur-md border-t border-white/10 text-white 
         transition-all duration-300 bar-josefin max-w-360
-        ${isSidebarOpen ? 'left-45 md:left-62.5' : 'left-20'}
+        left-20
       `}
     >
       <div className="w-full max-w-360 mx-auto flex items-center justify-between gap-4">
