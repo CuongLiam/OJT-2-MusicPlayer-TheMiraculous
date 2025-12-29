@@ -62,10 +62,9 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
       <nav
         className={`
           fixed top-0 left-0 z-60 
-          
           flex flex-col pt-6 pb-11 bg-[#1b2039] text-gray-300 
           transition-all duration-300 ease-in-out border-r border-gray-800 navbar-josefin select-none 
-          h-screen
+          h-[110vh]
           
           ${isOpen ? "translate-x-0" : "-translate-x-full"}
           xl:translate-x-0
@@ -78,7 +77,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
             absolute -right-3 top-1/2 transform -translate-y-1/2 z-70
             p-1 rounded-full cursor-pointer shadow-lg transition-all duration-300
             bg-[#1a1f38] text-white hover:bg-cyan-600
-            hidden xl:block 
+            hidden xl:flex items-center justify-center
           `}
         >
           {isOpen ? <FiChevronLeft size={20} /> : <FiChevronRight size={20} />}
@@ -94,8 +93,8 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
 
             <div
               className={`
-                 overflow-hidden text-center transition-opacity duration-300 ease-in-out
-                 ${isOpen ? "opacity-100" : "opacity-0 xl:opacity-0"} 
+                 overflow-hidden text-center transition-all duration-300 ease-in-out
+                 ${isOpen ? "opacity-100 max-h-10" : "opacity-0 max-h-0 xl:opacity-0"} 
                `}
             >
               <h1 className="font-bold text-white text-sm tracking-wide whitespace-nowrap h-5 block">
@@ -117,19 +116,22 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
                 >
                   <div
                     className={`
-                      flex items-center h-12 transition-all duration-200
-                      ${isOpen ? "px-6" : "xl:justify-center xl:px-0 px-6"} 
+                      flex items-center h-12 transition-all duration-300 ease-in-out
+                      ${isOpen ? "px-6" : "xl:pl-7 px-6"} 
                       ${isActive ? "bg-cyan-500 text-white" : "hover:text-white hover:bg-white/5"}
                     `}
                   >
-                    <div className={`flex items-center justify-center w-6 h-6 shrink-0`}>
+                    <div className={`flex items-center justify-center w-6 h-6 shrink-0 transition-all duration-300`}>
                       {renderIcon(item.icon, isActive)}
                     </div>
 
                     <span
                       className={`
                         text-sm font-medium whitespace-nowrap overflow-hidden transition-all duration-300 ease-in-out
-                        ${isOpen ? "max-w-37.5 ml-4 opacity-100" : "xl:max-w-0 xl:ml-0 xl:opacity-0 max-w-37.5 ml-4 opacity-100"}
+                        ${isOpen 
+                          ? "max-w-37.5 ml-4 opacity-100" 
+                          : "xl:max-w-0 xl:ml-0 xl:opacity-0 max-w-37.5 ml-4 opacity-100"
+                        }
                       `}
                     >
                       {item.name}
@@ -141,7 +143,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
           </ul>
         </div>
 
-        <div className="flex flex-col w-full mt-auto pb-14.5">
+        <div className="flex flex-col w-full mt-auto pb-18.5">
           <ul className="flex flex-col w-full space-y-2 mt-10">
             {secondaryMenuItems.map((item) => {
               const isActive = activeItem === item.name;
@@ -153,19 +155,22 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
                 >
                   <div
                     className={`
-                      flex items-center h-12 transition-all duration-200
-                      ${isOpen ? "px-6" : "xl:justify-center xl:px-0 px-6"}
+                      flex items-center h-12 transition-all duration-300 ease-in-out
+                      ${isOpen ? "px-6" : "xl:pl-7 px-6"}
                       ${isActive ? "bg-cyan-500 text-white" : "hover:text-white hover:bg-white/5"}
                     `}
                   >
-                    <div className={`flex items-center justify-center w-6 h-6 shrink-0`}>
+                    <div className={`flex items-center justify-center w-6 h-6 shrink-0 transition-all duration-300`}>
                       {renderIcon(item.icon, isActive)}
                     </div>
 
                     <span
                       className={`
                         text-sm font-medium whitespace-nowrap overflow-hidden transition-all duration-300 ease-in-out
-                        ${isOpen ? "max-w-37.5 ml-4 opacity-100" : "xl:max-w-0 xl:ml-0 xl:opacity-0 max-w-37.5 ml-4 opacity-100"}
+                        ${isOpen 
+                          ? "max-w-37.5 ml-4 opacity-100" 
+                          : "xl:max-w-0 xl:ml-0 xl:opacity-0 max-w-37.5 ml-4 opacity-100"
+                        }
                         ${isActive ? "text-white" : "text-gray-400"} 
                       `}
                     >

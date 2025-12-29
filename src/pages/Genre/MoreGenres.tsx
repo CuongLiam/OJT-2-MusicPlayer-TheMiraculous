@@ -67,7 +67,7 @@ export default function MoreGenres() {
   };
 
   return (
-    <div className="w-full max-w-360 min-h-screen bg-[#14182a] flex select-none">
+    <div className="w-full min-h-screen bg-[#14182a] flex select-none">
       <Sidebar
         isOpen={isNavbarOpen}
         toggleSidebar={() => setIsNavbarOpen(!isNavbarOpen)}
@@ -78,7 +78,7 @@ export default function MoreGenres() {
       >
         <Header />
 
-        <main className="flex-1 max-w-360 mx-auto w-full text-white p-4 md:py-8 md:px-16 more-genres-josefin pb-28 bg-[#14182a]">
+        <main className="flex-1 mx-auto w-full text-white p-4 md:py-8 md:px-16 more-genres-josefin pb-28 bg-[#14182a]">
           <div className="max-w-350uto">
             {MOCK_DATA.map((section, idx) => (
               <div key={idx} className="mb-10 last:mb-0 relative group">

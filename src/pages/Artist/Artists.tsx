@@ -89,7 +89,7 @@ const Artists: React.FC = () => {
   };
 
   return (
-    <div className="w-full max-w-360 min-h-screen bg-[#14182a] flex select-none">
+    <div className="w-full min-h-screen bg-[#14182a] flex select-none">
 
       <Sidebar
         isOpen={isNavbarOpen}

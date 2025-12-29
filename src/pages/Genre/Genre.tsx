@@ -111,7 +111,7 @@ const Genre = () => {
   const [isNavbarOpen, setIsNavbarOpen] = useState(false);
 
   return (
-    <div className="w-full max-w-360 min-h-screen bg-[#14182a] flex select-none">
+    <div className="w-full min-h-screen bg-[#14182a] flex select-none">
       <Sidebar
         isOpen={isNavbarOpen}
         toggleSidebar={() => setIsNavbarOpen(!isNavbarOpen)}
@@ -122,7 +122,7 @@ const Genre = () => {
       >
         <Header onMenuClick={() => setIsNavbarOpen(true)} />
 
-        <main className="flex-1 max-w-360 mx-auto w-full text-white p-3 sm:p-5 md:p-8 lg:px-12 font-sans overflow-x-hidden bg-[#14182a] pb-28 genre-josefin">
+        <main className="flex-1 mx-auto w-full text-white p-3 sm:p-5 md:p-8 lg:px-12 font-sans overflow-x-hidden bg-[#14182a] pb-28 genre-josefin">
           <div className="max-w-7xl mx-auto">
             <div className="flex justify-between items-end mb-6">
               <div className="relative">

@@ -16,15 +16,17 @@ interface SocialIconProps {
 export default function Footer() {
   return (
     <>
-      <div className="max-w-360 flex justify-center bg-[#020d1c]">
-        <footer
-          className="relative text-gray-300 footer-responsive"
-          style={{
+      <div 
+        className="w-full flex justify-center bg-[#141729]"
+        style={{
             backgroundImage: `url(${gradientOverlay}), url(${bgFooter})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
-          }}
+        }}
+      >
+        <footer
+          className="relative text-gray-300 footer-responsive w-full" 
         >
           <div className="w-full h-full px-10 md:px-20 py-20 flex flex-col justify-center">
             <div className="flex flex-col items-center mb-14">
