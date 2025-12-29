@@ -1,25 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600;700&display=swap');
 
-.header-josefin {
-    font-family: 'Josefin Sans', sans-serif;
-}
-
-.navbar-josefin {
-    font-family: 'Josefin Sans', sans-serif;
-}
-
-.bar-josefin {
-    font-family: 'Josefin Sans', sans-serif;
-}
-
-.artists-josefin {
-    font-family: 'Josefin Sans', sans-serif;
-}
-
-.genre-josefin {
-    font-family: 'Josefin Sans', sans-serif;
-}
-
-.more-genres-josefin {
+* {
     font-family: 'Josefin Sans', sans-serif;
 }
