@@ -8,23 +8,17 @@ interface Song {
   duration: string;
 }
 
-// Dữ liệu giả 15 bài hát
 const TOP_15_DATA: Song[] = [
-  // Cột 1 (1-5)
   { id: 1, title: "Until I Met You", artist: "Ava Cornish", duration: "5:10", image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=400&auto=format&fit=crop" },
   { id: 2, title: "Walking Promises", artist: "Ava Cornish", duration: "5:10", image: "https://images.unsplash.com/photo-1512484776495-a09d92e87c3b?q=80&w=200&auto=format&fit=crop" },
   { id: 3, title: "Gimme Some Courage", artist: "Ava Cornish", duration: "5:10", image: "https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?q=80&w=200&auto=format&fit=crop" },
   { id: 4, title: "Desired Games", artist: "Ava Cornish", duration: "5:10", image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=400&auto=format&fit=crop" },
   { id: 5, title: "Dark Alley Acoustic", artist: "Ava Cornish", duration: "5:10", image: "https://images.unsplash.com/photo-1485579149621-3123dd979885?q=80&w=200&auto=format&fit=crop" },
-  
-  // Cột 2 (6-10)
   { id: 6, title: "Walking Promises", artist: "Ava Cornish", duration: "5:10", image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=200&auto=format&fit=crop" },
   { id: 7, title: "Endless Things", artist: "Ava Cornish", duration: "5:10", image: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=200&auto=format&fit=crop" },
   { id: 8, title: "Dream Your Moments", artist: "Ava Cornish", duration: "5:10", image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=400&auto=format&fit=crop" },
   { id: 9, title: "Until I Met You", artist: "Ava Cornish", duration: "5:10", image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=200&auto=format&fit=crop" },
   { id: 10, title: "Gimme Some Courage", artist: "Ava Cornish", duration: "5:10", image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200&auto=format&fit=crop" },
-
-  // Cột 3 (11-15)
   { id: 11, title: "Dark Alley Acoustic", artist: "Ava Cornish", duration: "5:10", image: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?q=80&w=200&auto=format&fit=crop" },
   { id: 12, title: "The Heartbeat Stops", artist: "Ava Cornish", duration: "5:10", image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=200&auto=format&fit=crop" },
   { id: 13, title: "One More Stranger", artist: "Ava Cornish", duration: "5:10", image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=200&auto=format&fit=crop" },

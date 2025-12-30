@@ -2,7 +2,6 @@ import React, { useRef } from 'react';
 import AlbumCard, { type AlbumData } from './AlbumCard';
 import { Link } from 'react-router-dom';
 
-// Dữ liệu riêng của Featured
 const FEATURED_ALBUMS: AlbumData[] = [
     { id: 1, title: "Bloodlust", artist: "Ava Cornish & Brian Hill", image: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?q=80&w=400&auto=format&fit=crop" },
     { id: 2, title: "Time flies", artist: "Ava Cornish & Brian Hill", image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=400&auto=format&fit=crop" },
@@ -22,7 +21,12 @@ const FeaturedAlbums = () => {
   const scroll = (direction: 'left' | 'right') => {
     if (scrollRef.current) {
       const { current } = scrollRef;
-      const scrollAmount = 199;
+
+      const firstCard = current.firstElementChild as HTMLElement;
+      const cardWidth = firstCard ? firstCard.offsetWidth : 175;
+      const gap = 24; 
+      const scrollAmount = cardWidth + gap;
+
       if (direction === 'left') {
         current.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
       } else {
@@ -47,7 +51,7 @@ const FeaturedAlbums = () => {
           View More
         </Link>
       </div>
-      <div className="flex items-center justify-center gap-6 mt-10 w-full">
+      <div className="flex items-center justify-center gap-6 mt-10 w-full px-4 md:px-0">
         <button 
           onClick={() => scroll('left')}
           className="shrink-0 z-20 w-10 h-10 flex items-center justify-center text-gray-400 hover:text-white hover:scale-110 transition-all cursor-pointer bg-[#14182a]/50 rounded-full border border-white/10 hover:bg-white/10"
@@ -58,11 +62,15 @@ const FeaturedAlbums = () => {
         </button>
         <div 
           ref={scrollRef}
-          className="flex gap-6 overflow-x-auto scrollbar-hide scroll-smooth w-full max-w-292.5"
+          className="flex gap-6 overflow-x-auto scrollbar-hide scroll-smooth w-full xl:max-w-292.5"
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
           {FEATURED_ALBUMS.map((album) => (
-            <AlbumCard key={album.id} album={album} />
+            <AlbumCard 
+              key={album.id} 
+              album={album} 
+              className="shrink-0 w-full md:w-[calc(50%-12px)] xl:w-43.75"
+            />
           ))}
         </div>
         <button 

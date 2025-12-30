@@ -1,4 +1,5 @@
-import '../../assets/css/AlbumCard.css';
+import React from 'react';
+
 export interface AlbumData {
   id: number;
   title: string;
@@ -6,10 +7,15 @@ export interface AlbumData {
   image: string;
 }
 
-const AlbumCard = ({ album }: { album: AlbumData }) => {
+interface AlbumCardProps {
+  album: AlbumData;
+  className?: string;
+}
+
+const AlbumCard = ({ album, className }: AlbumCardProps) => {
   return (
-    <div className="w-43.75 shrink-0 cursor-pointer group">
-      <div className="w-43.75 h-43.75 overflow-hidden rounded-2xl mb-3 relative">
+    <div className={`shrink-0 cursor-pointer group ${className ?? 'w-43.75'}`}>
+      <div className="w-full aspect-square overflow-hidden rounded-2xl mb-3 relative">
         <img
           src={album.image}
           alt={album.title}

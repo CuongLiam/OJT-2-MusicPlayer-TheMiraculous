@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import { useNavigate } from 'react-router'; 
 import Header from '../../components/Header/Header';
-import Sidebar from '../../components/Header/Sidebar';
+import Sidebar, { useSidebarState } from '../../components/Header/Sidebar';
 import Footer from '../../components/Footer/Footer';
 import '../../assets/css/Font.css';
 
@@ -108,19 +108,20 @@ const genres: GenreItem[] = [
 ];
 
 const Genre = () => {
-  const [isNavbarOpen, setIsNavbarOpen] = useState(false);
+  const { isNavbarOpen, toggleSidebar, setSidebarOpen } = useSidebarState();
+  const navigate = useNavigate();
 
   return (
     <div className="w-full min-h-screen bg-[#14182a] flex select-none">
       <Sidebar
         isOpen={isNavbarOpen}
-        toggleSidebar={() => setIsNavbarOpen(!isNavbarOpen)}
+        toggleSidebar={toggleSidebar}
       />
 
       <div
         className="flex-1 flex flex-col min-h-screen transition-all duration-300 ease-in-out ml-0 xl:ml-20"
       >
-        <Header onMenuClick={() => setIsNavbarOpen(true)} />
+        <Header onMenuClick={() => setSidebarOpen(true)} />
 
         <main className="flex-1 mx-auto w-full text-white p-3 sm:p-5 md:p-8 lg:px-12 font-sans overflow-x-hidden bg-[#14182a] pb-28 genre-josefin">
           <div className="max-w-7xl mx-auto">
@@ -132,7 +133,10 @@ const Genre = () => {
                 <div className="absolute -bottom-2 left-0 w-1/2 h-1 bg-[#4fd1c5] rounded-full" />
               </div>
 
-              <button className="text-sm md:text-base text-gray-300 hover:text-white transition-colors cursor-pointer">
+              <button 
+                onClick={() => navigate('/more-genres')}
+                className="text-sm md:text-base text-gray-300 hover:text-white transition-colors cursor-pointer"
+              >
                 View More
               </button>
             </div>

@@ -4,7 +4,7 @@ export interface Banner {
   position: string;
 }
 
-export interface Statistics { // DTO
+export interface Statistics { 
   totalUsers: number;
   activeUsers: number;
   blockedUsers: number;

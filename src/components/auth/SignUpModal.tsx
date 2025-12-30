@@ -1,21 +1,21 @@
 import headphoneIcon from '../../assets/headphone.png';
 
-const SignUpModal = () => {
+interface SignUpModalProps {
+  onClose?: () => void;
+}
+
+const SignUpModal: React.FC<SignUpModalProps> = ({ onClose }) => {
   return (
     <div className="fixed inset-0 bg-black/60 flex items-center justify-center p-4 z-50">
-      {/* Modal Container - Responsive: Desktop 1280x608, Tablet 698x532, Mobile 334x500 */}
       <div className="relative bg-linear-to-br from-cyan-400 to-cyan-500 rounded-3xl shadow-2xl w-full h-auto max-w-83.5 max-h-125 md:max-w-174.5 md:max-h-133 lg:max-w-7xl lg:max-h-152">
-        {/* Close Button */}
-        <button className="absolute top-4 right-4 lg:top-6 lg:right-6 text-white hover:text-gray-200 transition-colors z-10">
+        <button className="absolute top-4 right-4 lg:top-6 lg:right-6 text-white hover:text-gray-200 transition-colors z-10" onClick={onClose}>
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
             <line x1="18" y1="6" x2="6" y2="18"></line>
             <line x1="6" y1="6" x2="18" y2="18"></line>
           </svg>
         </button>
 
-        {/* Content Container */}
         <div className="flex flex-col lg:flex-row items-center justify-between p-6 md:p-8 lg:p-16 gap-6 lg:gap-8 h-full">
-          {/* Left Side - Headphones Icon (Desktop only) */}
           <div className="shrink-0 hidden lg:block">
             <img 
               src={headphoneIcon} 
@@ -24,14 +24,12 @@ const SignUpModal = () => {
             />
           </div>
 
-          {/* Right Side - Form */}
           <div className="flex-1 w-full max-w-md">
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white text-center mb-6 lg:mb-8">
               Register / Sign Up
             </h2>
 
             <div className="space-y-4 md:space-y-5">
-              {/* Name Input */}
               <div className="relative">
                 <input
                   type="text"
@@ -44,7 +42,6 @@ const SignUpModal = () => {
                 </svg>
               </div>
 
-              {/* Email Input */}
               <div className="relative">
                 <input
                   type="email"
@@ -57,7 +54,6 @@ const SignUpModal = () => {
                 </svg>
               </div>
 
-              {/* Password Input */}
               <div className="relative">
                 <input
                   type="password"
@@ -70,7 +66,6 @@ const SignUpModal = () => {
                 </svg>
               </div>
 
-              {/* Confirm Password Input */}
               <div className="relative">
                 <input
                   type="password"
@@ -83,12 +78,10 @@ const SignUpModal = () => {
                 </svg>
               </div>
 
-              {/* Register Button */}
               <button className="w-full py-3 md:py-3.5 mt-4 md:mt-6 rounded-full bg-transparent border-2 border-white text-white font-semibold hover:bg-white hover:text-cyan-500 transition-all duration-300">
                 Register Now
               </button>
 
-              {/* Login Link */}
               <p className="text-center text-white text-xs md:text-sm mt-3 md:mt-4">
                 Already Have An Account?{' '}
                 <a href="#" className="font-semibold underline hover:text-gray-100 transition-colors">
@@ -97,11 +90,6 @@ const SignUpModal = () => {
               </p>
             </div>
           </div>
-        </div>
-
-        {/* Dimension Label */}
-        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-blue-600 text-white px-4 py-1 rounded text-sm font-mono hidden lg:block">
-          1280 × 608
         </div>
       </div>
     </div>

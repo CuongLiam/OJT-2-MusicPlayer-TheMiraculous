@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 
 import DiscoverIcon from '../../assets/Header/DiscoverIcon.png';
@@ -17,37 +18,60 @@ interface SidebarProps {
 }
 
 const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
-  const [activeItem, setActiveItem] = React.useState('Discover');
+  const navigate = useNavigate();
+  const location = useLocation();
 
-  const mainMenuItems = [
-    { name: 'Discover', icon: DiscoverIcon },
-    { name: 'Albums', icon: AlbumIcon },
-    { name: 'Artists', icon: ArtistsIcon },
-    { name: 'Genres', icon: GenresIcon },
-    { name: 'Top Tracks', icon: TopTracksIcon },
-  ];
+  const mainMenuItems = useMemo(() => [
+    { name: 'Discover', icon: DiscoverIcon, path: '/' },
+    { name: 'Albums', icon: AlbumIcon, path: '/album' },
+    { name: 'Artists', icon: ArtistsIcon, path: '/artists' },
+    { name: 'Genres', icon: GenresIcon, path: '/genre' },
+    { name: 'Top Tracks', icon: TopTracksIcon }, 
+  ], []);
 
-  const secondaryMenuItems = [
+  const secondaryMenuItems = useMemo(() => [
     { name: 'Downloads', icon: DownloadsIcon },
     { name: 'Favourites', icon: FavoritesIcon },
     { name: 'History', icon: HistoryIcon },
-  ];
+  ], []);
 
-  const renderIcon = (icon: string, isActive: boolean) => {
-    return (
-      <img
-        src={icon}
-        alt="icon"
-        className={`
-          w-6 h-6 object-contain transition-all duration-300
-          ${isActive
-            ? 'brightness-0 invert'
-            : 'opacity-50 grayscale hover:opacity-100'
-          }
-        `}
-      />
-    );
+  const getActiveItemFromUrl = (pathname: string) => {
+    const activeMainItem = mainMenuItems.find((item) => {
+      if (!item.path) return false;
+      if (item.path === '/') return pathname === '/';
+      return pathname.startsWith(item.path);
+    });
+    
+    return activeMainItem ? activeMainItem.name : 'Discover';
   };
+
+  const [activeItem, setActiveItem] = useState(() => getActiveItemFromUrl(location.pathname));
+
+  useEffect(() => {
+    setActiveItem(getActiveItemFromUrl(location.pathname));
+  }, [location.pathname, mainMenuItems]);
+
+  const handleItemClick = (item: { name: string; path?: string }) => {
+    if (item.path) {
+      navigate(item.path);
+    } else {
+      setActiveItem(item.name);
+    }
+  };
+
+  const renderIcon = (icon: string, isActive: boolean) => (
+    <img
+      src={icon}
+      alt="icon"
+      className={`
+        w-6 h-6 object-contain transition-all duration-300
+        ${isActive
+          ? 'brightness-0 invert'
+          : 'opacity-50 grayscale hover:opacity-100'
+        }
+      `}
+    />
+  );
 
   return (
     <>
@@ -65,7 +89,6 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
           flex flex-col pt-6 pb-11 bg-[#1b2039] text-gray-300 
           transition-all duration-300 ease-in-out border-r border-gray-800 navbar-josefin select-none 
           h-[110vh]
-          
           ${isOpen ? "translate-x-0" : "-translate-x-full"}
           xl:translate-x-0
           ${isOpen ? "w-64 xl:w-62.5" : "w-64 xl:w-20"} 
@@ -110,9 +133,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
                 <li
                   key={item.name}
                   className="relative w-full cursor-pointer"
-                  onClick={() => {
-                    setActiveItem(item.name);
-                  }}
+                  onClick={() => handleItemClick(item)}
                 >
                   <div
                     className={`
@@ -121,7 +142,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
                       ${isActive ? "bg-cyan-500 text-white" : "hover:text-white hover:bg-white/5"}
                     `}
                   >
-                    <div className={`flex items-center justify-center w-6 h-6 shrink-0 transition-all duration-300`}>
+                    <div className="flex items-center justify-center w-6 h-6 shrink-0 transition-all duration-300">
                       {renderIcon(item.icon, isActive)}
                     </div>
 
@@ -160,7 +181,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
                       ${isActive ? "bg-cyan-500 text-white" : "hover:text-white hover:bg-white/5"}
                     `}
                   >
-                    <div className={`flex items-center justify-center w-6 h-6 shrink-0 transition-all duration-300`}>
+                    <div className="flex items-center justify-center w-6 h-6 shrink-0 transition-all duration-300">
                       {renderIcon(item.icon, isActive)}
                     </div>
 
@@ -188,3 +209,25 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
 };
 
 export default Sidebar;
+
+export const useSidebarState = () => {
+  const [isNavbarOpen, setIsNavbarOpen] = useState(() => {
+    const saved = localStorage.getItem('sidebar_is_open');
+    return saved === 'true';
+  });
+
+  const toggleSidebar = () => {
+    setIsNavbarOpen((prev) => {
+      const newState = !prev;
+      localStorage.setItem('sidebar_is_open', String(newState));
+      return newState;
+    });
+  };
+  
+  const setSidebarOpen = (state: boolean) => {
+      setIsNavbarOpen(state);
+      localStorage.setItem('sidebar_is_open', String(state));
+  }
+
+  return { isNavbarOpen, toggleSidebar, setSidebarOpen };
+};

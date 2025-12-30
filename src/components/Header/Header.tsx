@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { FaSearch, FaBars, FaUserPlus, FaUser } from 'react-icons/fa';
+import SignInModal from '../auth/SignInModal';
+import SignUpModal from '../auth/SignUpModal';
 import LanguageIcon from '../../assets/Header/LanguageIcon.png';
 import '../../assets/css/Font.css';
 
@@ -8,8 +10,26 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({ onMenuClick }) => {
+  const [showSignIn, setShowSignIn] = useState(false);
+  const [showSignUp, setShowSignUp] = useState(false);
+
+  useEffect(() => {
+    if (showSignIn || showSignUp) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [showSignIn, showSignUp]);
+
   return (
-    <header className="w-full bg-[#1e2336] text-white py-3 px-4 shadow-md relative z-10 header-josefin select-none">
+    <>
+      {showSignIn && <SignInModal onClose={() => setShowSignIn(false)} />}
+      {showSignUp && <SignUpModal onClose={() => setShowSignUp(false)} />}
+      <header className="w-full bg-[#1e2336] text-white py-3 px-4 shadow-md relative z-10 header-josefin select-none">
       <div className="container mx-auto flex items-center justify-between">
         
         <div className="flex items-center gap-4 flex-1 h-20">
@@ -37,19 +57,31 @@ const Header: React.FC<HeaderProps> = ({ onMenuClick }) => {
           </div>
 
           <div className="hidden md:flex items-center gap-3">
-            <button className="px-6 py-2 h-12 max-w-25 rounded-full bg-linear-to-r from-[#38bdf8] to-[#22d3ee] text-white text-sm font-semibold shadow-lg hover:opacity-90 transition-opacity cursor-pointer">
+            <button
+              className="px-6 py-2 h-12 max-w-25 rounded-full bg-linear-to-r from-[#38bdf8] to-[#22d3ee] text-white text-sm font-semibold shadow-lg hover:opacity-90 transition-opacity cursor-pointer"
+              onClick={() => setShowSignUp(true)}
+            >
               Register
             </button>
-            <button className="px-6 py-2 h-12 max-w-25 rounded-full bg-linear-to-r from-[#38bdf8] to-[#22d3ee] text-white text-sm font-semibold shadow-lg hover:opacity-90 transition-opacity ml-4 cursor-pointer">
+            <button
+              className="px-6 py-2 h-12 max-w-25 rounded-full bg-linear-to-r from-[#38bdf8] to-[#22d3ee] text-white text-sm font-semibold shadow-lg hover:opacity-90 transition-opacity ml-4 cursor-pointer"
+              onClick={() => setShowSignIn(true)}
+            >
               Login
             </button>
           </div>
 
           <div className="flex md:hidden items-center gap-2">
-            <button className="w-10 h-10 rounded-full bg-[#38bdf8] flex items-center justify-center text-white shadow-md">
+            <button
+              className="w-10 h-10 rounded-full bg-[#38bdf8] flex items-center justify-center text-white shadow-md"
+              onClick={() => setShowSignUp(true)}
+            >
               <FaUserPlus />
             </button>
-            <button className="w-10 h-10 rounded-full bg-[#38bdf8] flex items-center justify-center text-white shadow-md">
+            <button
+              className="w-10 h-10 rounded-full bg-[#38bdf8] flex items-center justify-center text-white shadow-md"
+              onClick={() => setShowSignIn(true)}
+            >
               <FaUser />
             </button>
           </div>
@@ -63,7 +95,8 @@ const Header: React.FC<HeaderProps> = ({ onMenuClick }) => {
 
         </div>
       </div>
-    </header>
+      </header>
+    </>
   );
 };
 

@@ -6,14 +6,13 @@ export interface Genre {
 export interface Song {
   id: number;
   title: string;
-  duration: string; // HH:mm:ss
+  duration: string; 
   album_id?: number | null;
   file_url: string;
   views: number;
   created_at: string;
   updated_at: string;
 
-  // API / UI only
   genres?: Genre[];
   artist_name?: string;
 }

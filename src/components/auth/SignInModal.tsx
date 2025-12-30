@@ -1,17 +1,20 @@
 import headphoneIcon from '../../assets/headphone.png';
 
-const SignInModal = () => {
+interface SignInModalProps {
+  onClose?: () => void;
+}
+
+const SignInModal: React.FC<SignInModalProps> = ({ onClose }) => {
   return (
     <div className="fixed inset-0 bg-black/60 flex items-center justify-center p-4 z-50">
       <div className="relative bg-linear-to-br from-cyan-400 to-cyan-500 rounded-3xl shadow-2xl w-full h-auto max-w-83.5 max-h-104 md:max-w-174.5 md:max-h-115 lg:max-w-7xl lg:max-h-152">
-        <button className="absolute top-4 right-4 lg:top-6 lg:right-6 text-white hover:text-gray-200 transition-colors z-10">
+        <button className="absolute top-4 right-4 lg:top-6 lg:right-6 text-white hover:text-gray-200 transition-colors z-10 cursor-pointer" onClick={onClose}>
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
             <line x1="18" y1="6" x2="6" y2="18"></line>
             <line x1="6" y1="6" x2="18" y2="18"></line>
           </svg>
         </button>
 
-        {/* Content Container */}
         <div className="flex flex-col lg:flex-row items-center justify-between p-6 md:p-8 lg:p-16 gap-6 lg:gap-8 h-full">
           <div className="shrink-0 hidden lg:block">
             <img 
@@ -21,14 +24,12 @@ const SignInModal = () => {
             />
           </div>
 
-          {/* Right Side - Form */}
           <div className="flex-1 w-full max-w-md">
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white text-center mb-6 lg:mb-8">
               Login / Sign In
             </h2>
 
             <div className="space-y-4 md:space-y-5">
-              {/* Email Input */}
               <div className="relative">
                 <input
                   type="email"
@@ -41,7 +42,6 @@ const SignInModal = () => {
                 </svg>
               </div>
 
-              {/* Password Input */}
               <div className="relative">
                 <input
                   type="password"
@@ -54,7 +54,6 @@ const SignInModal = () => {
                 </svg>
               </div>
 
-              {/* Keep Me Signed In & Forgot Password */}
               <div className="flex items-center justify-between text-white text-xs md:text-sm">
                 <label className="flex items-center gap-2 cursor-pointer">
                   <input 
@@ -68,12 +67,10 @@ const SignInModal = () => {
                 </a>
               </div>
 
-              {/* Register Button */}
-              <button className="w-full py-3 md:py-3.5 mt-4 md:mt-6 rounded-full bg-transparent border-2 border-white text-white font-semibold hover:bg-white hover:text-cyan-500 transition-all duration-300">
+              <button className="w-full py-3 md:py-3.5 mt-4 md:mt-6 rounded-full bg-transparent border-2 border-white text-white font-semibold hover:bg-white hover:text-cyan-500 transition-all duration-300 cursor-pointer">
                 Register Now
               </button>
 
-              {/* Sign Up Link */}
               <p className="text-center text-white text-xs md:text-sm mt-3 md:mt-4">
                 Don't Have An Account?{' '}
                 <a href="#" className="font-semibold underline hover:text-gray-100 transition-colors">
@@ -82,11 +79,6 @@ const SignInModal = () => {
               </p>
             </div>
           </div>
-        </div>
-
-        {/* Dimension Label */}
-        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-blue-600 text-white px-4 py-1 rounded text-sm font-mono hidden lg:block">
-          1280 × 608
         </div>
       </div>
     </div>

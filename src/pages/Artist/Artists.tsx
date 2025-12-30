@@ -1,6 +1,6 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import Header from '../../components/Header/Header';
-import Sidebar from '../../components/Header/Sidebar';
+import Sidebar, { useSidebarState } from '../../components/Header/Sidebar';
 import Footer from '../../components/Footer/Footer';
 import MusicPlayerBar from '../../components/Bar/MusicPlayerBar';
 import '../../assets/css/Font.css';
@@ -73,8 +73,7 @@ const ArtistCard = ({ artist }: { artist: Artist }) => {
 
 const Artists: React.FC = () => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
-
-  const [isNavbarOpen, setIsNavbarOpen] = useState(false);
+  const { isNavbarOpen, toggleSidebar, setSidebarOpen } = useSidebarState();
 
   const scroll = (direction: 'left' | 'right') => {
     if (scrollContainerRef.current) {
@@ -93,13 +92,13 @@ const Artists: React.FC = () => {
 
       <Sidebar
         isOpen={isNavbarOpen}
-        toggleSidebar={() => setIsNavbarOpen(!isNavbarOpen)}
+        toggleSidebar={toggleSidebar}
       />
 
       <div
         className="flex-1 flex flex-col min-h-screen ml-0 xl:ml-20 transition-all duration-300 ease-in-out"
       >
-        <Header />
+        <Header onMenuClick={() => setSidebarOpen(true)} />
 
         <main className="flex-1 max-w-360 mx-auto w-full text-white p-3 sm:p-5 md:py-8 md:px-16 font-sans overflow-x-hidden bg-[#14182a] pb-28 artists-josefin">
 

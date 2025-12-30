@@ -1,8 +1,7 @@
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import Header from "../../components/Header/Header";
-import Sidebar from "../../components/Header/Sidebar";
+import Sidebar, { useSidebarState } from "../../components/Header/Sidebar";
 import Footer from "../../components/Footer/Footer";
 import MusicPlayerBar from "../../components/Bar/MusicPlayerBar";
 import AlbumCard, { type AlbumData } from "../../components/Album/AlbumCard"; 
@@ -35,37 +34,41 @@ const FEATURED_ALBUMS: AlbumData[] = [
 ];
 
 const AllFeaturedAlbums = () => {
-  const [isNavbarOpen, setIsNavbarOpen] = useState(false);
+  const { isNavbarOpen, toggleSidebar, setSidebarOpen } = useSidebarState();
   const navigate = useNavigate(); 
 
   return (
     <div className="w-full min-h-screen bg-[#14182a] flex select-none overflow-hidden">
       <Sidebar
         isOpen={isNavbarOpen}
-        toggleSidebar={() => setIsNavbarOpen(!isNavbarOpen)}
+        toggleSidebar={toggleSidebar}
       />
 
       <div className="flex-1 flex flex-col min-h-screen ml-0 xl:ml-20 transition-all">
-        <Header onMenuClick={() => setIsNavbarOpen(true)} />
+        <Header onMenuClick={() => setSidebarOpen(true)} />
 
-        <main className="flex-1 w-full bg-[#14182a] overflow-y-auto pb-2 pt-8 px-4 xl:px-8 -ml-5 h-screen scrollbar-hide">
+        <main className="flex-1 w-full bg-[#14182a] overflow-y-auto pb-2 pt-8 pl-4 pr-0 xl:px-8 -ml-5 h-screen scrollbar-hide">
             <section className="w-full max-w-362.5 mx-auto">
-                <div className="relative mb-8 px-2 xl:px-16 flex flex-col gap-1">
+                <div className="flex items-end gap-4 mb-8 pl-4 pr-0 md:pl-8 md:pr-0 xl:px-16">
                     <button 
                       onClick={() => navigate('/album')}
-                      className="absolute left-0 xl:left-4 bottom-2 text-white hover:text-[#3BC8E7] transition-colors cursor-pointer outline-none"
+                      className="text-white hover:text-[#3BC8E7] transition-colors cursor-pointer outline-none shrink-0 mb-1"
                       title="Back"
                     >
                       <ArrowLeft size={32} />
                     </button>
-                    <h2 className="text-xl md:text-2xl font-bold text-[#3BC8E7] tracking-wide">
-                        All Featured Albums
-                    </h2>
-                    <div className="h-0.75 w-12 bg-[#3BC8E7] rounded-full mt-1"></div>
+                    
+                    <div className="flex flex-col gap-1">
+                        <h2 className="text-xl md:text-2xl font-bold text-[#3BC8E7] tracking-wide">
+                            All Featured Albums
+                        </h2>
+                        <div className="h-0.75 w-12 bg-[#3BC8E7] rounded-full mt-1"></div>
+                    </div>
                 </div>
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-x-6 gap-y-8 px-2 xl:px-16 pb-20 justify-items-start">
+              
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-6 gap-x-6 gap-y-8 pl-4 pr-0 md:pl-8 md:pr-0 xl:px-16 pb-20 justify-items-center">
                     {FEATURED_ALBUMS.map((album) => (
-                        <AlbumCard key={album.id} album={album} />
+                        <AlbumCard key={album.id} album={album} className="w-full" />
                     ))}
                 </div>
             </section>
