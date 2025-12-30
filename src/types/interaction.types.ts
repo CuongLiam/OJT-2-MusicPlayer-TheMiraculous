@@ -22,6 +22,8 @@ export interface Comment {
 }
 
 export interface Wishlist {
+  id: number;
   user_id: number;
   song_id: number;
+  song?: Song;
 }
