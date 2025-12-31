@@ -8,6 +8,7 @@ export interface Song {
   title: string;
   duration: string;
   album_id?: number | null;
+  artist_id: number;
   file_url: string;
   views: number;
   created_at: string;
