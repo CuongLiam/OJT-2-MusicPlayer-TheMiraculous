@@ -125,9 +125,9 @@ const Genre = () => {
 
         <main className="flex-1 mx-auto w-full text-white p-3 sm:p-5 md:p-8 lg:px-12 font-sans overflow-x-hidden bg-[#14182a] pb-28 genre-josefin">
           <div className="max-w-7xl mx-auto">
-            <div className="flex justify-between items-end mb-6">
+            <div className="flex justify-between items-end mb-12">
               <div className="relative">
-                <h2 className="text-2xl md:text-3xl font-bold text-[#4fd1c5] tracking-wide">
+                <h2 className="text-xl md:text-2xl font-bold text-[#4fd1c5] tracking-wide">
                   Top Genres
                 </h2>
                 <div className="absolute -bottom-2 left-0 w-1/2 h-1 bg-[#4fd1c5] rounded-full" />

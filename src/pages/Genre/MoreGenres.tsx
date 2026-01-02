@@ -78,16 +78,16 @@ export default function MoreGenres() {
       >
         <Header onMenuClick={() => setSidebarOpen(true)} />
 
-        <main className="flex-1 mx-auto w-full text-white p-4 md:py-8 md:px-16 more-genres-josefin pb-28 bg-[#14182a]">
+        <main className="flex-1 mx-auto w-full text-white p-4 md:py-12 md:px-20 more-genres-josefin pb-28 bg-[#14182a]">
           <div className="max-w-350uto">
             {MOCK_DATA.map((section, idx) => (
               <div key={idx} className="mb-10 last:mb-0 relative group">
-                <div className="flex justify-between items-end mb-4 px-4 md:px-0">
+                <div className="flex justify-between items-end mb-12 px-4 md:px-0">
                   <h2 className="text-xl md:text-2xl font-bold text-[#4fd1c5] tracking-wide relative inline-block">
                     {section.title}
                     <span className="absolute -bottom-2 left-0 w-1/2 h-0.75 bg-[#4fd1c5] rounded-full"></span>
                   </h2>
-                  <a href="#" className="text-gray-400 hover:text-white text-xs md:text-sm font-medium transition-colors">View More</a>
+                  <a href="#" className="text-gray-300 hover:text-white text-xs md:text-sm font-medium transition-colors">View More</a>
                 </div>
 
                 <button
