@@ -1,34 +1,41 @@
 {
   "users": [
     {
-      "id": 1,
-      "first_name": "Admin",
+      "id": "1",
+      "first_name": "Liam Josh",
       "last_name": "System",
-      "email": "admin@music.com",
+      "email": "liam123@gmail.com",
+      "password": "admin123",
       "profile_image": "https://res.cloudinary.com/douhnxire/image/upload/v1767059940/admin-image_s9ylcu.png",
       "bio": "Quản trị viên hệ thống cấp cao",
       "status": "ACTIVE",
-      "roles": ["ROLE_ADMIN"],
+      "roles": [
+        "ROLE_ADMIN"
+      ],
       "created_at": "2024-01-01T00:00:00Z",
       "updated_at": "2024-01-01T00:00:00Z"
     },
     {
-      "id": 2,
-      "first_name": "Content",
-      "last_name": "Manager",
-      "email": "mod@music.com",
-      "profile_image": "https://res.cloudinary.com/douhnxire/image/upload/v1767059942/content-manager_p8xwzj.jpg",
-      "bio": "Quản lý nội dung và bản quyền",
+      "id": "2",
+      "first_name": "user 1",
+      "last_name": "test",
+      "email": "user123@gmail.com",
+      "password": "123",
+      "profile_image": "https://res.cloudinary.com/douhnxire/image/upload/v1767059940/admin-image_s9ylcu.png",
+      "bio": "normal ahh user",
       "status": "ACTIVE",
-      "roles": ["ROLE_ADMIN"],
-      "created_at": "2024-01-01T08:00:00Z",
-      "updated_at": "2024-01-01T08:00:00Z"
+      "roles": [
+        "ROLE_USER"
+      ],
+      "created_at": "2024-01-01T00:00:00Z",
+      "updated_at": "2024-01-01T00:00:00Z"
     },
     {
       "id": 3,
       "first_name": "Nguyễn",
       "last_name": "Văn User",
       "email": "user.nguyen@gmail.com",
+      "password": "user123",
       "profile_image": "https://res.cloudinary.com/douhnxire/image/upload/v1767060098/avatar-NVU_ncsbqn.webp",
       "bio": "Người nghe nhạc tích cực",
       "status": "ACTIVE",
@@ -41,6 +48,7 @@
       "first_name": "Trần",
       "last_name": "Thị Fan",
       "email": "fan.tran@gmail.com",
+      "password": "user123",
       "profile_image": "https://res.cloudinary.com/douhnxire/image/upload/v1767059942/avatar-TTF_axmzf8.jpg",
       "bio": "Yêu thích nhạc Pop",
       "status": "ACTIVE",
@@ -53,6 +61,7 @@
       "first_name": "Sơn Tùng",
       "last_name": "M-TP",
       "email": "sontung@mtp.vn",
+      "password": "user123",
       "profile_image": "https://res.cloudinary.com/douhnxire/image/upload/v1767059941/avatar-STMTP_vewxiy.webp",
       "bio": "Ca sĩ nhạc Pop hàng đầu Việt Nam",
       "status": "ACTIVE",
@@ -65,6 +74,7 @@
       "first_name": "Đen",
       "last_name": "Vâu",
       "email": "denvau@rap.vn",
+      "password": "user123",
       "profile_image": "https://res.cloudinary.com/douhnxire/image/upload/v1767059940/avatar-DV_iwunql.webp",
       "bio": "Rapper tử tế, Chill music",
       "status": "ACTIVE",
@@ -77,6 +87,7 @@
       "first_name": "Mỹ",
       "last_name": "Tâm",
       "email": "mytam@entertainment.vn",
+      "password": "user123",
       "profile_image": "https://res.cloudinary.com/douhnxire/image/upload/v1767059941/avatar-MT_pvhapu.jpg",
       "bio": "Họa mi tóc nâu",
       "status": "ACTIVE",
@@ -89,6 +100,7 @@
       "first_name": "Hà",
       "last_name": "Anh Tuấn",
       "email": "hat@romance.vn",
+      "password": "user123",
       "profile_image": "https://res.cloudinary.com/douhnxire/image/upload/v1767059941/avatar-HAT_izutfz.jpg",
       "bio": "Hoàng tử nhạc Ballad/R&B",
       "status": "ACTIVE",
@@ -101,6 +113,7 @@
       "first_name": "Hoàng",
       "last_name": "Thùy Linh",
       "email": "htl@folk.vn",
+      "password": "user123",
       "profile_image": "https://res.cloudinary.com/douhnxire/image/upload/v1767059942/avatar-HTL_wvyxii.webp",
       "bio": "Nữ hoàng văn học dân gian đương đại",
       "status": "ACTIVE",
@@ -113,6 +126,7 @@
       "first_name": "Binz",
       "last_name": "Da Poet",
       "email": "binz@spacespeakers.vn",
+      "password": "user123",
       "profile_image": "https://res.cloudinary.com/douhnxire/image/upload/v1767059940/avatar-Binz_ofqes8.webp",
       "bio": "Bad boy si tình, Rapper",
       "status": "ACTIVE",
@@ -125,6 +139,7 @@
       "first_name": "Phan",
       "last_name": "Mạnh Quỳnh",
       "email": "pmq@music.vn",
+      "password": "user123",
       "profile_image": "https://res.cloudinary.com/douhnxire/image/upload/v1767059941/avatar-PMQ_f9jr2p.webp",
       "bio": "Nhạc sĩ, ca sĩ kể chuyện",
       "status": "ACTIVE",
@@ -137,6 +152,7 @@
       "first_name": "Justa",
       "last_name": "Tee",
       "email": "justatee@underground.vn",
+      "password": "user123",
       "profile_image": "https://res.cloudinary.com/douhnxire/image/upload/v1767059942/avatar-JTT_ndumux.webp",
       "bio": "King of Melody",
       "status": "ACTIVE",
@@ -149,6 +165,7 @@
       "first_name": "Tóc",
       "last_name": "Tiên",
       "email": "toctien@dance.vn",
+      "password": "user123",
       "profile_image": "https://res.cloudinary.com/douhnxire/image/upload/v1767059942/avatar-TT_tgvypx.jpg",
       "bio": "Biểu tượng phong cách và vũ đạo",
       "status": "ACTIVE",
@@ -161,29 +178,108 @@
       "first_name": "Trúc",
       "last_name": "Nhân",
       "email": "trucnhan@satire.vn",
+      "password": "user123",
       "profile_image": "https://res.cloudinary.com/douhnxire/image/upload/v1767059942/avatar-TN_dj8209.jpg",
       "bio": "Ca sĩ của những MV sáng tạo",
       "status": "ACTIVE",
       "roles": ["ROLE_ARTIST"],
       "created_at": "2024-01-11T16:00:00Z",
       "updated_at": "2024-01-11T16:00:00Z"
+    },
+    {
+      "id": "d61e",
+      "first_name": "alice",
+      "last_name": "",
+      "email": "alice123@gmail.com",
+      "username": "alice123@gmail.com",
+      "password": "123456",
+      "profile_image": null,
+      "bio": null,
+      "status": "ACTIVE",
+      "roles": [
+        "ROLE_USER"
+      ],
+      "created_at": "2026-01-04T09:42:52.356Z",
+      "updated_at": "2026-01-04T09:42:52.358Z"
+    },
+    {
+      "id": "f90e",
+      "first_name": "elen",
+      "last_name": "Joe",
+      "email": "elenjoe@gmail.com",
+      "username": "elenjoe@gmail.com",
+      "password": "123456",
+      "profile_image": null,
+      "bio": null,
+      "status": "ACTIVE",
+      "roles": [
+        "ROLE_USER"
+      ],
+      "created_at": "2026-01-04T10:28:59.767Z",
+      "updated_at": "2026-01-04T10:28:59.767Z"
+    },
+    {
+      "id": "f2c5",
+      "first_name": "sad",
+      "last_name": "",
+      "email": "sad@gmail.com",
+      "username": "sad@gmail.com",
+      "password": "123456",
+      "profile_image": null,
+      "bio": null,
+      "status": "ACTIVE",
+      "roles": [
+        "ROLE_USER"
+      ],
+      "created_at": "2026-01-04T16:09:03.129Z",
+      "updated_at": "2026-01-04T16:09:03.129Z"
     }
   ],
   "genres": [
-    { "id": 1, "genre_name": "Pop" },
-    { "id": 2, "genre_name": "Ballad" },
-    { "id": 3, "genre_name": "Rap / Hip-hop" },
-    { "id": 4, "genre_name": "R&B" },
-    { "id": 5, "genre_name": "EDM" },
-    { "id": 6, "genre_name": "Indie" },
-    { "id": 7, "genre_name": "Rock" },
-    { "id": 8, "genre_name": "Jazz" },
-    { "id": 9, "genre_name": "Bolero" },
-    { "id": 10, "genre_name": "Lofi" }
+    {
+      "id": "1",
+      "genre_name": "Pop"
+    },
+    {
+      "id": "2",
+      "genre_name": "Ballad"
+    },
+    {
+      "id": "3",
+      "genre_name": "Rap / Hip-hop"
+    },
+    {
+      "id": "4",
+      "genre_name": "R&B"
+    },
+    {
+      "id": "5",
+      "genre_name": "EDM"
+    },
+    {
+      "id": "6",
+      "genre_name": "Indie"
+    },
+    {
+      "id": "7",
+      "genre_name": "Rock"
+    },
+    {
+      "id": "8",
+      "genre_name": "Jazz"
+    },
+    {
+      "id": "9",
+      "genre_name": "Bolero"
+    },
+    {
+      "id": "10",
+      "genre_name": "Lofi"
+    }
   ],
   "albums": [
     {
-      "id": 1,
+      "id": "1",
       "title": "Chúng Ta Của Tương Lai (EP)",
       "release_date": "2024-03-08",
       "artist_id": 5,
@@ -193,7 +289,7 @@
       "updated_at": "2024-03-08T00:00:00Z"
     },
     {
-      "id": 2,
+      "id": "2",
       "title": "Sky Tour Movie (Original Score)",
       "release_date": "2020-06-12",
       "artist_id": 5,
@@ -203,7 +299,7 @@
       "updated_at": "2020-06-12T00:00:00Z"
     },
     {
-      "id": 3,
+      "id": "3",
       "title": "Lạc Trôi Collection",
       "release_date": "2018-01-01",
       "artist_id": 5,
@@ -212,9 +308,8 @@
       "created_at": "2018-01-01T00:00:00Z",
       "updated_at": "2018-01-01T00:00:00Z"
     },
-
     {
-      "id": 4,
+      "id": "4",
       "title": "Lối Nhỏ (EP)",
       "release_date": "2019-10-21",
       "artist_id": 6,
@@ -224,7 +319,7 @@
       "updated_at": "2019-10-21T00:00:00Z"
     },
     {
-      "id": 5,
+      "id": "5",
       "title": "Trời Hôm Nay Nhiều Mây Cực",
       "release_date": "2020-08-05",
       "artist_id": 6,
@@ -234,7 +329,7 @@
       "updated_at": "2020-08-05T00:00:00Z"
     },
     {
-      "id": 6,
+      "id": "6",
       "title": "Mười Năm (Compilation)",
       "release_date": "2019-05-19",
       "artist_id": 6,
@@ -243,9 +338,8 @@
       "created_at": "2019-05-19T00:00:00Z",
       "updated_at": "2019-05-19T00:00:00Z"
     },
-
     {
-      "id": 7,
+      "id": "7",
       "title": "Tâm 9",
       "release_date": "2017-12-03",
       "artist_id": 7,
@@ -255,7 +349,7 @@
       "updated_at": "2017-12-03T00:00:00Z"
     },
     {
-      "id": 8,
+      "id": "8",
       "title": "Tri Âm Concert",
       "release_date": "2021-04-25",
       "artist_id": 7,
@@ -265,7 +359,7 @@
       "updated_at": "2021-04-25T00:00:00Z"
     },
     {
-      "id": 9,
+      "id": "9",
       "title": "Yesterday & Now",
       "release_date": "2003-05-15",
       "artist_id": 7,
@@ -274,9 +368,8 @@
       "created_at": "2003-05-15T00:00:00Z",
       "updated_at": "2003-05-15T00:00:00Z"
     },
-
     {
-      "id": 10,
+      "id": "10",
       "title": "Truyện Ngắn",
       "release_date": "2019-09-14",
       "artist_id": 8,
@@ -286,7 +379,7 @@
       "updated_at": "2019-09-14T00:00:00Z"
     },
     {
-      "id": 11,
+      "id": "11",
       "title": "See Sing Share 1",
       "release_date": "2016-10-10",
       "artist_id": 8,
@@ -296,7 +389,7 @@
       "updated_at": "2016-10-10T00:00:00Z"
     },
     {
-      "id": 12,
+      "id": "12",
       "title": "See Sing Share 2",
       "release_date": "2017-06-05",
       "artist_id": 8,
@@ -305,9 +398,8 @@
       "created_at": "2017-06-05T00:00:00Z",
       "updated_at": "2017-06-05T00:00:00Z"
     },
-
     {
-      "id": 13,
+      "id": "13",
       "title": "LINK",
       "release_date": "2022-08-11",
       "artist_id": 9,
@@ -317,7 +409,7 @@
       "updated_at": "2022-08-11T00:00:00Z"
     },
     {
-      "id": 14,
+      "id": "14",
       "title": "HOÀNG",
       "release_date": "2019-10-20",
       "artist_id": 9,
@@ -327,7 +419,7 @@
       "updated_at": "2019-10-20T00:00:00Z"
     },
     {
-      "id": 15,
+      "id": "15",
       "title": "Vietnamese Concert",
       "release_date": "2023-09-29",
       "artist_id": 9,
@@ -336,9 +428,8 @@
       "created_at": "2023-09-29T00:00:00Z",
       "updated_at": "2023-09-29T00:00:00Z"
     },
-
     {
-      "id": 16,
+      "id": "16",
       "title": "Bigcityboi EP",
       "release_date": "2020-07-05",
       "artist_id": 10,
@@ -348,7 +439,7 @@
       "updated_at": "2020-07-05T00:00:00Z"
     },
     {
-      "id": 17,
+      "id": "17",
       "title": "021",
       "release_date": "2020-10-04",
       "artist_id": 10,
@@ -358,7 +449,7 @@
       "updated_at": "2020-10-04T00:00:00Z"
     },
     {
-      "id": 18,
+      "id": "18",
       "title": "Sao Cũng Được",
       "release_date": "2021-12-15",
       "artist_id": 10,
@@ -367,9 +458,8 @@
       "created_at": "2021-12-15T00:00:00Z",
       "updated_at": "2021-12-15T00:00:00Z"
     },
-
     {
-      "id": 19,
+      "id": "19",
       "title": "Có Chàng Trai Viết Lên Cây",
       "release_date": "2019-11-20",
       "artist_id": 11,
@@ -379,7 +469,7 @@
       "updated_at": "2019-11-20T00:00:00Z"
     },
     {
-      "id": 20,
+      "id": "20",
       "title": "Mắt Biếc",
       "release_date": "2017-03-08",
       "artist_id": 11,
@@ -389,7 +479,7 @@
       "updated_at": "2017-03-08T00:00:00Z"
     },
     {
-      "id": 21,
+      "id": "21",
       "title": "Vợ Người Ta",
       "release_date": "2015-09-15",
       "artist_id": 11,
@@ -398,9 +488,8 @@
       "created_at": "2015-09-15T00:00:00Z",
       "updated_at": "2015-09-15T00:00:00Z"
     },
-
     {
-      "id": 22,
+      "id": "22",
       "title": "JayTee Collection",
       "release_date": "2014-05-20",
       "artist_id": 12,
@@ -410,7 +499,7 @@
       "updated_at": "2014-05-20T00:00:00Z"
     },
     {
-      "id": 23,
+      "id": "23",
       "title": "Forever Alone",
       "release_date": "2013-02-14",
       "artist_id": 12,
@@ -420,7 +509,7 @@
       "updated_at": "2013-02-14T00:00:00Z"
     },
     {
-      "id": 24,
+      "id": "24",
       "title": "Underground King",
       "release_date": "2018-08-08",
       "artist_id": 12,
@@ -429,9 +518,8 @@
       "created_at": "2018-08-08T00:00:00Z",
       "updated_at": "2018-08-08T00:00:00Z"
     },
-
     {
-      "id": 25,
+      "id": "25",
       "title": "CONG",
       "release_date": "2022-11-01",
       "artist_id": 13,
@@ -441,7 +529,7 @@
       "updated_at": "2022-11-01T00:00:00Z"
     },
     {
-      "id": 26,
+      "id": "26",
       "title": "The Remix EP",
       "release_date": "2015-05-05",
       "artist_id": 13,
@@ -451,7 +539,7 @@
       "updated_at": "2015-05-05T00:00:00Z"
     },
     {
-      "id": 27,
+      "id": "27",
       "title": "I'm In Love",
       "release_date": "2016-07-07",
       "artist_id": 13,
@@ -460,9 +548,8 @@
       "created_at": "2016-07-07T00:00:00Z",
       "updated_at": "2016-07-07T00:00:00Z"
     },
-
     {
-      "id": 28,
+      "id": "28",
       "title": "Có Không Giữ Mất Đừng Tìm",
       "release_date": "2022-05-12",
       "artist_id": 14,
@@ -472,7 +559,7 @@
       "updated_at": "2022-05-12T00:00:00Z"
     },
     {
-      "id": 29,
+      "id": "29",
       "title": "Sáng Mắt Chưa",
       "release_date": "2019-07-31",
       "artist_id": 14,
@@ -482,7 +569,7 @@
       "updated_at": "2019-07-31T00:00:00Z"
     },
     {
-      "id": 30,
+      "id": "30",
       "title": "Bốn Chữ Lắm",
       "release_date": "2014-06-17",
       "artist_id": 14,
@@ -494,1080 +581,1308 @@
   ],
   "songs": [
     {
-      "id": 1,
+      "id": "1",
       "title": "Chúng Ta Của Tương Lai",
       "duration": "04:15",
       "album_id": 1,
       "artist_id": 5,
-      "genre_ids": [1, 4],
+      "genre_ids": [
+        1,
+        4
+      ],
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
       "views": 1500000,
       "created_at": "2024-03-08T00:00:00Z",
       "updated_at": "2024-03-08T00:00:00Z"
     },
     {
-      "id": 2,
+      "id": "2",
       "title": "Em Của Ngày Hôm Qua",
       "duration": "03:50",
       "album_id": 1,
       "artist_id": 5,
-      "genre_ids": [1, 4],
+      "genre_ids": [
+        1,
+        4
+      ],
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
       "views": 2000000,
       "created_at": "2024-03-08T00:00:00Z",
       "updated_at": "2024-03-08T00:00:00Z"
     },
     {
-      "id": 3,
+      "id": "3",
       "title": "Đừng Làm Trái Tim Anh Đau",
       "duration": "04:30",
       "album_id": 1,
       "artist_id": 5,
-      "genre_ids": [1, 2],
+      "genre_ids": [
+        1,
+        2
+      ],
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
       "views": 1200000,
       "created_at": "2024-03-08T00:00:00Z",
       "updated_at": "2024-03-08T00:00:00Z"
     },
     {
-      "id": 4,
+      "id": "4",
       "title": "Chạy Ngay Đi (Remix)",
       "duration": "04:05",
       "album_id": 2,
       "artist_id": 5,
-      "genre_ids": [5, 7],
+      "genre_ids": [
+        5,
+        7
+      ],
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
       "views": 3000000,
       "created_at": "2020-06-12T00:00:00Z",
       "updated_at": "2020-06-12T00:00:00Z"
     },
     {
-      "id": 5,
+      "id": "5",
       "title": "Hãy Trao Cho Anh (Live)",
       "duration": "04:30",
       "album_id": 2,
       "artist_id": 5,
-      "genre_ids": [1, 3, 5],
+      "genre_ids": [
+        1,
+        3,
+        5
+      ],
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
       "views": 2500000,
       "created_at": "2020-06-12T00:00:00Z",
       "updated_at": "2020-06-12T00:00:00Z"
     },
     {
-      "id": 6,
+      "id": "6",
       "title": "Remember Me (Sky Tour)",
       "duration": "03:40",
       "album_id": 2,
       "artist_id": 5,
-      "genre_ids": [3, 7],
+      "genre_ids": [
+        3,
+        7
+      ],
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
       "views": 1800000,
       "created_at": "2020-06-12T00:00:00Z",
       "updated_at": "2020-06-12T00:00:00Z"
     },
     {
-      "id": 7,
+      "id": "7",
       "title": "Lạc Trôi",
       "duration": "03:55",
       "album_id": 3,
       "artist_id": 5,
-      "genre_ids": [1, 5],
+      "genre_ids": [
+        1,
+        5
+      ],
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3",
       "views": 5000000,
       "created_at": "2018-01-01T00:00:00Z",
       "updated_at": "2018-01-01T00:00:00Z"
     },
     {
-      "id": 8,
+      "id": "8",
       "title": "Bình Yên Những Phút Giây",
       "duration": "03:25",
       "album_id": 3,
       "artist_id": 5,
-      "genre_ids": [1, 6],
+      "genre_ids": [
+        1,
+        6
+      ],
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3",
       "views": 1000000,
       "created_at": "2018-01-01T00:00:00Z",
       "updated_at": "2018-01-01T00:00:00Z"
     },
     {
-      "id": 9,
+      "id": "9",
       "title": "Một Năm Mới Bình An",
       "duration": "04:10",
       "album_id": 3,
       "artist_id": 5,
-      "genre_ids": [1],
+      "genre_ids": [
+        1
+      ],
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3",
       "views": 900000,
       "created_at": "2018-01-01T00:00:00Z",
       "updated_at": "2018-01-01T00:00:00Z"
     },
     {
-      "id": 10,
+      "id": "10",
       "title": "Lối Nhỏ",
       "duration": "04:15",
       "album_id": 4,
       "artist_id": 6,
-      "genre_ids": [3, 6, 10],
+      "genre_ids": [
+        3,
+        6,
+        10
+      ],
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3",
       "views": 2200000,
       "created_at": "2019-10-21T00:00:00Z",
       "updated_at": "2019-10-21T00:00:00Z"
     },
     {
-      "id": 11,
+      "id": "11",
       "title": "Cảm Ơn",
       "duration": "03:30",
       "album_id": 4,
       "artist_id": 6,
-      "genre_ids": [3, 6],
+      "genre_ids": [
+        3,
+        6
+      ],
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3",
       "views": 1500000,
       "created_at": "2019-10-21T00:00:00Z",
       "updated_at": "2019-10-21T00:00:00Z"
     },
     {
-      "id": 12,
+      "id": "12",
       "title": "Bài Này Chill Phết",
       "duration": "04:25",
       "album_id": 4,
       "artist_id": 6,
-      "genre_ids": [3, 10],
+      "genre_ids": [
+        3,
+        10
+      ],
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3",
       "views": 3100000,
       "created_at": "2019-10-21T00:00:00Z",
       "updated_at": "2019-10-21T00:00:00Z"
     },
     {
-      "id": 13,
+      "id": "13",
       "title": "Trời Hôm Nay Nhiều Mây Cực",
       "duration": "03:50",
       "album_id": 5,
       "artist_id": 6,
-      "genre_ids": [3],
+      "genre_ids": [
+        3
+      ],
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3",
       "views": 1800000,
       "created_at": "2020-08-05T00:00:00Z",
       "updated_at": "2020-08-05T00:00:00Z"
     },
     {
-      "id": 14,
+      "id": "14",
       "title": "Hai Triệu Năm",
       "duration": "03:40",
       "album_id": 5,
       "artist_id": 6,
-      "genre_ids": [3, 6],
+      "genre_ids": [
+        3,
+        6
+      ],
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3",
       "views": 2600000,
       "created_at": "2020-08-05T00:00:00Z",
       "updated_at": "2020-08-05T00:00:00Z"
     },
     {
-      "id": 15,
+      "id": "15",
       "title": "Một Triệu Like",
       "duration": "04:00",
       "album_id": 5,
       "artist_id": 6,
-      "genre_ids": [3, 8],
+      "genre_ids": [
+        3,
+        8
+      ],
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3",
       "views": 2900000,
       "created_at": "2020-08-05T00:00:00Z",
       "updated_at": "2020-08-05T00:00:00Z"
     },
     {
-      "id": 16,
+      "id": "16",
       "title": "Mười Năm",
       "duration": "04:40",
       "album_id": 6,
       "artist_id": 6,
-      "genre_ids": [3, 6],
+      "genre_ids": [
+        3,
+        6
+      ],
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3",
       "views": 2000000,
       "created_at": "2019-05-19T00:00:00Z",
       "updated_at": "2019-05-19T00:00:00Z"
     },
     {
-      "id": 17,
+      "id": "17",
       "title": "Đi Về Nhà",
       "duration": "03:30",
       "album_id": 6,
       "artist_id": 6,
-      "genre_ids": [3, 1],
+      "genre_ids": [
+        3,
+        1
+      ],
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3",
       "views": 4000000,
       "created_at": "2019-05-19T00:00:00Z",
       "updated_at": "2019-05-19T00:00:00Z"
     },
     {
-      "id": 18,
+      "id": "18",
       "title": "Mang Tiền Về Cho Mẹ",
       "duration": "05:10",
       "album_id": 6,
       "artist_id": 6,
-      "genre_ids": [3],
+      "genre_ids": [
+        3
+      ],
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3",
       "views": 3500000,
       "created_at": "2019-05-19T00:00:00Z",
       "updated_at": "2019-05-19T00:00:00Z"
     },
     {
-      "id": 19,
+      "id": "19",
       "title": "Đừng Hỏi Em",
       "duration": "04:20",
       "album_id": 7,
       "artist_id": 7,
-      "genre_ids": [1, 2],
+      "genre_ids": [
+        1,
+        2
+      ],
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3",
       "views": 1200000,
       "created_at": "2017-12-03T00:00:00Z",
       "updated_at": "2017-12-03T00:00:00Z"
     },
     {
-      "id": 20,
+      "id": "20",
       "title": "Người Hãy Quên Em Đi",
       "duration": "03:55",
       "album_id": 7,
       "artist_id": 7,
-      "genre_ids": [1, 8],
+      "genre_ids": [
+        1,
+        8
+      ],
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3",
       "views": 2500000,
       "created_at": "2017-12-03T00:00:00Z",
       "updated_at": "2017-12-03T00:00:00Z"
     },
     {
-      "id": 21,
+      "id": "21",
       "title": "Muộn Màng Là Từ Lúc",
       "duration": "04:10",
       "album_id": 7,
       "artist_id": 7,
-      "genre_ids": [2],
+      "genre_ids": [
+        2
+      ],
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3",
       "views": 1800000,
       "created_at": "2017-12-03T00:00:00Z",
       "updated_at": "2017-12-03T00:00:00Z"
     },
     {
-      "id": 22,
+      "id": "22",
       "title": "Hào Quang (Live)",
       "duration": "03:45",
       "album_id": 8,
       "artist_id": 7,
-      "genre_ids": [1, 5],
+      "genre_ids": [
+        1,
+        5
+      ],
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3",
       "views": 900000,
       "created_at": "2021-04-25T00:00:00Z",
       "updated_at": "2021-04-25T00:00:00Z"
     },
     {
-      "id": 23,
+      "id": "23",
       "title": "Đâu Chỉ Riêng Em (Live)",
       "duration": "04:50",
       "album_id": 8,
       "artist_id": 7,
-      "genre_ids": [2],
+      "genre_ids": [
+        2
+      ],
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3",
       "views": 1600000,
       "created_at": "2021-04-25T00:00:00Z",
       "updated_at": "2021-04-25T00:00:00Z"
     },
     {
-      "id": 24,
+      "id": "24",
       "title": "Cô Gái Đến Từ Hôm Qua",
       "duration": "04:30",
       "album_id": 8,
       "artist_id": 7,
-      "genre_ids": [2],
+      "genre_ids": [
+        2
+      ],
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3",
       "views": 1100000,
       "created_at": "2021-04-25T00:00:00Z",
       "updated_at": "2021-04-25T00:00:00Z"
     },
     {
-      "id": 25,
+      "id": "25",
       "title": "Ước Gì",
       "duration": "05:15",
       "album_id": 9,
       "artist_id": 7,
-      "genre_ids": [1, 2],
+      "genre_ids": [
+        1,
+        2
+      ],
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-9.mp3",
       "views": 5000000,
       "created_at": "2003-05-15T00:00:00Z",
       "updated_at": "2003-05-15T00:00:00Z"
     },
     {
-      "id": 26,
+      "id": "26",
       "title": "Họa Mi Tóc Nâu",
       "duration": "03:30",
       "album_id": 9,
       "artist_id": 7,
-      "genre_ids": [1],
+      "genre_ids": [
+        1
+      ],
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-9.mp3",
       "views": 3200000,
       "created_at": "2003-05-15T00:00:00Z",
       "updated_at": "2003-05-15T00:00:00Z"
     },
     {
-      "id": 27,
+      "id": "27",
       "title": "Niềm Tin Chiến Thắng",
       "duration": "04:00",
       "album_id": 9,
       "artist_id": 7,
-      "genre_ids": [1],
+      "genre_ids": [
+        1
+      ],
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-9.mp3",
       "views": 2000000,
       "created_at": "2003-05-15T00:00:00Z",
       "updated_at": "2003-05-15T00:00:00Z"
     },
     {
-      "id": 28,
+      "id": "28",
       "title": "Có Chàng Trai Viết Lên Cây",
       "duration": "05:00",
       "album_id": 10,
       "artist_id": 8,
-      "genre_ids": [2, 6],
+      "genre_ids": [
+        2,
+        6
+      ],
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-10.mp3",
       "views": 3200000,
       "created_at": "2019-09-14T00:00:00Z",
       "updated_at": "2019-09-14T00:00:00Z"
     },
     {
-      "id": 29,
+      "id": "29",
       "title": "Xuân Thì",
       "duration": "05:10",
       "album_id": 10,
       "artist_id": 8,
-      "genre_ids": [2],
+      "genre_ids": [
+        2
+      ],
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-10.mp3",
       "views": 1100000,
       "created_at": "2019-09-14T00:00:00Z",
       "updated_at": "2019-09-14T00:00:00Z"
     },
     {
-      "id": 30,
+      "id": "30",
       "title": "Thương Em",
       "duration": "04:45",
       "album_id": 10,
       "artist_id": 8,
-      "genre_ids": [2],
+      "genre_ids": [
+        2
+      ],
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-10.mp3",
       "views": 1500000,
       "created_at": "2019-09-14T00:00:00Z",
       "updated_at": "2019-09-14T00:00:00Z"
     },
     {
-      "id": 31,
+      "id": "31",
       "title": "Tháng Tư Là Lời Nói Dối",
       "duration": "04:45",
       "album_id": 11,
       "artist_id": 8,
-      "genre_ids": [2],
+      "genre_ids": [
+        2
+      ],
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-11.mp3",
       "views": 4100000,
       "created_at": "2016-10-10T00:00:00Z",
       "updated_at": "2016-10-10T00:00:00Z"
     },
     {
-      "id": 32,
+      "id": "32",
       "title": "Người Tình Mùa Đông",
       "duration": "04:10",
       "album_id": 11,
       "artist_id": 8,
-      "genre_ids": [2],
+      "genre_ids": [
+        2
+      ],
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-11.mp3",
       "views": 2100000,
       "created_at": "2016-10-10T00:00:00Z",
       "updated_at": "2016-10-10T00:00:00Z"
     },
     {
-      "id": 33,
+      "id": "33",
       "title": "Giấc Mơ Chỉ Là Giấc Mơ",
       "duration": "04:20",
       "album_id": 11,
       "artist_id": 8,
-      "genre_ids": [2],
+      "genre_ids": [
+        2
+      ],
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-11.mp3",
       "views": 1800000,
       "created_at": "2016-10-10T00:00:00Z",
       "updated_at": "2016-10-10T00:00:00Z"
     },
     {
-      "id": 34,
+      "id": "34",
       "title": "Tái Bút Anh Yêu Em",
       "duration": "04:30",
       "album_id": 12,
       "artist_id": 8,
-      "genre_ids": [2],
+      "genre_ids": [
+        2
+      ],
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-12.mp3",
       "views": 2500000,
       "created_at": "2017-06-05T00:00:00Z",
       "updated_at": "2017-06-05T00:00:00Z"
     },
     {
-      "id": 35,
+      "id": "35",
       "title": "Em À",
       "duration": "04:00",
       "album_id": 12,
       "artist_id": 8,
-      "genre_ids": [1, 2],
+      "genre_ids": [
+        1,
+        2
+      ],
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-12.mp3",
       "views": 2200000,
       "created_at": "2017-06-05T00:00:00Z",
       "updated_at": "2017-06-05T00:00:00Z"
     },
     {
-      "id": 36,
+      "id": "36",
       "title": "Tháng Mấy Em Nhớ Anh",
       "duration": "05:20",
       "album_id": 12,
       "artist_id": 8,
-      "genre_ids": [2, 8],
+      "genre_ids": [
+        2,
+        8
+      ],
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-12.mp3",
       "views": 1500000,
       "created_at": "2017-06-05T00:00:00Z",
       "updated_at": "2017-06-05T00:00:00Z"
     },
     {
-      "id": 37,
+      "id": "37",
       "title": "See Tình",
       "duration": "03:05",
       "album_id": 13,
       "artist_id": 9,
-      "genre_ids": [1, 5],
+      "genre_ids": [
+        1,
+        5
+      ],
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-13.mp3",
       "views": 6000000,
       "created_at": "2022-08-11T00:00:00Z",
       "updated_at": "2022-08-11T00:00:00Z"
     },
     {
-      "id": 38,
+      "id": "38",
       "title": "Gieo Quẻ",
       "duration": "03:30",
       "album_id": 13,
       "artist_id": 9,
-      "genre_ids": [1],
+      "genre_ids": [
+        1
+      ],
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-13.mp3",
       "views": 3000000,
       "created_at": "2022-08-11T00:00:00Z",
       "updated_at": "2022-08-11T00:00:00Z"
     },
     {
-      "id": 39,
+      "id": "39",
       "title": "Bo Xì Bo",
       "duration": "03:15",
       "album_id": 13,
       "artist_id": 9,
-      "genre_ids": [1, 5],
+      "genre_ids": [
+        1,
+        5
+      ],
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-13.mp3",
       "views": 2800000,
       "created_at": "2022-08-11T00:00:00Z",
       "updated_at": "2022-08-11T00:00:00Z"
     },
     {
-      "id": 40,
+      "id": "40",
       "title": "Để Mị Nói Cho Mà Nghe",
       "duration": "04:10",
       "album_id": 14,
       "artist_id": 9,
-      "genre_ids": [1],
+      "genre_ids": [
+        1
+      ],
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-14.mp3",
       "views": 4500000,
       "created_at": "2019-10-20T00:00:00Z",
       "updated_at": "2019-10-20T00:00:00Z"
     },
     {
-      "id": 41,
+      "id": "41",
       "title": "Duyên Âm",
       "duration": "03:20",
       "album_id": 14,
       "artist_id": 9,
-      "genre_ids": [1],
+      "genre_ids": [
+        1
+      ],
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-14.mp3",
       "views": 3200000,
       "created_at": "2019-10-20T00:00:00Z",
       "updated_at": "2019-10-20T00:00:00Z"
     },
     {
-      "id": 42,
+      "id": "42",
       "title": "Kẻ Cắp Gặp Bà Già",
       "duration": "03:40",
       "album_id": 14,
       "artist_id": 9,
-      "genre_ids": [1, 5],
+      "genre_ids": [
+        1,
+        5
+      ],
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-14.mp3",
       "views": 2900000,
       "created_at": "2019-10-20T00:00:00Z",
       "updated_at": "2019-10-20T00:00:00Z"
     },
     {
-      "id": 43,
+      "id": "43",
       "title": "Hạ Phỏm (Live)",
       "duration": "03:50",
       "album_id": 15,
       "artist_id": 9,
-      "genre_ids": [1, 5],
+      "genre_ids": [
+        1,
+        5
+      ],
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-15.mp3",
       "views": 500000,
       "created_at": "2023-09-29T00:00:00Z",
       "updated_at": "2023-09-29T00:00:00Z"
     },
     {
-      "id": 44,
+      "id": "44",
       "title": "Trưởng Nữ Chạy Trốn (Live)",
       "duration": "04:00",
       "album_id": 15,
       "artist_id": 9,
-      "genre_ids": [1, 5],
+      "genre_ids": [
+        1,
+        5
+      ],
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-15.mp3",
       "views": 450000,
       "created_at": "2023-09-29T00:00:00Z",
       "updated_at": "2023-09-29T00:00:00Z"
     },
     {
-      "id": 45,
+      "id": "45",
       "title": "Lắm Mối Tối Ngồi Không (Live)",
       "duration": "03:55",
       "album_id": 15,
       "artist_id": 9,
-      "genre_ids": [1, 5],
+      "genre_ids": [
+        1,
+        5
+      ],
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-15.mp3",
       "views": 600000,
       "created_at": "2023-09-29T00:00:00Z",
       "updated_at": "2023-09-29T00:00:00Z"
     },
     {
-      "id": 46,
+      "id": "46",
       "title": "Bigcityboi",
       "duration": "03:35",
       "album_id": 16,
       "artist_id": 10,
-      "genre_ids": [3],
+      "genre_ids": [
+        3
+      ],
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
       "views": 5500000,
       "created_at": "2020-07-05T00:00:00Z",
       "updated_at": "2020-07-05T00:00:00Z"
     },
     {
-      "id": 47,
+      "id": "47",
       "title": "Gene",
       "duration": "03:40",
       "album_id": 16,
       "artist_id": 10,
-      "genre_ids": [3, 4],
+      "genre_ids": [
+        3,
+        4
+      ],
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
       "views": 2100000,
       "created_at": "2020-07-05T00:00:00Z",
       "updated_at": "2020-07-05T00:00:00Z"
     },
     {
-      "id": 48,
+      "id": "48",
       "title": "They Said",
       "duration": "03:10",
       "album_id": 16,
       "artist_id": 10,
-      "genre_ids": [3],
+      "genre_ids": [
+        3
+      ],
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
       "views": 2600000,
       "created_at": "2020-07-05T00:00:00Z",
       "updated_at": "2020-07-05T00:00:00Z"
     },
     {
-      "id": 49,
+      "id": "49",
       "title": "021",
       "duration": "03:20",
       "album_id": 17,
       "artist_id": 10,
-      "genre_ids": [3],
+      "genre_ids": [
+        3
+      ],
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
       "views": 1800000,
       "created_at": "2020-10-04T00:00:00Z",
       "updated_at": "2020-10-04T00:00:00Z"
     },
     {
-      "id": 50,
+      "id": "50",
       "title": "ToGetHer",
       "duration": "03:30",
       "album_id": 17,
       "artist_id": 10,
-      "genre_ids": [3, 4],
+      "genre_ids": [
+        3,
+        4
+      ],
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
       "views": 1500000,
       "created_at": "2020-10-04T00:00:00Z",
       "updated_at": "2020-10-04T00:00:00Z"
     },
     {
-      "id": 51,
+      "id": "51",
       "title": "BlackJack",
       "duration": "03:25",
       "album_id": 17,
       "artist_id": 10,
-      "genre_ids": [3],
+      "genre_ids": [
+        3
+      ],
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
       "views": 2200000,
       "created_at": "2020-10-04T00:00:00Z",
       "updated_at": "2020-10-04T00:00:00Z"
     },
     {
-      "id": 52,
+      "id": "52",
       "title": "Sao Cũng Được",
       "duration": "04:15",
       "album_id": 18,
       "artist_id": 10,
-      "genre_ids": [3, 7],
+      "genre_ids": [
+        3,
+        7
+      ],
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3",
       "views": 1500000,
       "created_at": "2021-12-15T00:00:00Z",
       "updated_at": "2021-12-15T00:00:00Z"
     },
     {
-      "id": 53,
+      "id": "53",
       "title": "So Far",
       "duration": "03:50",
       "album_id": 18,
       "artist_id": 10,
-      "genre_ids": [4, 6],
+      "genre_ids": [
+        4,
+        6
+      ],
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3",
       "views": 2800000,
       "created_at": "2021-12-15T00:00:00Z",
       "updated_at": "2021-12-15T00:00:00Z"
     },
     {
-      "id": 54,
+      "id": "54",
       "title": "Don't Break My Heart",
       "duration": "03:55",
       "album_id": 18,
       "artist_id": 10,
-      "genre_ids": [4, 5],
+      "genre_ids": [
+        4,
+        5
+      ],
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3",
       "views": 2100000,
       "created_at": "2021-12-15T00:00:00Z",
       "updated_at": "2021-12-15T00:00:00Z"
     },
     {
-      "id": 55,
+      "id": "55",
       "title": "Có Chàng Trai Viết Lên Cây",
       "duration": "04:55",
       "album_id": 19,
       "artist_id": 11,
-      "genre_ids": [2],
+      "genre_ids": [
+        2
+      ],
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3",
       "views": 3800000,
       "created_at": "2019-11-20T00:00:00Z",
       "updated_at": "2019-11-20T00:00:00Z"
     },
     {
-      "id": 56,
+      "id": "56",
       "title": "Nhạt",
       "duration": "04:10",
       "album_id": 19,
       "artist_id": 11,
-      "genre_ids": [2],
+      "genre_ids": [
+        2
+      ],
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3",
       "views": 2000000,
       "created_at": "2019-11-20T00:00:00Z",
       "updated_at": "2019-11-20T00:00:00Z"
     },
     {
-      "id": 57,
+      "id": "57",
       "title": "Huyền Thoại",
       "duration": "04:00",
       "album_id": 19,
       "artist_id": 11,
-      "genre_ids": [1],
+      "genre_ids": [
+        1
+      ],
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3",
       "views": 1200000,
       "created_at": "2019-11-20T00:00:00Z",
       "updated_at": "2019-11-20T00:00:00Z"
     },
     {
-      "id": 58,
+      "id": "58",
       "title": "Từ Đó",
       "duration": "04:20",
       "album_id": 20,
       "artist_id": 11,
-      "genre_ids": [2],
+      "genre_ids": [
+        2
+      ],
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3",
       "views": 2900000,
       "created_at": "2017-03-08T00:00:00Z",
       "updated_at": "2017-03-08T00:00:00Z"
     },
     {
-      "id": 59,
+      "id": "59",
       "title": "Hà Lan",
       "duration": "03:50",
       "album_id": 20,
       "artist_id": 11,
-      "genre_ids": [2],
+      "genre_ids": [
+        2
+      ],
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3",
       "views": 1800000,
       "created_at": "2017-03-08T00:00:00Z",
       "updated_at": "2017-03-08T00:00:00Z"
     },
     {
-      "id": 60,
+      "id": "60",
       "title": "Tôi Chỉ Muốn Nói",
       "duration": "03:30",
       "album_id": 20,
       "artist_id": 11,
-      "genre_ids": [2],
+      "genre_ids": [
+        2
+      ],
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3",
       "views": 1500000,
       "created_at": "2017-03-08T00:00:00Z",
       "updated_at": "2017-03-08T00:00:00Z"
     },
     {
-      "id": 61,
+      "id": "61",
       "title": "Vợ Người Ta",
       "duration": "03:40",
       "album_id": 21,
       "artist_id": 11,
-      "genre_ids": [1],
+      "genre_ids": [
+        1
+      ],
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3",
       "views": 9000000,
       "created_at": "2015-09-15T00:00:00Z",
       "updated_at": "2015-09-15T00:00:00Z"
     },
     {
-      "id": 62,
+      "id": "62",
       "title": "Nước Ngoài",
       "duration": "05:05",
       "album_id": 21,
       "artist_id": 11,
-      "genre_ids": [2],
+      "genre_ids": [
+        2
+      ],
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3",
       "views": 1200000,
       "created_at": "2015-09-15T00:00:00Z",
       "updated_at": "2015-09-15T00:00:00Z"
     },
     {
-      "id": 63,
+      "id": "63",
       "title": "Tri Kỷ",
       "duration": "04:15",
       "album_id": 21,
       "artist_id": 11,
-      "genre_ids": [2],
+      "genre_ids": [
+        2
+      ],
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3",
       "views": 2500000,
       "created_at": "2015-09-15T00:00:00Z",
       "updated_at": "2015-09-15T00:00:00Z"
     },
     {
-      "id": 64,
+      "id": "64",
       "title": "Thằng Điên",
       "duration": "04:10",
       "album_id": 22,
       "artist_id": 12,
-      "genre_ids": [4, 1],
+      "genre_ids": [
+        4,
+        1
+      ],
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3",
       "views": 4800000,
       "created_at": "2014-05-20T00:00:00Z",
       "updated_at": "2014-05-20T00:00:00Z"
     },
     {
-      "id": 65,
+      "id": "65",
       "title": "Đã Lỡ Yêu Em Nhiều",
       "duration": "04:20",
       "album_id": 22,
       "artist_id": 12,
-      "genre_ids": [4],
+      "genre_ids": [
+        4
+      ],
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3",
       "views": 3100000,
       "created_at": "2014-05-20T00:00:00Z",
       "updated_at": "2014-05-20T00:00:00Z"
     },
     {
-      "id": 66,
+      "id": "66",
       "title": "Người Nào Đó",
       "duration": "03:55",
       "album_id": 22,
       "artist_id": 12,
-      "genre_ids": [4],
+      "genre_ids": [
+        4
+      ],
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3",
       "views": 1800000,
       "created_at": "2014-05-20T00:00:00Z",
       "updated_at": "2014-05-20T00:00:00Z"
     },
     {
-      "id": 67,
+      "id": "67",
       "title": "Forever Alone",
       "duration": "03:50",
       "album_id": 23,
       "artist_id": 12,
-      "genre_ids": [4],
+      "genre_ids": [
+        4
+      ],
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3",
       "views": 3500000,
       "created_at": "2013-02-14T00:00:00Z",
       "updated_at": "2013-02-14T00:00:00Z"
     },
     {
-      "id": 68,
+      "id": "68",
       "title": "Bâng Khuâng",
       "duration": "04:05",
       "album_id": 23,
       "artist_id": 12,
-      "genre_ids": [4],
+      "genre_ids": [
+        4
+      ],
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3",
       "views": 2900000,
       "created_at": "2013-02-14T00:00:00Z",
       "updated_at": "2013-02-14T00:00:00Z"
     },
     {
-      "id": 69,
+      "id": "69",
       "title": "She Neva Knows",
       "duration": "03:55",
       "album_id": 23,
       "artist_id": 12,
-      "genre_ids": [4, 5],
+      "genre_ids": [
+        4,
+        5
+      ],
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3",
       "views": 1500000,
       "created_at": "2013-02-14T00:00:00Z",
       "updated_at": "2013-02-14T00:00:00Z"
     },
     {
-      "id": 70,
+      "id": "70",
       "title": "Crying Over You",
       "duration": "04:45",
       "album_id": 24,
       "artist_id": 12,
-      "genre_ids": [4],
+      "genre_ids": [
+        4
+      ],
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-9.mp3",
       "views": 2700000,
       "created_at": "2018-08-08T00:00:00Z",
       "updated_at": "2018-08-08T00:00:00Z"
     },
     {
-      "id": 71,
+      "id": "71",
       "title": "Đi Về Nhà (Feat. Đen)",
       "duration": "03:40",
       "album_id": 24,
       "artist_id": 12,
-      "genre_ids": [3, 4],
+      "genre_ids": [
+        3,
+        4
+      ],
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-9.mp3",
       "views": 5000000,
       "created_at": "2018-08-08T00:00:00Z",
       "updated_at": "2018-08-08T00:00:00Z"
     },
     {
-      "id": 72,
+      "id": "72",
       "title": "Dân Chơi Xóm",
       "duration": "03:20",
       "album_id": 24,
       "artist_id": 12,
-      "genre_ids": [3, 5],
+      "genre_ids": [
+        3,
+        5
+      ],
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-9.mp3",
       "views": 1200000,
       "created_at": "2018-08-08T00:00:00Z",
       "updated_at": "2018-08-08T00:00:00Z"
     },
     {
-      "id": 73,
+      "id": "73",
       "title": "906090",
       "duration": "03:15",
       "album_id": 25,
       "artist_id": 13,
-      "genre_ids": [1, 5],
+      "genre_ids": [
+        1,
+        5
+      ],
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-10.mp3",
       "views": 2000000,
       "created_at": "2022-11-01T00:00:00Z",
       "updated_at": "2022-11-01T00:00:00Z"
     },
     {
-      "id": 74,
+      "id": "74",
       "title": "Một Cọng Tóc Mai",
       "duration": "03:30",
       "album_id": 25,
       "artist_id": 13,
-      "genre_ids": [1, 5],
+      "genre_ids": [
+        1,
+        5
+      ],
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-10.mp3",
       "views": 1500000,
       "created_at": "2022-11-01T00:00:00Z",
       "updated_at": "2022-11-01T00:00:00Z"
     },
     {
-      "id": 75,
+      "id": "75",
       "title": "Khá Khen",
       "duration": "03:25",
       "album_id": 25,
       "artist_id": 13,
-      "genre_ids": [1, 5],
+      "genre_ids": [
+        1,
+        5
+      ],
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-10.mp3",
       "views": 1000000,
       "created_at": "2022-11-01T00:00:00Z",
       "updated_at": "2022-11-01T00:00:00Z"
     },
     {
-      "id": 76,
+      "id": "76",
       "title": "Vũ Điệu Cồng Chiêng",
       "duration": "04:00",
       "album_id": 26,
       "artist_id": 13,
-      "genre_ids": [5],
+      "genre_ids": [
+        5
+      ],
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-11.mp3",
       "views": 4000000,
       "created_at": "2015-05-05T00:00:00Z",
       "updated_at": "2015-05-05T00:00:00Z"
     },
     {
-      "id": 77,
+      "id": "77",
       "title": "Ngày Mai",
       "duration": "03:50",
       "album_id": 26,
       "artist_id": 13,
-      "genre_ids": [5],
+      "genre_ids": [
+        5
+      ],
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-11.mp3",
       "views": 2800000,
       "created_at": "2015-05-05T00:00:00Z",
       "updated_at": "2015-05-05T00:00:00Z"
     },
     {
-      "id": 78,
+      "id": "78",
       "title": "Thế Giới Không Có Anh",
       "duration": "04:10",
       "album_id": 26,
       "artist_id": 13,
-      "genre_ids": [1, 2],
+      "genre_ids": [
+        1,
+        2
+      ],
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-11.mp3",
       "views": 1200000,
       "created_at": "2015-05-05T00:00:00Z",
       "updated_at": "2015-05-05T00:00:00Z"
     },
     {
-      "id": 79,
+      "id": "79",
       "title": "Có Ai Thương Em Như Anh",
       "duration": "04:25",
       "album_id": 27,
       "artist_id": 13,
-      "genre_ids": [2, 1],
+      "genre_ids": [
+        2,
+        1
+      ],
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-12.mp3",
       "views": 3500000,
       "created_at": "2016-07-07T00:00:00Z",
       "updated_at": "2016-07-07T00:00:00Z"
     },
     {
-      "id": 80,
+      "id": "80",
       "title": "Em Không Là Duy Nhất",
       "duration": "04:30",
       "album_id": 27,
       "artist_id": 13,
-      "genre_ids": [2],
+      "genre_ids": [
+        2
+      ],
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-12.mp3",
       "views": 3200000,
       "created_at": "2016-07-07T00:00:00Z",
       "updated_at": "2016-07-07T00:00:00Z"
     },
     {
-      "id": 81,
+      "id": "81",
       "title": "Nước Mắt Em Lau Bằng Tình Yêu Mới",
       "duration": "04:15",
       "album_id": 27,
       "artist_id": 13,
-      "genre_ids": [2],
+      "genre_ids": [
+        2
+      ],
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-12.mp3",
       "views": 2500000,
       "created_at": "2016-07-07T00:00:00Z",
       "updated_at": "2016-07-07T00:00:00Z"
     },
     {
-      "id": 82,
+      "id": "82",
       "title": "Có Không Giữ Mất Đừng Tìm",
       "duration": "03:45",
       "album_id": 28,
       "artist_id": 14,
-      "genre_ids": [1, 5],
+      "genre_ids": [
+        1,
+        5
+      ],
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-13.mp3",
       "views": 4200000,
       "created_at": "2022-05-12T00:00:00Z",
       "updated_at": "2022-05-12T00:00:00Z"
     },
     {
-      "id": 83,
+      "id": "83",
       "title": "Lớn Rồi Còn Khóc Nhè",
       "duration": "04:20",
       "album_id": 28,
       "artist_id": 14,
-      "genre_ids": [1],
+      "genre_ids": [
+        1
+      ],
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-13.mp3",
       "views": 2500000,
       "created_at": "2022-05-12T00:00:00Z",
       "updated_at": "2022-05-12T00:00:00Z"
     },
     {
-      "id": 84,
+      "id": "84",
       "title": "Người Ta Có Thương Mình Đâu",
       "duration": "04:10",
       "album_id": 28,
       "artist_id": 14,
-      "genre_ids": [2],
+      "genre_ids": [
+        2
+      ],
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-13.mp3",
       "views": 2800000,
       "created_at": "2022-05-12T00:00:00Z",
       "updated_at": "2022-05-12T00:00:00Z"
     },
     {
-      "id": 85,
+      "id": "85",
       "title": "Sáng Mắt Chưa",
       "duration": "04:10",
       "album_id": 29,
       "artist_id": 14,
-      "genre_ids": [1],
+      "genre_ids": [
+        1
+      ],
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-14.mp3",
       "views": 5100000,
       "created_at": "2019-07-31T00:00:00Z",
       "updated_at": "2019-07-31T00:00:00Z"
     },
     {
-      "id": 86,
+      "id": "86",
       "title": "Thật Bất Ngờ",
       "duration": "03:55",
       "album_id": 29,
       "artist_id": 14,
-      "genre_ids": [1],
+      "genre_ids": [
+        1
+      ],
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-14.mp3",
       "views": 3900000,
       "created_at": "2019-07-31T00:00:00Z",
       "updated_at": "2019-07-31T00:00:00Z"
     },
     {
-      "id": 87,
+      "id": "87",
       "title": "Vẽ",
       "duration": "03:50",
       "album_id": 29,
       "artist_id": 14,
-      "genre_ids": [1, 6],
+      "genre_ids": [
+        1,
+        6
+      ],
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-14.mp3",
       "views": 1200000,
       "created_at": "2019-07-31T00:00:00Z",
       "updated_at": "2019-07-31T00:00:00Z"
     },
     {
-      "id": 88,
+      "id": "88",
       "title": "Bốn Chữ Lắm",
       "duration": "04:05",
       "album_id": 30,
       "artist_id": 14,
-      "genre_ids": [1],
+      "genre_ids": [
+        1
+      ],
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-15.mp3",
       "views": 6000000,
       "created_at": "2014-06-17T00:00:00Z",
       "updated_at": "2014-06-17T00:00:00Z"
     },
     {
-      "id": 89,
+      "id": "89",
       "title": "Đông",
       "duration": "04:00",
       "album_id": 30,
       "artist_id": 14,
-      "genre_ids": [1, 2],
+      "genre_ids": [
+        1,
+        2
+      ],
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-15.mp3",
       "views": 1500000,
       "created_at": "2014-06-17T00:00:00Z",
       "updated_at": "2014-06-17T00:00:00Z"
     },
     {
-      "id": 90,
+      "id": "90",
       "title": "Ngồi Hát Đỡ Buồn",
       "duration": "04:15",
       "album_id": 30,
       "artist_id": 14,
-      "genre_ids": [1, 9],
+      "genre_ids": [
+        1,
+        9
+      ],
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-15.mp3",
       "views": 2000000,
       "created_at": "2014-06-17T00:00:00Z",
@@ -1576,7 +1891,7 @@
   ],
   "playlists": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Nhạc Chill Buổi Sáng",
       "user_id": 5,
       "is_public": true,
@@ -1585,7 +1900,7 @@
       "songs": []
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Gym Motivation",
       "user_id": 5,
       "is_public": false,
@@ -1594,7 +1909,7 @@
       "songs": []
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Sơn Tùng Collection",
       "user_id": 6,
       "is_public": true,
@@ -1603,7 +1918,7 @@
       "songs": []
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "Nhạc Buồn",
       "user_id": 8,
       "is_public": true,
@@ -1612,7 +1927,7 @@
       "songs": []
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "Top Trending",
       "user_id": 1,
       "is_public": true,
@@ -1623,34 +1938,34 @@
   ],
   "banners": [
     {
-      "id": 1,
+      "id": "1",
       "url": "https://placehold.co/1200x300?text=Banner+1+New+Hits",
       "position": "TOP_HOME"
     },
     {
-      "id": 2,
+      "id": "2",
       "url": "https://placehold.co/1200x300?text=Banner+2+Son+Tung",
       "position": "TOP_HOME"
     },
     {
-      "id": 3,
+      "id": "3",
       "url": "https://placehold.co/600x300?text=Banner+3+Premium",
       "position": "SIDEBAR"
     },
     {
-      "id": 4,
+      "id": "4",
       "url": "https://placehold.co/600x300?text=Banner+4+Events",
       "position": "SIDEBAR"
     },
     {
-      "id": 5,
+      "id": "5",
       "url": "https://placehold.co/1200x150?text=Banner+5+Footer",
       "position": "FOOTER"
     }
   ],
   "comments": [
     {
-      "id": 1,
+      "id": "1",
       "user_id": 5,
       "song_id": 1,
       "content": "Bài hát hay quá!",
@@ -1659,7 +1974,7 @@
       "replies": []
     },
     {
-      "id": 2,
+      "id": "2",
       "user_id": 8,
       "song_id": 1,
       "content": "Sếp Tùng comeback đỉnh thật",
@@ -1679,38 +1994,63 @@
     }
   ],
   "wishlist": [
-    { "id": 1, "user_id": 5, "song_id": 1 },
-    { "id": 2, "user_id": 5, "song_id": 3 },
-    { "id": 3, "user_id": 8, "song_id": 6 },
-    { "id": 4, "user_id": 6, "song_id": 1 },
-    { "id": 5, "user_id": 5, "song_id": 10 }
+    {
+      "id": "1",
+      "user_id": 5,
+      "song_id": 1
+    },
+    {
+      "id": "2",
+      "user_id": 5,
+      "song_id": 3
+    },
+    {
+      "id": "3",
+      "user_id": 8,
+      "song_id": 6
+    },
+    {
+      "id": "4",
+      "user_id": 6,
+      "song_id": 1
+    },
+    {
+      "id": "5",
+      "user_id": 5,
+      "song_id": 10
+    }
   ],
   "history": [
     {
-      "id": 1,
+      "id": "1",
       "user_id": 5,
       "song_id": 1,
       "played_at": "2024-03-10T10:00:00Z"
     },
     {
-      "id": 2,
+      "id": "2",
       "user_id": 5,
       "song_id": 2,
       "played_at": "2024-03-10T10:05:00Z"
     },
     {
-      "id": 3,
+      "id": "3",
       "user_id": 6,
       "song_id": 1,
       "played_at": "2024-03-11T12:00:00Z"
     },
     {
-      "id": 4,
+      "id": "4",
       "user_id": 5,
       "song_id": 6,
       "played_at": "2024-03-12T14:00:00Z"
     },
-    { "id": 5, "user_id": 8, "song_id": 3, "played_at": "2024-03-13T16:00:00Z" }
+    {
+      "id": "5",
+      "user_id": 8,
+      "song_id": 3,
+      "played_at": "2024-03-13T16:00:00Z"
+    }
   ],
   "statistics": {
     "totalUsers": 10,
