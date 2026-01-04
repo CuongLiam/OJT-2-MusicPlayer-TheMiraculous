@@ -6,6 +6,7 @@ import { message } from 'antd';
 const SignInModal = ({ onClose }: { onClose?: () => void }) => {
   const [visible, setVisible] = useState(true);
   const [form, setForm] = useState({ emailOrUserName: '', password: '' });
+  const [remember, setRemember] = useState(false);
   const [errors, setErrors] = useState<{ emailOrUserName?: string; password?: string }>({});
 
   function validate() {
@@ -33,7 +34,13 @@ const SignInModal = ({ onClose }: { onClose?: () => void }) => {
       const userRecord = result?.data;
       if (!userRecord) throw new Error('Unexpected signin response');
       // store normalized user (API already sets `role`)
-      localStorage.setItem('userLogin', JSON.stringify(userRecord));
+      if (remember) {
+        localStorage.setItem('userLogin', JSON.stringify(userRecord));
+        sessionStorage.removeItem('userLogin');
+      } else {
+        sessionStorage.setItem('userLogin', JSON.stringify(userRecord));
+        localStorage.removeItem('userLogin');
+      }
       // close modal and redirect
       setVisible(false);
       onClose?.();
@@ -119,11 +126,13 @@ const SignInModal = ({ onClose }: { onClose?: () => void }) => {
               {/* Keep Me Signed In & Forgot Password */}
               <div className="flex items-center justify-between text-white text-xs md:text-sm">
                 <label className="flex items-center gap-2 cursor-pointer">
-                  <input
-                    type="checkbox"
-                    className="w-4 h-4 rounded border-2 border-white bg-transparent checked:bg-white checked:border-white"
-                  />
-                  <span>Keep Me Signed In</span>
+                    <input
+                      type="checkbox"
+                      checked={remember}
+                      onChange={(e) => setRemember(e.target.checked)}
+                      className="w-4 h-4 rounded border-2 border-white bg-transparent checked:bg-white checked:border-white"
+                    />
+                    <span>Keep Me Signed In</span>
                 </label>
                 <a href="#" className="font-semibold hover:text-gray-100 transition-colors">
                   Forgot Password?

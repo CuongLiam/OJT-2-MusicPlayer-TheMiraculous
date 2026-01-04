@@ -16,7 +16,8 @@ const Header: React.FC<HeaderProps> = ({ onMenuClick }) => {
   const [user, setUser] = useState<any>(null);
 
   useEffect(() => {
-    const raw = localStorage.getItem('userLogin');
+    // Prefer sessionStorage (temporary session) if present, otherwise fall back to localStorage
+    const raw = sessionStorage.getItem('userLogin') || localStorage.getItem('userLogin');
     if (raw) {
       try {
         setUser(JSON.parse(raw));
@@ -54,6 +55,7 @@ const Header: React.FC<HeaderProps> = ({ onMenuClick }) => {
 
   function handleLogout() {
     localStorage.removeItem('userLogin');
+    sessionStorage.removeItem('userLogin');
     setUser(null);
     message.success('Logged out');
     setTimeout(() => window.location.reload(), 500);
