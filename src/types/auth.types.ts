@@ -4,6 +4,7 @@ export interface User {
   first_name: string;
   last_name: string;
   email: string;
+  password: string;
   profile_image?: string | null;
   bio?: string | null;
   status: UserStatus;
