@@ -1,4 +1,4 @@
-import '../../assets/css/AlbumCard.css';
+// import '../../assets/css/AlbumCard.css';
 export interface AlbumData {
   id: number;
   title: string;
