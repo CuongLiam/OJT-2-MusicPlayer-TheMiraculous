@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { message } from 'antd';
 import { FaSearch, FaBars, FaUserPlus, FaUser, FaSignOutAlt } from 'react-icons/fa';
 import LanguageIcon from '../../assets/Header/LanguageIcon.png';
@@ -53,12 +54,14 @@ const Header: React.FC<HeaderProps> = ({ onMenuClick }) => {
     };
   }, []);
 
+  const navigate = useNavigate();
+
   function handleLogout() {
     localStorage.removeItem('userLogin');
     sessionStorage.removeItem('userLogin');
     setUser(null);
     message.success('Logged out');
-    setTimeout(() => window.location.reload(), 500);
+    navigate('/', { replace: true });
   }
 
   return (

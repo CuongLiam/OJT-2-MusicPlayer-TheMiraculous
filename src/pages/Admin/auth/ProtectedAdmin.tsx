@@ -5,7 +5,7 @@ export default function ProtectedAdmin({
 }: {
   children: React.ReactNode;
 }) {
-  let isAdmin = false;
+  let isAdmin = true;
 
   if (isAdmin) {
     return (
