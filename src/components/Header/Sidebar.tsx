@@ -26,13 +26,13 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
     { name: 'Albums', icon: AlbumIcon, path: '/album' },
     { name: 'Artists', icon: ArtistsIcon, path: '/artists' },
     { name: 'Genres', icon: GenresIcon, path: '/genre' },
-    { name: 'Top Tracks', icon: TopTracksIcon }, 
+    { name: 'Top Tracks', icon: TopTracksIcon, path: '/top-track' }, 
   ], []);
 
   const secondaryMenuItems = useMemo(() => [
     { name: 'Downloads', icon: DownloadsIcon },
-    { name: 'Favourites', icon: FavoritesIcon },
-    { name: 'History', icon: HistoryIcon },
+    { name: 'Favourites', icon: FavoritesIcon, path: '/favourite' },
+    { name: 'History', icon: HistoryIcon, path: '/history' },
   ], []);
 
   const getActiveItemFromUrl = (pathname: string) => {
@@ -176,7 +176,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
                 <li
                   key={item.name}
                   className="w-full cursor-pointer"
-                  onClick={() => setActiveItem(item.name)}
+                  onClick={() => handleItemClick(item)}
                 >
                   <div
                     className={`

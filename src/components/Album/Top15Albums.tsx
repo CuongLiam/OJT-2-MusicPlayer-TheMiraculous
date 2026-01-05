@@ -8,7 +8,7 @@ interface Song {
   duration: string;
 }
 
-const TOP_15_DATA: Song[] = [
+const TOP_15_DATA: Song[] = [   
   { id: 1, title: "Until I Met You", artist: "Ava Cornish", duration: "5:10", image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=400&auto=format&fit=crop" },
   { id: 2, title: "Walking Promises", artist: "Ava Cornish", duration: "5:10", image: "https://images.unsplash.com/photo-1512484776495-a09d92e87c3b?q=80&w=200&auto=format&fit=crop" },
   { id: 3, title: "Gimme Some Courage", artist: "Ava Cornish", duration: "5:10", image: "https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?q=80&w=200&auto=format&fit=crop" },

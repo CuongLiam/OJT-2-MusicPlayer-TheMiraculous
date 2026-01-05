@@ -1,5 +1,5 @@
 import { BarChart2} from 'lucide-react';
-import { Album } from '../../types/music.types'; // Import Interface chuẩn
+import { Album } from '../../types/music.types';
 import { Link } from 'react-router-dom';
 
 interface NewReleasesProps {
@@ -7,15 +7,11 @@ interface NewReleasesProps {
 }
 
 const NewReleases: React.FC<NewReleasesProps> = ({ data }) => {
-  // Chỉ lấy 4 album đầu tiên để hiển thị cho khớp layout 4 cột
   const releases = data.slice(0, 4);
-
-  // Nếu không có dữ liệu thì không render
   if (!data || data.length === 0) return null;
 
   return (
     <section className="w-full max-w-362.5 mx-auto mt-12 mb-20">
-      {/* Header giữ nguyên */}
       <div className="flex justify-between items-end mb-8 px-2 xl:px-16">
         <div className="flex flex-col gap-1">
           <h2 className="text-xl md:text-2xl font-bold text-[#3BC8E7] tracking-wide">
@@ -28,16 +24,13 @@ const NewReleases: React.FC<NewReleasesProps> = ({ data }) => {
           </Link>
       </div>
 
-      {/* Body giữ nguyên CSS */}
       <div className="relative px-2 xl:px-16">
         <div className="absolute top-1.75 left-2 xl:left-16 right-2 xl:right-16 h-px bg-[#3BC8E7]/30 z-0"></div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative z-10">
           
-          {/* Map qua dữ liệu thật (releases) */}
           {releases.map((item, index) => (
             <div key={item.id} className="flex flex-col gap-6 group cursor-pointer">
               
-              {/* Logic chấm tròn timeline giữ nguyên */}
               <div className={`w-4 h-4 rounded-full border-2 bg-[#14182a] transition-all duration-300
                 ${index === 0 
                   ? 'border-white scale-125 shadow-[0_0_10px_rgba(255,255,255,0.5)]' 

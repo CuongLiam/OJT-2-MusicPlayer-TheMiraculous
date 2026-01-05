@@ -3,7 +3,6 @@ import Artists from './pages/Artist/Artists'
 import Home from './pages/Home/Home'
 import Genre from './pages/Genre/Genre'
 import MoreGenres from './pages/Genre/MoreGenres'
-import Test from './pages/Artist/Test'
 import Album from './pages/Album/Album'
 import AllFeaturedAlbums from './pages/Album/AllFeaturedAlbums'
 import AllTrendingAlbums from './pages/Album/AllTrendingAlbums'
@@ -23,6 +22,13 @@ import SignUpModal from './components/auth/SignUpModal'
 import Favourite from  './pages/Favourite/Favourite'
 import TopTrack from './pages/TopTracks/TopTrack'
 import AllNewReleases from './pages/Album/AllNewReleasesAlbum'
+import ArtistLogin from './pages/ArtistAdmin/auth/ArtistLogin'
+import ArtistRegis from './pages/ArtistAdmin/auth/ArtistRegis'
+import ArtistDashboard from './pages/ArtistAdmin/components/ArtistDashboard'
+import ProtectedArtistRoute from './pages/ArtistAdmin/components/ProtectedArtistRoute'
+import SongManagement from './pages/ArtistAdmin/components/SongManagement'
+import AlbumManagement from './pages/ArtistAdmin/components/AlbumManagement'
+import Settings from './pages/ArtistAdmin/components/Settings'
 import History from './pages/History/history'
 
 export default function RouterConfig() {
@@ -33,6 +39,7 @@ export default function RouterConfig() {
       <Route path='/signin' element = {<SignInModal/>}></Route>
       <Route path='/signup' element = {<SignUpModal/>}></Route>
 
+      {/* --- ADMIN ROUTES --- */}
       <Route path='/admin' element={
         <ProtectedAdmin>
           <Admin />
@@ -49,11 +56,10 @@ export default function RouterConfig() {
         <Route path="artists" element={<AdminArtists />} />
       </Route>
 
-
+      {/* --- PUBLIC USER ROUTES --- */}
       <Route path='/artists' element = {<Artists/>}></Route>
       <Route path='/genre' element = {<Genre/>}></Route>
       <Route path='/more-genres' element = {<MoreGenres/>}></Route>
-      <Route path='/test' element = {<Test/>}></Route>
       <Route path='/album' element = {<Album/>}></Route>
       <Route path='/album/featured-albums' element = {<AllFeaturedAlbums/>}></Route>
       <Route path='/album/trending-albums' element = {<AllTrendingAlbums/>}></Route>
@@ -61,7 +67,20 @@ export default function RouterConfig() {
       <Route path='/favourite' element = {<Favourite/>}></Route>
       <Route path='/top-track' element = {<TopTrack/>}></Route>
       <Route path="/album/new-releases" element={<AllNewReleases />} />
-      <Route path='/history' element = {<History/>}></Route>
+
+      <Route path='/artist/login' element={<ArtistLogin />} />
+      <Route path='/artist/register' element={<ArtistRegis />} />
+
+      <Route element={<ProtectedArtistRoute />}>
+        <Route path="/artist" element={<Navigate to="/artist/dashboard" />} />
+        <Route path="/artist/dashboard" element={<ArtistDashboard />} />
+        <Route path="/artist/songs" element={<SongManagement />} />
+        <Route path="/artist/albums" element={<AlbumManagement />} />
+        <Route path="/artist/settings" element={<Settings />} />
+      </Route>
+
+      <Route path='/history' element={<History/>}></Route>
+
     </Routes>
   )
 }

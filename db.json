@@ -64,7 +64,7 @@
       "id": "5",
       "first_name": "Sơn Tùng",
       "last_name": "M-TP",
-      "email": "sontung@mtp.vn",
+      "email": "sontung@gmail.com",
       "password": "user123",
       "profile_image": "https://res.cloudinary.com/douhnxire/image/upload/v1767059941/avatar-STMTP_vewxiy.webp",
       "bio": "Ca sĩ nhạc Pop hàng đầu Việt Nam",
@@ -78,24 +78,24 @@
     },
     {
       "id": "6",
-      "first_name": "Đen",
-      "last_name": "Vâu",
-      "email": "denvau@rap.vn",
+      "first_name": "Vâu",
+      "last_name": "Đen",
+      "email": "denvau@gmail.com",
       "password": "user123",
-      "profile_image": "https://res.cloudinary.com/douhnxire/image/upload/v1767059940/avatar-DV_iwunql.webp",
-      "bio": "Rapper tử tế, Chill music",
+      "profile_image": "https://res.cloudinary.com/douhnxire/image/upload/v1767608327/wb4b0jdjmlabpjoxbf97.webp",
+      "bio": "Rapper đẳng's cấp's",
       "status": "ACTIVE",
       "roles": [
         "ROLE_ARTIST"
       ],
       "created_at": "2024-01-03T09:30:00Z",
-      "updated_at": "2024-01-03T09:30:00Z"
+      "updated_at": "2026-01-05T10:18:52.770Z"
     },
     {
       "id": "7",
       "first_name": "Mỹ",
       "last_name": "Tâm",
-      "email": "mytam@entertainment.vn",
+      "email": "mytam@gmail.com",
       "password": "user123",
       "profile_image": "https://res.cloudinary.com/douhnxire/image/upload/v1767059941/avatar-MT_pvhapu.jpg",
       "bio": "Họa mi tóc nâu",
@@ -110,7 +110,7 @@
       "id": "8",
       "first_name": "Hà",
       "last_name": "Anh Tuấn",
-      "email": "hat@romance.vn",
+      "email": "hat@gmail.com",
       "password": "user123",
       "profile_image": "https://res.cloudinary.com/douhnxire/image/upload/v1767059941/avatar-HAT_izutfz.jpg",
       "bio": "Hoàng tử nhạc Ballad/R&B",
@@ -125,7 +125,7 @@
       "id": "9",
       "first_name": "Hoàng",
       "last_name": "Thùy Linh",
-      "email": "htl@folk.vn",
+      "email": "htl@gmail.com",
       "password": "user123",
       "profile_image": "https://res.cloudinary.com/douhnxire/image/upload/v1767059942/avatar-HTL_wvyxii.webp",
       "bio": "Nữ hoàng văn học dân gian đương đại",
@@ -134,13 +134,13 @@
         "ROLE_ARTIST"
       ],
       "created_at": "2024-01-04T08:15:00Z",
-      "updated_at": "2024-01-04T08:15:00Z"
+      "updated_at": "2026-01-05T12:04:42.220Z"
     },
     {
       "id": "10",
       "first_name": "Binz",
       "last_name": "Da Poet",
-      "email": "binz@spacespeakers.vn",
+      "email": "binz@gmail.com",
       "password": "user123",
       "profile_image": "https://res.cloudinary.com/douhnxire/image/upload/v1767059940/avatar-Binz_ofqes8.webp",
       "bio": "Bad boy si tình, Rapper",
@@ -155,7 +155,7 @@
       "id": "11",
       "first_name": "Phan",
       "last_name": "Mạnh Quỳnh",
-      "email": "pmq@music.vn",
+      "email": "pmq@gmail.com",
       "password": "user123",
       "profile_image": "https://res.cloudinary.com/douhnxire/image/upload/v1767059941/avatar-PMQ_f9jr2p.webp",
       "bio": "Nhạc sĩ, ca sĩ kể chuyện",
@@ -170,7 +170,7 @@
       "id": "12",
       "first_name": "Justa",
       "last_name": "Tee",
-      "email": "justatee@underground.vn",
+      "email": "justatee@gmail.com",
       "password": "user123",
       "profile_image": "https://res.cloudinary.com/douhnxire/image/upload/v1767059942/avatar-JTT_ndumux.webp",
       "bio": "King of Melody",
@@ -185,7 +185,7 @@
       "id": "13",
       "first_name": "Tóc",
       "last_name": "Tiên",
-      "email": "toctien@dance.vn",
+      "email": "toctien@gmail.com",
       "password": "user123",
       "profile_image": "https://res.cloudinary.com/douhnxire/image/upload/v1767059942/avatar-TT_tgvypx.jpg",
       "bio": "Biểu tượng phong cách và vũ đạo",
@@ -200,7 +200,7 @@
       "id": "14",
       "first_name": "Trúc",
       "last_name": "Nhân",
-      "email": "trucnhan@satire.vn",
+      "email": "trucnhan@gmail.com",
       "password": "user123",
       "profile_image": "https://res.cloudinary.com/douhnxire/image/upload/v1767059942/avatar-TN_dj8209.jpg",
       "bio": "Ca sĩ của những MV sáng tạo",
@@ -274,6 +274,22 @@
       ],
       "created_at": "2026-01-05T00:47:08.031Z",
       "updated_at": "2026-01-05T00:47:08.105Z"
+    },
+    {
+      "id": "83a8",
+      "username": "daotrongtri",
+      "email": "daotrongtri@gmail.com",
+      "password": "123123123",
+      "first_name": "Trí",
+      "last_name": "Trọng",
+      "roles": [
+        "ROLE_ARTIST"
+      ],
+      "profile_image": "https://res.cloudinary.com/douhnxire/image/upload/v1767600780/rrjfaswq8qc43xobuzer.png",
+      "bio": "New Artist",
+      "status": "ACTIVE",
+      "created_at": "2026-01-05T08:59:29.232Z",
+      "updated_at": "2026-01-05T08:59:29.233Z"
     }
   ],
   "genres": [
@@ -377,7 +393,7 @@
       "cover_image": "https://res.cloudinary.com/douhnxire/image/upload/v1767062778/album-THNNMC_pvdbiw.webp",
       "type": "FREE",
       "created_at": "2020-08-05T00:00:00Z",
-      "updated_at": "2020-08-05T00:00:00Z"
+      "updated_at": "2026-01-05T12:00:41.392Z"
     },
     {
       "id": "6",
@@ -387,7 +403,7 @@
       "cover_image": "https://res.cloudinary.com/douhnxire/image/upload/v1767062777/album-MN_kgze92.jpg",
       "type": "PREMIUM",
       "created_at": "2019-05-19T00:00:00Z",
-      "updated_at": "2019-05-19T00:00:00Z"
+      "updated_at": "2026-01-05T12:36:52.260Z"
     },
     {
       "id": "7",
@@ -628,6 +644,15 @@
       "type": "FREE",
       "created_at": "2014-06-17T00:00:00Z",
       "updated_at": "2014-06-17T00:00:00Z"
+    },
+    {
+      "id": "e82e",
+      "title": "Test Album",
+      "artist_id": 6,
+      "cover_image": "https://res.cloudinary.com/douhnxire/image/upload/v1767614513/krxvdyewiacwks2hzlre.webp",
+      "type": "PREMIUM",
+      "release_date": "2026-01-05",
+      "updated_at": "2026-01-05T12:01:54.469Z"
     }
   ],
   "songs": [
@@ -787,7 +812,7 @@
         10
       ],
       "file_url": "https://res.cloudinary.com/douhnxire/video/upload/v1767543878/id0z2tnyknk1sgdo5j0w.mp3",
-      "views": 2200000,
+      "views": 9000000,
       "created_at": "2019-10-21T00:00:00Z",
       "updated_at": "2019-10-21T00:00:00Z",
       "cover_image": "https://i1.sndcdn.com/artworks-hnafgjxy6MNeF3fx-aXrfdg-t500x500.jpg"
@@ -2026,7 +2051,36 @@
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-15.mp3",
       "views": 2000000,
       "created_at": "2014-06-17T00:00:00Z",
-      "updated_at": "2014-06-17T00:00:00Z",
+      "updated_at": "2014-06-17T00:00:00Z"
+    },
+    {
+      "id": "38c2",
+      "title": "Vị nhà",
+      "artist_id": 6,
+      "album_id": 6,
+      "genre_ids": [
+        3,
+        2
+      ],
+      "file_url": "https://res.cloudinary.com/douhnxire/video/upload/v1767612615/rlxzmfmvqo0q2wdghpmr.mp3",
+      "duration": "05:15",
+      "views": 0,
+      "created_at": "2026-01-05T11:30:18.083Z",
+      "updated_at": "2026-01-05T11:30:18.084Z"
+    },
+    {
+      "id": "0d68",
+      "title": "Lãng Đãng",
+      "artist_id": 6,
+      "album_id": 5,
+      "genre_ids": [
+        2
+      ],
+      "file_url": "https://res.cloudinary.com/douhnxire/video/upload/v1767613443/zid5dthzwgqqksv7sn5q.mp3",
+      "duration": "05:22",
+      "views": 0,
+      "created_at": "2026-01-05T11:44:02.568Z",
+      "updated_at": "2026-01-05T11:44:02.568Z",
       "cover_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVBdjYArrjA4rfItRy2ifqwOOHKq8M6cMtyA&s"
     }
   ],
