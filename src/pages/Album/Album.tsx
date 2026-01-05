@@ -44,7 +44,7 @@ const Album: React.FC = () => {
         <Footer />
       </div>
 
-      <MusicPlayerBar isSidebarOpen={isNavbarOpen} />
+      {/* <MusicPlayerBar isSidebarOpen={isNavbarOpen} /> */}
     </div>
   );
 };

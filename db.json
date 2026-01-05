@@ -238,43 +238,53 @@
   "genres": [
     {
       "id": "1",
-      "genre_name": "Pop"
+      "genre_name": "Pop",
+      "cover_image": "https://res.cloudinary.com/douhnxire/image/upload/v1767572920/gctppj3iepzjmyyvpvvy.jpg"
     },
     {
       "id": "2",
-      "genre_name": "Ballad"
+      "genre_name": "Ballad",
+      "cover_image": "https://res.cloudinary.com/douhnxire/image/upload/v1767573035/ovkipthnc0b7zkjzthny.jpg"
     },
     {
       "id": "3",
-      "genre_name": "Rap / Hip-hop"
+      "genre_name": "Rap / Hip-hop",
+      "cover_image": "https://res.cloudinary.com/douhnxire/image/upload/v1767573098/oxmydkpc92igjotwvfbf.jpg"
     },
     {
       "id": "4",
-      "genre_name": "R&B"
+      "genre_name": "R&B",
+      "cover_image": "https://res.cloudinary.com/douhnxire/image/upload/v1767573162/ux2igl9booi0c1xzvbdo.jpg"
     },
     {
       "id": "5",
-      "genre_name": "EDM"
+      "genre_name": "EDM",
+      "cover_image": "https://res.cloudinary.com/douhnxire/image/upload/v1767573240/gzaqg4ucxeretd3xxhx2.jpg"
     },
     {
       "id": "6",
-      "genre_name": "Indie"
+      "genre_name": "Indie",
+      "cover_image": "https://res.cloudinary.com/douhnxire/image/upload/v1767573311/ndj4tb8bhykdtnvzuqsu.jpg"
     },
     {
       "id": "7",
-      "genre_name": "Rock"
+      "genre_name": "Rock",
+      "cover_image": "https://res.cloudinary.com/douhnxire/image/upload/v1767573365/aqu3svky0t42knmyj1ef.jpg"
     },
     {
       "id": "8",
-      "genre_name": "Jazz"
+      "genre_name": "Jazz",
+      "cover_image": "https://res.cloudinary.com/douhnxire/image/upload/v1767573434/mzuhbk6spmytxsavqd0b.jpg"
     },
     {
       "id": "9",
-      "genre_name": "Bolero"
+      "genre_name": "Bolero",
+      "cover_image": "https://res.cloudinary.com/douhnxire/image/upload/v1767573496/t8su8fs0mf0iqzqtpph2.jpg"
     },
     {
       "id": "10",
-      "genre_name": "Lofi"
+      "genre_name": "Lofi",
+      "cover_image": "https://res.cloudinary.com/douhnxire/image/upload/v1767573551/oelmb0o0yjrmaruqzi8t.jpg"
     }
   ],
   "albums": [

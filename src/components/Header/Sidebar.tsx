@@ -36,6 +36,10 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
   ], []);
 
   const getActiveItemFromUrl = (pathname: string) => {
+    if (pathname === '/more-genres') {
+      return 'Genres';
+    }
+
     const activeMainItem = mainMenuItems.find((item) => {
       if (!item.path) return false;
       if (item.path === '/') return pathname === '/';
@@ -116,8 +120,8 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
 
             <div
               className={`
-                 overflow-hidden text-center transition-all duration-300 ease-in-out
-                 ${isOpen ? "opacity-100 max-h-10" : "opacity-0 max-h-0 xl:opacity-0"} 
+                  overflow-hidden text-center transition-all duration-300 ease-in-out
+                  ${isOpen ? "opacity-100 max-h-10" : "opacity-0 max-h-0 xl:opacity-0"} 
                `}
             >
               <h1 className="font-bold text-white text-sm tracking-wide whitespace-nowrap h-5 block">

@@ -164,7 +164,7 @@ const Artists: React.FC = () => {
         </main>
 
         <Footer />
-        <MusicPlayerBar isSidebarOpen={isNavbarOpen} />
+        {/* <MusicPlayerBar isSidebarOpen={isNavbarOpen} /> */}
       </div>
     </div>
   );
