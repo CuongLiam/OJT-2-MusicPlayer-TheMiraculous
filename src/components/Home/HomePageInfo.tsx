@@ -10,21 +10,21 @@ import {
 } from "../../api/core/home.api";
 
 const GENRE_IMAGES: Record<string, string> = {
-  Pop: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?q=80&w=800",
+  Pop: "https://res.cloudinary.com/douhnxire/image/upload/v1767572920/gctppj3iepzjmyyvpvvy.jpg",
   Ballad:
-    "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800",
+    "https://res.cloudinary.com/douhnxire/image/upload/v1767573035/ovkipthnc0b7zkjzthny.jpg",
   "Rap / Hip-hop":
-    "https://images.unsplash.com/photo-1571330735066-03aaa9429d89?q=80&w=800",
+    "https://res.cloudinary.com/douhnxire/image/upload/v1767573098/oxmydkpc92igjotwvfbf.jpg",
   "R&B":
-    "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?q=80&w=800",
-  EDM: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=800",
+    "https://res.cloudinary.com/douhnxire/image/upload/v1767573162/ux2igl9booi0c1xzvbdo.jpg",
+  EDM: "https://res.cloudinary.com/douhnxire/image/upload/v1767573240/gzaqg4ucxeretd3xxhx2.jpg",
   Indie:
-    "https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?q=80&w=800",
-  Rock: "https://images.unsplash.com/photo-1498038432885-c6f3f1b912ee?q=80&w=800",
-  Jazz: "https://images.unsplash.com/photo-1415201364774-f6f0bb35f28f?q=80&w=800",
+    "https://res.cloudinary.com/douhnxire/image/upload/v1767573311/ndj4tb8bhykdtnvzuqsu.jpg",
+  Rock: "https://res.cloudinary.com/douhnxire/image/upload/v1767573365/aqu3svky0t42knmyj1ef.jpg",
+  Jazz: "https://res.cloudinary.com/douhnxire/image/upload/v1767573434/mzuhbk6spmytxsavqd0b.jpg",
   Bolero:
-    "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=800",
-  Lofi: "https://images.unsplash.com/photo-1487180144351-b8472da7d491?q=80&w=800",
+    "https://res.cloudinary.com/douhnxire/image/upload/v1767573496/t8su8fs0mf0iqzqtpph2.jpg",
+  Lofi: "https://res.cloudinary.com/douhnxire/image/upload/v1767573551/oelmb0o0yjrmaruqzi8t.jpg",
 };
 
 /**
