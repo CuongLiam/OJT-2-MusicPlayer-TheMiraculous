@@ -5,6 +5,8 @@ import Header from '../../components/Header/Header';
 import Sidebar, { useSidebarState } from '../../components/Header/Sidebar';
 import Footer from '../../components/Footer/Footer';
 import '../../assets/css/Font.css';
+import { usePlayer } from '../../contexts/PlayerContext';
+import type { Song } from '../../types/music.types';
 
 interface DBGenre {
   id: string | number;
@@ -15,10 +17,15 @@ interface DBGenre {
 interface DBSong {
   id: number | string;
   title: string;
-  artist_id: number;
-  album_id: number;
-  genre_ids: number[];
+  artist_id: number | string;
+  album_id: number | string;
+  genre_ids: Array<number | string>;
   cover_image?: string;
+  file_url?: string;
+  duration?: string;
+  views?: number;
+  created_at?: string;
+  updated_at?: string;
 }
 
 interface DBUser {
@@ -31,7 +38,7 @@ interface DBUser {
 interface DBAlbum {
   id: number | string;
   title: string;
-  cover_image: string;
+  cover_image?: string;
 }
 
 interface SongUI {
@@ -39,6 +46,9 @@ interface SongUI {
   title: string;
   artist: string;
   image: string;
+  // internal: keep original DBSong so we can construct the real Song on click
+  __raw?: DBSong;
+  __album_cover?: string;
 }
 
 interface GenreSection {
@@ -54,6 +64,7 @@ export default function MoreGenres() {
   const [sections, setSections] = useState<GenreSection[]>([]);
   
   const location = useLocation();
+  const player = usePlayer();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -70,7 +81,7 @@ export default function MoreGenres() {
         const users: DBUser[] = await usersRes.json();
         const albums: DBAlbum[] = await albumsRes.json();
 
-        const targetSongId = location.state?.targetSongId;
+        const targetSongId = (location as any).state?.targetSongId;
 
         if (targetSongId) {
           const foundSong = songs.find(s => String(s.id) === String(targetSongId));
@@ -91,7 +102,9 @@ export default function MoreGenres() {
               id: foundSong.id,
               title: foundSong.title,
               artist: artistName,
-              image: finalImage
+              image: finalImage,
+              __raw: foundSong,
+              __album_cover: album?.cover_image || ''
             };
 
             setSections([{
@@ -105,7 +118,7 @@ export default function MoreGenres() {
 
         const newSections: GenreSection[] = genres.map((genre) => {
           const genreSongs = songs.filter((song) => 
-            Array.isArray(song.genre_ids) && song.genre_ids.includes(Number(genre.id))
+            Array.isArray(song.genre_ids) && song.genre_ids.some(g => String(g) === String(genre.id))
           );
 
           const uiSongs: SongUI[] = genreSongs.map((song) => {
@@ -126,7 +139,9 @@ export default function MoreGenres() {
               id: song.id,
               title: song.title,
               artist: artistName,
-              image: finalImage
+              image: finalImage,
+              __raw: song,
+              __album_cover: album?.cover_image || ''
             };
           });
 
@@ -144,11 +159,13 @@ export default function MoreGenres() {
     };
 
     fetchData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location.state]);
 
   useEffect(() => {
-    if (location.state?.targetGenre && sections.length > 0) {
-      const targetGenreName = location.state.targetGenre;
+    const targetGenre = (location as any).state?.targetGenre;
+    if (targetGenre && sections.length > 0) {
+      const targetGenreName = targetGenre;
       
       const index = sections.findIndex(s => s.title === targetGenreName);
       
@@ -170,6 +187,24 @@ export default function MoreGenres() {
       row.scrollBy({ left: direction === 'left' ? -scrollAmount : scrollAmount, behavior: 'smooth' });
     }
   };
+
+  // Build normalized Song object from DBSong for PlayerProvider
+  function buildNormalizedSong(raw: DBSong, artistName: string, albumCover: string): Song {
+    return {
+      id: String(raw.id),
+      title: raw.title,
+      duration: raw.duration || '0:00',
+      album_id: String(raw.album_id ?? ''),
+      artist_id: String(raw.artist_id ?? ''),
+      genre_ids: Array.isArray(raw.genre_ids) ? raw.genre_ids.map(String) : [],
+      file_url: String(raw.file_url ?? ''),
+      views: Number(raw.views ?? 0),
+      created_at: raw.created_at ?? '',
+      updated_at: raw.updated_at ?? '',
+      artist_name: artistName,
+      album_cover: raw.cover_image || albumCover || ''
+    };
+  }
 
   return (
     <div className="w-full min-h-screen bg-[#14182a] flex select-none">
@@ -216,7 +251,21 @@ export default function MoreGenres() {
                   style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
                 >
                   {section.songs.map((song) => (
-                    <div key={song.id} className="flex-none w-40 md:w-50 lg:w-55 snap-start group/card cursor-pointer">
+                    <div
+                      key={song.id}
+                      className="flex-none w-40 md:w-50 lg:w-55 snap-start group/card cursor-pointer"
+                      // keep UI unchanged — only add click behavior
+                      onClick={() => {
+                        if (!song.__raw) return;
+                        const normalized = buildNormalizedSong(
+                          song.__raw,
+                          song.artist,
+                          song.__album_cover || ''
+                        );
+                        // play the clicked song (single)
+                        player.playSong(normalized);
+                      }}
+                    >
                       <div className="relative aspect-square overflow-hidden rounded-lg mb-3 shadow-lg">
                         <img 
                           src={song.image} 
