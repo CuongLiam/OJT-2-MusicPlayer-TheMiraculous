@@ -15,7 +15,7 @@ const AdminUser: React.FC = () => {
     dispatch(fetchUsers());
   }, [dispatch]);
 
-  const handleStatusChange = (userId: number, currentStatus: UserStatus) => {
+  const handleStatusChange = (userId: string, currentStatus: UserStatus) => {
     const newStatus = currentStatus === UserStatus.ACTIVE ? UserStatus.BLOCKED : UserStatus.ACTIVE;
     dispatch(updateUserStatusAsync({ userId, status: newStatus }));
   };

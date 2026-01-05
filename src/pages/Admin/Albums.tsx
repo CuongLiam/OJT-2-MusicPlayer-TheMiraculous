@@ -18,13 +18,13 @@ const AdminAlbum: React.FC = () => {
     dispatch(fetchUsers());
   }, [dispatch]);
 
-  const handleDelete = (albumId: number) => {
+  const handleDelete = (albumId: string) => {
     if (window.confirm('Are you sure you want to delete this album?')) {
       dispatch(deleteAlbumAsync(albumId));
     }
   };
 
-  const getArtistName = (artistId: number) => {
+  const getArtistName = (artistId: string) => {
     const artist = users.find(user => user.id === artistId);
     return artist ? `${artist.first_name} ${artist.last_name}` : `Artist ID: ${artistId}`;
   };

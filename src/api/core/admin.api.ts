@@ -56,7 +56,7 @@ export const deleteBannerApi = async (id: number): Promise<void> => {
   await axios.delete(`${API_URL}/banners/${id}`);
 };
 
-export const deleteAlbumApi = async (id: number): Promise<void> => {
+export const deleteAlbumApi = async (id: string): Promise<void> => {
   await axios.delete(`${API_URL}/albums/${id}`);
 };
 
@@ -64,7 +64,7 @@ export const deleteSongApi = async (id: number): Promise<void> => {
   await axios.delete(`${API_URL}/songs/${id}`);
 };
 
-export const updateUserStatusApi = async (id: number, status: string): Promise<User> => {
+export const updateUserStatusApi = async (id: string, status: string): Promise<User> => {
   const response = await axios.patch(`${API_URL}/users/${id}`, { status });
   return response.data;
 };

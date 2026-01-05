@@ -19,7 +19,7 @@ export const fetchUsers = createAsyncThunk('admin/fetchUsers', async () => {
   return response;
 });
 
-export const updateUserStatusAsync = createAsyncThunk('admin/updateUserStatus', async ({ userId, status }: { userId: number; status: UserStatus }) => {
+export const updateUserStatusAsync = createAsyncThunk('admin/updateUserStatus', async ({ userId, status }: { userId: string; status: UserStatus }) => {
   const response = await updateUserStatusApi(userId, status);
   return response;
 });
@@ -28,7 +28,7 @@ const adminUserSlice = createSlice({
   name: 'adminUser',
   initialState,
   reducers: {
-    updateUserStatus: (state, action: PayloadAction<{ userId: number; status: UserStatus }>) => {
+    updateUserStatus: (state, action: PayloadAction<{ userId: string; status: UserStatus }>) => {
       const user = state.users.find(u => u.id === action.payload.userId);
       if (user) {
         user.status = action.payload.status;

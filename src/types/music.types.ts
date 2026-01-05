@@ -29,7 +29,7 @@ export interface Album {
   id: string;
   title: string;
   release_date: string;
-  artist_id: number;
+  artist_id: string;
   cover_image: string;
   type: 'PREMIUM' | 'FREE';
   created_at: string;
