@@ -17,9 +17,41 @@ interface SidebarProps {
   toggleSidebar: () => void;
 }
 
+interface User {
+  id: number | string;
+  first_name: string;
+  last_name: string;
+  profile_image?: string;
+}
+
 const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
   const navigate = useNavigate();
   const location = useLocation();
+  const [currentUser, setCurrentUser] = useState<User | null>(null);
+
+  useEffect(() => {
+    const checkLoginStatus = () => {
+      const userLocal = localStorage.getItem('userLogin');
+      const userSession = sessionStorage.getItem('userLogin');
+      
+      if (userLocal) {
+        setCurrentUser(JSON.parse(userLocal));
+      } else if (userSession) {
+        setCurrentUser(JSON.parse(userSession));
+      } else {
+        setCurrentUser(null);
+      }
+    };
+
+    checkLoginStatus();
+
+    const handleStorageChange = () => checkLoginStatus();
+    window.addEventListener('storage', handleStorageChange);
+    
+    return () => {
+      window.removeEventListener('storage', handleStorageChange);
+    };
+  }, []);
 
   const mainMenuItems = useMemo(() => [
     { name: 'Discover', icon: DiscoverIcon, path: '/' },
@@ -114,22 +146,57 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
 
         <div className="flex flex-col w-full">
           <div className="flex flex-col items-center justify-center w-full h-32 shrink-0 mb-4 transition-all duration-300">
-            <div className="relative mb-3">
-              <div className="w-12 h-12 rounded-full bg-linear-to-br from-cyan-400 to-blue-500 flex items-center justify-center shadow-[0_0_15px_rgba(6,182,212,0.6)]">
-                <span className="text-white font-bold text-xl">M</span>
-              </div>
-            </div>
+            {currentUser ? (
+              <>
+                <div className="relative mb-3">
+                  <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-cyan-500 shadow-[0_0_15px_rgba(6,182,212,0.6)] bg-[#1b2039]">
+                    {currentUser.profile_image ? (
+                      <img 
+                        src={currentUser.profile_image} 
+                        alt="User" 
+                        className="w-full h-full object-cover" 
+                      />
+                    ) : (
+                      <div className="w-full h-full bg-linear-to-br from-cyan-400 to-blue-500 flex items-center justify-center">
+                        <span className="text-white font-bold text-xl">
+                          {currentUser.first_name.charAt(0).toUpperCase()}
+                        </span>
+                      </div>
+                    )}
+                  </div>
+                </div>
 
-            <div
-              className={`
-                  overflow-hidden text-center transition-all duration-300 ease-in-out
-                  ${isOpen ? "opacity-100 max-h-10" : "opacity-0 max-h-0 xl:opacity-0"} 
-               `}
-            >
-              <h1 className="font-bold text-white text-sm tracking-wide whitespace-nowrap h-5 block">
-                The Miraculous
-              </h1>
-            </div>
+                <div
+                  className={`
+                      overflow-hidden text-center transition-all duration-300 ease-in-out
+                      ${isOpen ? "opacity-100 max-h-10" : "opacity-0 max-h-0 xl:opacity-0"} 
+                  `}
+                >
+                  <h1 className="font-bold text-white text-sm tracking-wide whitespace-nowrap h-5 block px-2">
+                    {currentUser.first_name} {currentUser.last_name}
+                  </h1>
+                </div>
+              </>
+            ) : (
+              <>
+                <div className="relative mb-3">
+                  <div className="w-12 h-12 rounded-full bg-linear-to-br from-cyan-400 to-blue-500 flex items-center justify-center shadow-[0_0_15px_rgba(6,182,212,0.6)]">
+                    <span className="text-white font-bold text-xl">M</span>
+                  </div>
+                </div>
+
+                <div
+                  className={`
+                      overflow-hidden text-center transition-all duration-300 ease-in-out
+                      ${isOpen ? "opacity-100 max-h-10" : "opacity-0 max-h-0 xl:opacity-0"} 
+                  `}
+                >
+                  <h1 className="font-bold text-white text-sm tracking-wide whitespace-nowrap h-5 block">
+                    The Miraculous
+                  </h1>
+                </div>
+              </>
+            )}
           </div>
 
           <ul className="flex flex-col w-full space-y-2">

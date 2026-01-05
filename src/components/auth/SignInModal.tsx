@@ -53,9 +53,24 @@ const SignInModal = ({ onClose }: { onClose?: () => void }) => {
         emailOrUserName: form.emailOrUserName,
         password: form.password,
       });
-      const userRecord = result?.data;
+
+      const payload = result?.data ?? result;
+      let userRecord = payload?.user ?? payload;
+
       if (!userRecord) throw new Error('Unexpected signin response');
-      
+
+      if (!Array.isArray(userRecord.roles)) {
+        if (typeof userRecord.role === 'string') {
+          const r = userRecord.role.trim();
+          userRecord.roles = r.startsWith('ROLE_') ? [r] : [`ROLE_${r.toUpperCase()}`];
+        } else if (typeof userRecord.roleName === 'string') {
+          const r = userRecord.roleName.trim();
+          userRecord.roles = r.startsWith('ROLE_') ? [r] : [`ROLE_${r.toUpperCase()}`];
+        } else {
+          userRecord.roles = ['ROLE_USER'];
+        }
+      }
+
       if (remember) {
         localStorage.setItem('userLogin', JSON.stringify(userRecord));
         sessionStorage.removeItem('userLogin');
@@ -63,13 +78,16 @@ const SignInModal = ({ onClose }: { onClose?: () => void }) => {
         sessionStorage.setItem('userLogin', JSON.stringify(userRecord));
         localStorage.removeItem('userLogin');
       }
-      
-      handleClose();
-      message.success(result.message || 'Logged in');
-      const mappedRole = userRecord.role || 'USER';
+
+      setIsVisible(false);
+      onClose?.();
+      message.success(result?.message || 'Logged in');
+
+      const roles = userRecord.roles || [];
+      const isAdmin = roles.includes('ROLE_ADMIN');
       
       setTimeout(() => {
-        if (mappedRole === 'ADMIN' || mappedRole === 'MASTER') {
+        if (isAdmin) {
           window.location.href = '/admin';
         } else {
           window.location.href = '/';

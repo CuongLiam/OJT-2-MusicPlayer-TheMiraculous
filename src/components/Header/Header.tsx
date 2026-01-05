@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { FaSearch, FaBars, FaUserPlus, FaUser, FaPlayCircle } from 'react-icons/fa';
+import { FaSearch, FaBars, FaUserPlus, FaUser, FaPlayCircle, FaSignOutAlt } from 'react-icons/fa';
 import { useNavigate } from 'react-router'; 
 import SignInModal from '../auth/SignInModal';
 import SignUpModal from '../auth/SignUpModal';
@@ -19,6 +19,7 @@ interface User {
   first_name: string;
   last_name: string;
   roles: string[];
+  profile_image?: string;
 }
 
 interface SearchResult extends Song {
@@ -38,11 +39,29 @@ const Header: React.FC<HeaderProps> = ({ onMenuClick }) => {
   const [allArtists, setAllArtists] = useState<User[]>([]);
   const [searchResults, setSearchResults] = useState<SearchResult[]>([]);
   const [showDropdown, setShowDropdown] = useState(false);
+  
+  const [currentUser, setCurrentUser] = useState<User | null>(null);
+
   const searchRef = useRef<HTMLDivElement>(null);
 
   const navigate = useNavigate();
 
   useEffect(() => {
+    const checkLoginStatus = () => {
+      const userLocal = localStorage.getItem('userLogin');
+      const userSession = sessionStorage.getItem('userLogin');
+      
+      if (userLocal) {
+        setCurrentUser(JSON.parse(userLocal));
+      } else if (userSession) {
+        setCurrentUser(JSON.parse(userSession));
+      } else {
+        setCurrentUser(null);
+      }
+    };
+
+    checkLoginStatus();
+
     const fetchData = async () => {
       try {
         const [songsRes, usersRes] = await Promise.all([
@@ -111,9 +130,23 @@ const Header: React.FC<HeaderProps> = ({ onMenuClick }) => {
     };
   }, [showDropdown, showSignIn, showSignUp]);
 
+  const handleLogout = () => {
+    localStorage.removeItem('userLogin');
+    sessionStorage.removeItem('userLogin');
+    setCurrentUser(null);
+    navigate('/'); 
+    window.location.reload(); 
+  };
+
   return (
     <>
-      {showSignIn && <SignInModal onClose={() => setShowSignIn(false)} />}
+      {showSignIn && <SignInModal onClose={() => {
+        setShowSignIn(false);
+        const userLocal = localStorage.getItem('userLogin');
+        const userSession = sessionStorage.getItem('userLogin');
+        if (userLocal) setCurrentUser(JSON.parse(userLocal));
+        else if (userSession) setCurrentUser(JSON.parse(userSession));
+      }} />}
       {showSignUp && <SignUpModal onClose={() => setShowSignUp(false)} />}
       
       <header className="w-full bg-[#1e2336] text-white py-3 px-4 shadow-md relative z-40 header-josefin select-none">
@@ -182,34 +215,72 @@ const Header: React.FC<HeaderProps> = ({ onMenuClick }) => {
               <img src={LanguageIcon} alt="Language" className="w-5 h-5 object-contain" />
             </div>
 
-            <div className="hidden md:flex items-center gap-3">
-              <button
-                className="px-6 py-2 h-12 max-w-25 rounded-full bg-linear-to-r from-[#38bdf8] to-[#22d3ee] text-white text-sm font-semibold shadow-lg hover:opacity-90 transition-opacity cursor-pointer"
-                onClick={() => setShowSignUp(true)}
-              >
-                Register
-              </button>
-              <button
-                className="px-6 py-2 h-12 max-w-25 rounded-full bg-linear-to-r from-[#38bdf8] to-[#22d3ee] text-white text-sm font-semibold shadow-lg hover:opacity-90 transition-opacity ml-4 cursor-pointer"
-                onClick={() => setShowSignIn(true)}
-              >
-                Login
-              </button>
-            </div>
+            {currentUser ? (
+              <div className="hidden md:flex items-center gap-4">
+                <div className="flex items-center gap-3">
+                   <div className="w-10 h-10 rounded-full bg-linear-to-r from-[#38bdf8] to-[#22d3ee] flex items-center justify-center text-white font-bold shadow-md overflow-hidden">
+                      {currentUser.profile_image ? (
+                        <img src={currentUser.profile_image} alt="User" className="w-full h-full object-cover" />
+                      ) : (
+                        currentUser.first_name.charAt(0).toUpperCase()
+                      )}
+                   </div>
+                   <div className="flex flex-col">
+                      <span className="text-sm font-semibold text-white leading-tight">
+                        {currentUser.first_name} {currentUser.last_name}
+                      </span>
+                      <span className="text-xs text-gray-400">Member</span>
+                   </div>
+                </div>
+                <button
+                  onClick={handleLogout}
+                  className="w-10 h-10 rounded-full bg-gray-700 hover:bg-gray-600 flex items-center justify-center text-white transition-colors cursor-pointer"
+                  title="Logout"
+                >
+                  <FaSignOutAlt />
+                </button>
+              </div>
+            ) : (
+              <div className="hidden md:flex items-center gap-3">
+                <button
+                  className="px-6 py-2 h-12 max-w-25 rounded-full bg-linear-to-r from-[#38bdf8] to-[#22d3ee] text-white text-sm font-semibold shadow-lg hover:opacity-90 transition-opacity cursor-pointer"
+                  onClick={() => setShowSignUp(true)}
+                >
+                  Register
+                </button>
+                <button
+                  className="px-6 py-2 h-12 max-w-25 rounded-full bg-linear-to-r from-[#38bdf8] to-[#22d3ee] text-white text-sm font-semibold shadow-lg hover:opacity-90 transition-opacity ml-4 cursor-pointer"
+                  onClick={() => setShowSignIn(true)}
+                >
+                  Login
+                </button>
+              </div>
+            )}
 
             <div className="flex md:hidden items-center gap-2">
-              <button
-                className="w-10 h-10 rounded-full bg-[#38bdf8] flex items-center justify-center text-white shadow-md"
-                onClick={() => setShowSignUp(true)}
-              >
-                <FaUserPlus />
-              </button>
-              <button
-                className="w-10 h-10 rounded-full bg-[#38bdf8] flex items-center justify-center text-white shadow-md"
-                onClick={() => setShowSignIn(true)}
-              >
-                <FaUser />
-              </button>
+              {currentUser ? (
+                <button
+                  className="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center text-white shadow-md"
+                  onClick={handleLogout}
+                >
+                  <FaSignOutAlt />
+                </button>
+              ) : (
+                <>
+                  <button
+                    className="w-10 h-10 rounded-full bg-[#38bdf8] flex items-center justify-center text-white shadow-md"
+                    onClick={() => setShowSignUp(true)}
+                  >
+                    <FaUserPlus />
+                  </button>
+                  <button
+                    className="w-10 h-10 rounded-full bg-[#38bdf8] flex items-center justify-center text-white shadow-md"
+                    onClick={() => setShowSignIn(true)}
+                  >
+                    <FaUser />
+                  </button>
+                </>
+              )}
             </div>
 
             <button 
