@@ -23,20 +23,23 @@ import Favourite from  './pages/Favourite/Favourite'
 import TopTrack from './pages/TopTracks/TopTrack'
 import AllNewReleases from './pages/Album/AllNewReleasesAlbum'
 import RequireAdmin from './pages/Admin/auth/RequireAdmin'
+import RequireAuth from './components/auth/RequireAuth'
 
 export default function RouterConfig() {
   return (
     <Routes>
+      {/* PUBLIC */}
       <Route path='/' element = {<Home/>}></Route>
 
-      {/* <Route path='/signin' element = {<SignInModal/>}></Route>
-      <Route path='/signup' element = {<SignUpModal/>}></Route> */}
-
-      <Route path='/admin' element={
-        <RequireAdmin>
-        <Admin />
-        </RequireAdmin>
-      }>
+      {/* ADMIN */}
+      <Route
+        path="/admin"
+        element={
+          <RequireAdmin>
+            <Admin />
+          </RequireAdmin>
+        }
+      >
         <Route index element={<Navigate to="/admin/dashboard" />} />
         <Route path="dashboard" element={<AdminDashboard />} />
         <Route path="users" element={<AdminUser />} />
@@ -48,18 +51,96 @@ export default function RouterConfig() {
         <Route path="artists" element={<AdminArtists />} />
       </Route>
 
+      {/* PROTECTED USER ROUTES */}
+      <Route
+        path="/artists"
+        element={
+          <RequireAuth>
+            <Artists />
+          </RequireAuth>
+        }
+      />
 
-      <Route path='/artists' element = {<Artists/>}></Route>
-      <Route path='/genre' element = {<Genre/>}></Route>
-      <Route path='/more-genres' element = {<MoreGenres/>}></Route>
-      <Route path='/test' element = {<Test/>}></Route>
-      <Route path='/album' element = {<Album/>}></Route>
-      <Route path='/album/featured-albums' element = {<AllFeaturedAlbums/>}></Route>
-      <Route path='/album/trending-albums' element = {<AllTrendingAlbums/>}></Route>
-      <Route path='/album/artists-albums' element = {<AllAlbumsByArtists/>}></Route>
-      <Route path='/favourite' element = {<Favourite/>}></Route>
-      <Route path='/top-track' element = {<TopTrack/>}></Route>
-      <Route path="/album/new-releases" element={<AllNewReleases />} />
+      <Route
+        path="/genre"
+        element={
+          <RequireAuth>
+            <Genre />
+          </RequireAuth>
+        }
+      />
+
+      <Route
+        path="/more-genres"
+        element={
+          <RequireAuth>
+            <MoreGenres />
+          </RequireAuth>
+        }
+      />
+
+      <Route
+        path="/album"
+        element={
+          <RequireAuth>
+            <Album />
+          </RequireAuth>
+        }
+      />
+
+      <Route
+        path="/album/featured-albums"
+        element={
+          <RequireAuth>
+            <AllFeaturedAlbums />
+          </RequireAuth>
+        }
+      />
+
+      <Route
+        path="/album/trending-albums"
+        element={
+          <RequireAuth>
+            <AllTrendingAlbums />
+          </RequireAuth>
+        }
+      />
+
+      <Route
+        path="/album/artists-albums"
+        element={
+          <RequireAuth>
+            <AllAlbumsByArtists />
+          </RequireAuth>
+        }
+      />
+
+      <Route
+        path="/album/new-releases"
+        element={
+          <RequireAuth>
+            <AllNewReleases />
+          </RequireAuth>
+        }
+      />
+
+      <Route
+        path="/favourite"
+        element={
+          <RequireAuth>
+            <Favourite />
+          </RequireAuth>
+        }
+      />
+
+      <Route
+        path="/top-track"
+        element={
+          <RequireAuth>
+            <TopTrack />
+          </RequireAuth>
+        }
+      />
     </Routes>
   )
 }
