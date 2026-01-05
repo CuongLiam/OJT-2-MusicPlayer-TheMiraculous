@@ -28,6 +28,8 @@ import ArtistDashboard from './pages/ArtistAdmin/components/ArtistDashboard'
 import SongManagement from './pages/ArtistAdmin/components/SongManagement'
 import AlbumManagement from './pages/ArtistAdmin/components/AlbumManagement'
 import Settings from './pages/ArtistAdmin/components/Settings'
+import ArtistLogin from './pages/ArtistAdmin/auth/ArtistLogin'
+import ArtistRegis from './pages/ArtistAdmin/auth/ArtistRegis'
 
 export default function RouterConfig() {
   return (
@@ -146,6 +148,8 @@ export default function RouterConfig() {
         }
       />
 
+      <Route path='/artist/login' element={<ArtistLogin />} />
+      <Route path='/artist/register' element={<ArtistRegis />} />
 
       <Route element={<ProtectedArtistRoute />}>
         <Route path="/artist" element={<Navigate to="/artist/dashboard" />} />
