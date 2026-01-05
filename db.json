@@ -683,7 +683,7 @@
         4
       ],
       "file_url": "https://res.cloudinary.com/douhnxire/video/upload/v1767541856/uotpzzhfj7zgzjmxhib5.mp3",
-      "views": 2000000,
+      "views": 2000001,
       "created_at": "2024-03-08T00:00:00Z",
       "updated_at": "2024-03-08T00:00:00Z",
       "cover_image": "https://upload.wikimedia.org/wikipedia/vi/5/5d/Em_c%E1%BB%A7a_ng%C3%A0y_h%C3%B4m_qua.png"
@@ -715,7 +715,7 @@
         7
       ],
       "file_url": "https://res.cloudinary.com/douhnxire/video/upload/v1767542098/f0qudnvuephoqkgq62tk.mp3",
-      "views": 3000000,
+      "views": 3000001,
       "created_at": "2020-06-12T00:00:00Z",
       "updated_at": "2020-06-12T00:00:00Z",
       "cover_image": "https://i1.sndcdn.com/artworks-SsQX4ABHJ2l6ejn6-xRO3dw-t1080x1080.jpg"
@@ -748,7 +748,7 @@
         7
       ],
       "file_url": "https://res.cloudinary.com/douhnxire/video/upload/v1767542276/spfktsoef6sngwduazve.mp3",
-      "views": 1800000,
+      "views": 1800001,
       "created_at": "2020-06-12T00:00:00Z",
       "updated_at": "2020-06-12T00:00:00Z",
       "cover_image": "https://images.genius.com/bf389fb799e94703eb1fa82974748f10.500x500x1.jpg"
@@ -780,7 +780,7 @@
         6
       ],
       "file_url": "https://res.cloudinary.com/douhnxire/video/upload/v1767542469/hmpye2aqtvvc9s6vzgfa.mp3",
-      "views": 1000001,
+      "views": 1000002,
       "created_at": "2018-01-01T00:00:00Z",
       "updated_at": "2018-01-01T00:00:00Z",
       "cover_image": "https://photos.eruce.com/thumbs/40b/32b/ab7/32b/88d/c4e/6d2c813016ecccf21537395d051edfcc_500x500.jpg"
@@ -891,7 +891,7 @@
         8
       ],
       "file_url": "https://res.cloudinary.com/douhnxire/video/upload/v1767542853/ugk1mikslkrykncguyi5.mp3",
-      "views": 2900000,
+      "views": 2900001,
       "created_at": "2020-08-05T00:00:00Z",
       "updated_at": "2020-08-05T00:00:00Z",
       "cover_image": "https://i.ytimg.com/vi/oigiXW6XyCQ/maxresdefault.jpg"
@@ -970,7 +970,7 @@
         8
       ],
       "file_url": "",
-      "views": 2500000,
+      "views": 2500001,
       "created_at": "2017-12-03T00:00:00Z",
       "updated_at": "2017-12-03T00:00:00Z",
       "cover_image": "https://i1.sndcdn.com/artworks-000489731772-cm7d0a-t500x500.jpg"
@@ -985,7 +985,7 @@
         2
       ],
       "file_url": "",
-      "views": 1800001,
+      "views": 1800002,
       "created_at": "2017-12-03T00:00:00Z",
       "updated_at": "2017-12-03T00:00:00Z",
       "cover_image": "https://i.ytimg.com/vi/51AhXswRDgQ/maxresdefault.jpg"
@@ -2232,6 +2232,11 @@
       "id": "2567",
       "user_id": null,
       "song_id": 5
+    },
+    {
+      "id": "e948",
+      "user_id": null,
+      "song_id": 37
     }
   ],
   "history": [

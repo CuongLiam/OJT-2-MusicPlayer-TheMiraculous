@@ -530,12 +530,12 @@ export default function HomePageInfo() {
         </div>
       </section>
 
-      <section className="relative w-full mt-12">
+      <section className="relative w-full mt-12" >
         <div className="max-w-340 mx-auto px-6 md:px-8 lg:px-12">
           <SectionHeader title="Weekly Top 15" />
 
           {/* Desktop: 3 columns */}
-          <div className="hidden lg:grid lg:grid-cols-3 gap-x-8">
+          <div className="hidden lg:grid lg:grid-cols-3 gap-x-8" onClick={handleViewMoreGenres}>
             {/* Column 1: Rank 1-5 */}
             <div className="space-y-0">
               {weeklyTop15.slice(0, 5).map((song, i) => (

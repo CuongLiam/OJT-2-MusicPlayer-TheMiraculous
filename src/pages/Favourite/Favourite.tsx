@@ -145,22 +145,6 @@ export default function Favourite() {
         );
     }
 
-    /**
-     * NOT LOGGED IN
-     */
-    if (!getUserId()) {
-        return (
-            <div className="w-full min-h-screen bg-[#14182A] flex items-center justify-center">
-                <div className="text-center">
-                    <p className="text-gray-400 text-xl mb-4">Please login to view your favourites</p>
-                    <button className="px-6 py-2 bg-[#3BC8E7] text-white rounded-lg hover:bg-[#2EA5C0] transition-colors">
-                        Login
-                    </button>
-                </div>
-            </div>
-        );
-    }
-
     return (
         <div className="w-full min-h-screen bg-[#14182A] flex">
             <Sidebar isOpen={isNavbarOpen} toggleSidebar={() => setIsNavbarOpen(!isNavbarOpen)} />
