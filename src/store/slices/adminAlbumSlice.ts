@@ -19,7 +19,7 @@ export const fetchAlbums = createAsyncThunk('admin/fetchAlbums', async () => {
   return response;
 });
 
-export const deleteAlbumAsync = createAsyncThunk('admin/deleteAlbum', async (id: number) => {
+export const deleteAlbumAsync = createAsyncThunk('admin/deleteAlbum', async (id: string) => {
   await deleteAlbumApi(id);
   return id;
 });
@@ -28,7 +28,7 @@ const adminAlbumSlice = createSlice({
   name: 'adminAlbum',
   initialState,
   reducers: {
-    removeAlbum: (state, action: PayloadAction<number>) => {
+    removeAlbum: (state, action: PayloadAction<string>) => {
       state.albums = state.albums.filter(a => a.id !== action.payload);
     },
   },
@@ -47,7 +47,7 @@ const adminAlbumSlice = createSlice({
         state.error = action.error.message || 'Failed to fetch albums';
       });
 
-    builder.addCase(deleteAlbumAsync.fulfilled, (state, action: PayloadAction<number>) => {
+    builder.addCase(deleteAlbumAsync.fulfilled, (state, action: PayloadAction<string>) => {
       state.albums = state.albums.filter(a => a.id !== action.payload);
     });
   },

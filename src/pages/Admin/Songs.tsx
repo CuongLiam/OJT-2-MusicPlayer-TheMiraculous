@@ -21,19 +21,19 @@ const AdminSong: React.FC = () => {
     dispatch(fetchAlbums());
   }, [dispatch]);
 
-  const handleDelete = (songId: number) => {
+  const handleDelete = (songId: string) => {
     if (window.confirm('Are you sure you want to delete this song?')) {
       dispatch(deleteSongAsync(songId));
     }
   };
 
-  const getArtistName = (artistId: number | null | undefined) => {
+  const getArtistName = (artistId: string | null | undefined) => {
     if(!artistId) return 'N/A';
     const artist = users.find(user => user.id === artistId);
     return artist ? `${artist.first_name} ${artist.last_name}` : `Artist ID: ${artistId}`;
   };
 
-  const getAlbumTitle = (albumId: number | null | undefined) => {
+  const getAlbumTitle = (albumId: string | null | undefined) => {
     if (!albumId) return 'N/A';
     const album = albums.find(album => album.id === albumId);
     return album ? album.title : `Album ID: ${albumId}`;
