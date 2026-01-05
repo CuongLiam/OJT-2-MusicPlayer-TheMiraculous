@@ -4,12 +4,13 @@ import { Album } from '../../types/music.types';
 
 interface AlbumCardProps {
   album: Album;
+  className?: string;
 }
 
-const AlbumCard: React.FC<AlbumCardProps> = ({ album }) => {
+const AlbumCard: React.FC<AlbumCardProps> = ({ album, className }) => {
   return (
-    <div className="w-43.75 shrink-0 cursor-pointer group">
-      <div className="w-43.75 h-43.75 overflow-hidden rounded-2xl mb-3 relative">
+    <div className={`shrink-0 cursor-pointer group ${className ?? 'w-43.75'}`}>
+      <div className="w-full aspect-square overflow-hidden rounded-2xl mb-3 relative">
         <img
           src={album.cover_image}
           alt={album.title}

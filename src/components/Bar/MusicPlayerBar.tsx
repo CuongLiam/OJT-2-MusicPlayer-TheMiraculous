@@ -16,14 +16,14 @@ const MusicPlayerBar: React.FC<MusicPlayerBarProps> = ({ isSidebarOpen }) => {
   return (
     <div 
       className={`
-        fixed bottom-0 right-0 z-100 px-4 py-3 
+        fixed bottom-0 right-0 z-10 px-4 py-3 
         bg-[#525252]/95 backdrop-blur-md border-t border-white/10 text-white 
-        transition-all duration-300 bar-josefin max-w-380
-        left-0
+        transition-all duration-300 bar-josefin
+        left-0 w-full                   
+        xl:left-20 xl:w-[calc(100%-5rem)] 
       `}
     >
-      <div className="w-full max-w-360 mx-auto flex items-center justify-between gap-4">
-        
+      <div className="w-full mx-auto flex items-center justify-between gap-4">
         <div className="flex items-center gap-4 min-w-45 w-auto lg:w-[30%]">
           <div className="relative group overflow-hidden rounded-xl h-14 w-14 shrink-0 shadow-lg cursor-pointer">
              <img 

@@ -295,43 +295,53 @@
   "genres": [
     {
       "id": "1",
-      "genre_name": "Pop"
+      "genre_name": "Pop",
+      "cover_image": "https://res.cloudinary.com/douhnxire/image/upload/v1767572920/gctppj3iepzjmyyvpvvy.jpg"
     },
     {
       "id": "2",
-      "genre_name": "Ballad"
+      "genre_name": "Ballad",
+      "cover_image": "https://res.cloudinary.com/douhnxire/image/upload/v1767573035/ovkipthnc0b7zkjzthny.jpg"
     },
     {
       "id": "3",
-      "genre_name": "Rap / Hip-hop"
+      "genre_name": "Rap / Hip-hop",
+      "cover_image": "https://res.cloudinary.com/douhnxire/image/upload/v1767573098/oxmydkpc92igjotwvfbf.jpg"
     },
     {
       "id": "4",
-      "genre_name": "R&B"
+      "genre_name": "R&B",
+      "cover_image": "https://res.cloudinary.com/douhnxire/image/upload/v1767573162/ux2igl9booi0c1xzvbdo.jpg"
     },
     {
       "id": "5",
-      "genre_name": "EDM"
+      "genre_name": "EDM",
+      "cover_image": "https://res.cloudinary.com/douhnxire/image/upload/v1767573240/gzaqg4ucxeretd3xxhx2.jpg"
     },
     {
       "id": "6",
-      "genre_name": "Indie"
+      "genre_name": "Indie",
+      "cover_image": "https://res.cloudinary.com/douhnxire/image/upload/v1767573311/ndj4tb8bhykdtnvzuqsu.jpg"
     },
     {
       "id": "7",
-      "genre_name": "Rock"
+      "genre_name": "Rock",
+      "cover_image": "https://res.cloudinary.com/douhnxire/image/upload/v1767573365/aqu3svky0t42knmyj1ef.jpg"
     },
     {
       "id": "8",
-      "genre_name": "Jazz"
+      "genre_name": "Jazz",
+      "cover_image": "https://res.cloudinary.com/douhnxire/image/upload/v1767573434/mzuhbk6spmytxsavqd0b.jpg"
     },
     {
       "id": "9",
-      "genre_name": "Bolero"
+      "genre_name": "Bolero",
+      "cover_image": "https://res.cloudinary.com/douhnxire/image/upload/v1767573496/t8su8fs0mf0iqzqtpph2.jpg"
     },
     {
       "id": "10",
-      "genre_name": "Lofi"
+      "genre_name": "Lofi",
+      "cover_image": "https://res.cloudinary.com/douhnxire/image/upload/v1767573551/oelmb0o0yjrmaruqzi8t.jpg"
     }
   ],
   "albums": [
@@ -659,7 +669,8 @@
       "file_url": "https://res.cloudinary.com/douhnxire/video/upload/v1767541711/hciesnufi2uwzxzdtiwn.mp3",
       "views": 1500000,
       "created_at": "2024-03-08T00:00:00Z",
-      "updated_at": "2024-03-08T00:00:00Z"
+      "updated_at": "2024-03-08T00:00:00Z",
+      "cover_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_kadkizjBcU7kPybuBEO0l1TN5ADzHThv1w&s"
     },
     {
       "id": "2",
@@ -674,7 +685,8 @@
       "file_url": "https://res.cloudinary.com/douhnxire/video/upload/v1767541856/uotpzzhfj7zgzjmxhib5.mp3",
       "views": 2000000,
       "created_at": "2024-03-08T00:00:00Z",
-      "updated_at": "2024-03-08T00:00:00Z"
+      "updated_at": "2024-03-08T00:00:00Z",
+      "cover_image": "https://upload.wikimedia.org/wikipedia/vi/5/5d/Em_c%E1%BB%A7a_ng%C3%A0y_h%C3%B4m_qua.png"
     },
     {
       "id": "3",
@@ -689,7 +701,8 @@
       "file_url": "https://res.cloudinary.com/douhnxire/video/upload/v1767541939/redchbnuouaoryvhqdc1.mp3",
       "views": 1200000,
       "created_at": "2024-03-08T00:00:00Z",
-      "updated_at": "2024-03-08T00:00:00Z"
+      "updated_at": "2024-03-08T00:00:00Z",
+      "cover_image": "https://images.genius.com/c6fe77bc198d082395b85d6dbaf1c454.1000x1000x1.png"
     },
     {
       "id": "4",
@@ -704,7 +717,8 @@
       "file_url": "https://res.cloudinary.com/douhnxire/video/upload/v1767542098/f0qudnvuephoqkgq62tk.mp3",
       "views": 3000000,
       "created_at": "2020-06-12T00:00:00Z",
-      "updated_at": "2020-06-12T00:00:00Z"
+      "updated_at": "2020-06-12T00:00:00Z",
+      "cover_image": "https://i1.sndcdn.com/artworks-SsQX4ABHJ2l6ejn6-xRO3dw-t1080x1080.jpg"
     },
     {
       "id": "5",
@@ -720,7 +734,8 @@
       "file_url": "https://res.cloudinary.com/douhnxire/video/upload/v1767542156/ocmxon3ln79d4osi6cjk.mp3",
       "views": 2500000,
       "created_at": "2020-06-12T00:00:00Z",
-      "updated_at": "2020-06-12T00:00:00Z"
+      "updated_at": "2020-06-12T00:00:00Z",
+      "cover_image": "https://i.scdn.co/image/ab67616d00001e023403b37254ffacb7732e92da"
     },
     {
       "id": "6",
@@ -735,7 +750,8 @@
       "file_url": "https://res.cloudinary.com/douhnxire/video/upload/v1767542276/spfktsoef6sngwduazve.mp3",
       "views": 1800000,
       "created_at": "2020-06-12T00:00:00Z",
-      "updated_at": "2020-06-12T00:00:00Z"
+      "updated_at": "2020-06-12T00:00:00Z",
+      "cover_image": "https://images.genius.com/bf389fb799e94703eb1fa82974748f10.500x500x1.jpg"
     },
     {
       "id": "7",
@@ -750,7 +766,8 @@
       "file_url": "https://res.cloudinary.com/douhnxire/video/upload/v1767542352/zhllermvioupeeeiizev.mp3",
       "views": 5000000,
       "created_at": "2018-01-01T00:00:00Z",
-      "updated_at": "2018-01-01T00:00:00Z"
+      "updated_at": "2018-01-01T00:00:00Z",
+      "cover_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7775aH_OzEdgYU3eVB5nZEPuP5qzhRSjsUQ&s"
     },
     {
       "id": "8",
@@ -765,7 +782,8 @@
       "file_url": "https://res.cloudinary.com/douhnxire/video/upload/v1767542469/hmpye2aqtvvc9s6vzgfa.mp3",
       "views": 1000000,
       "created_at": "2018-01-01T00:00:00Z",
-      "updated_at": "2018-01-01T00:00:00Z"
+      "updated_at": "2018-01-01T00:00:00Z",
+      "cover_image": "https://photos.eruce.com/thumbs/40b/32b/ab7/32b/88d/c4e/6d2c813016ecccf21537395d051edfcc_500x500.jpg"
     },
     {
       "id": "9",
@@ -779,7 +797,8 @@
       "file_url": "https://res.cloudinary.com/douhnxire/video/upload/v1767542475/re0cu05ozx8xlsfdkwll.mp3",
       "views": 900000,
       "created_at": "2018-01-01T00:00:00Z",
-      "updated_at": "2018-01-01T00:00:00Z"
+      "updated_at": "2018-01-01T00:00:00Z",
+      "cover_image": "https://static.tuoitre.vn/tto/i/s626/2016/01/24/son-tung-1453606549.jpg"
     },
     {
       "id": "10",
@@ -795,7 +814,8 @@
       "file_url": "https://res.cloudinary.com/douhnxire/video/upload/v1767543878/id0z2tnyknk1sgdo5j0w.mp3",
       "views": 9000000,
       "created_at": "2019-10-21T00:00:00Z",
-      "updated_at": "2019-10-21T00:00:00Z"
+      "updated_at": "2019-10-21T00:00:00Z",
+      "cover_image": "https://i1.sndcdn.com/artworks-hnafgjxy6MNeF3fx-aXrfdg-t500x500.jpg"
     },
     {
       "id": "11",
@@ -810,7 +830,8 @@
       "file_url": "https://res.cloudinary.com/douhnxire/video/upload/v1767542849/stkhy1xbdgveniblmjtq.mp3",
       "views": 1500000,
       "created_at": "2019-10-21T00:00:00Z",
-      "updated_at": "2019-10-21T00:00:00Z"
+      "updated_at": "2019-10-21T00:00:00Z",
+      "cover_image": "https://dt.muvi.vn/mvn/thumbnails/song/2022/07/28/cam-on-den-vaucompressed_20220728143556.jpg"
     },
     {
       "id": "12",
@@ -825,7 +846,8 @@
       "file_url": "https://res.cloudinary.com/douhnxire/video/upload/v1767542876/j6ls4spa3pokc1xe8gsi.mp3",
       "views": 3100000,
       "created_at": "2019-10-21T00:00:00Z",
-      "updated_at": "2019-10-21T00:00:00Z"
+      "updated_at": "2019-10-21T00:00:00Z",
+      "cover_image": "https://images.genius.com/6ea100ddf369f30393d2370024fbac99.300x300x1.png"
     },
     {
       "id": "13",
@@ -839,7 +861,8 @@
       "file_url": "https://res.cloudinary.com/douhnxire/video/upload/v1767542875/bqkyovzjnp2thwcrocqq.mp3",
       "views": 1800000,
       "created_at": "2020-08-05T00:00:00Z",
-      "updated_at": "2020-08-05T00:00:00Z"
+      "updated_at": "2020-08-05T00:00:00Z",
+      "cover_image": "https://images2.thanhnien.vn/zoom/686_429/Uploaded/caotung/2020_08_07/screen-shot-2020-07-23-at-52013-pm-2-15967178505852050400015_PGII.png"
     },
     {
       "id": "14",
@@ -854,7 +877,8 @@
       "file_url": "https://res.cloudinary.com/douhnxire/video/upload/v1767542813/am9isous4n9krwmj70dq.mp3",
       "views": 2600000,
       "created_at": "2020-08-05T00:00:00Z",
-      "updated_at": "2020-08-05T00:00:00Z"
+      "updated_at": "2020-08-05T00:00:00Z",
+      "cover_image": "https://i.ytimg.com/vi/LSMDNL4n0kM/maxresdefault.jpg"
     },
     {
       "id": "15",
@@ -869,7 +893,8 @@
       "file_url": "https://res.cloudinary.com/douhnxire/video/upload/v1767542853/ugk1mikslkrykncguyi5.mp3",
       "views": 2900000,
       "created_at": "2020-08-05T00:00:00Z",
-      "updated_at": "2020-08-05T00:00:00Z"
+      "updated_at": "2020-08-05T00:00:00Z",
+      "cover_image": "https://i.ytimg.com/vi/oigiXW6XyCQ/maxresdefault.jpg"
     },
     {
       "id": "16",
@@ -884,7 +909,8 @@
       "file_url": "https://res.cloudinary.com/douhnxire/video/upload/v1767542851/e5njrfhok27pnl1qhmza.mp3",
       "views": 2000000,
       "created_at": "2019-05-19T00:00:00Z",
-      "updated_at": "2019-05-19T00:00:00Z"
+      "updated_at": "2019-05-19T00:00:00Z",
+      "cover_image": "https://i.ytimg.com/vi/L0NZW6pgSLc/maxresdefault.jpg"
     },
     {
       "id": "17",
@@ -899,7 +925,8 @@
       "file_url": "https://res.cloudinary.com/douhnxire/video/upload/v1767542852/bencbuxa1lxwole0uqjq.mp3",
       "views": 4000000,
       "created_at": "2019-05-19T00:00:00Z",
-      "updated_at": "2019-05-19T00:00:00Z"
+      "updated_at": "2019-05-19T00:00:00Z",
+      "cover_image": "https://www.woay.vn/public/uploads/mv-di-ve-nha.jpg"
     },
     {
       "id": "18",
@@ -913,7 +940,8 @@
       "file_url": "https://res.cloudinary.com/douhnxire/video/upload/v1767542877/no6p49dqplvqd3gkhvvb.mp3",
       "views": 3500000,
       "created_at": "2019-05-19T00:00:00Z",
-      "updated_at": "2019-05-19T00:00:00Z"
+      "updated_at": "2019-05-19T00:00:00Z",
+      "cover_image": "https://i.ytimg.com/vi/UVbv-PJXm14/maxresdefault.jpg"
     },
     {
       "id": "19",
@@ -928,7 +956,8 @@
       "file_url": "",
       "views": 1200000,
       "created_at": "2017-12-03T00:00:00Z",
-      "updated_at": "2017-12-03T00:00:00Z"
+      "updated_at": "2017-12-03T00:00:00Z",
+      "cover_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAXHS8KVOhUKQzyfBnMl3635YoA1LoaDUzfA&s"
     },
     {
       "id": "20",
@@ -943,7 +972,8 @@
       "file_url": "",
       "views": 2500000,
       "created_at": "2017-12-03T00:00:00Z",
-      "updated_at": "2017-12-03T00:00:00Z"
+      "updated_at": "2017-12-03T00:00:00Z",
+      "cover_image": "https://i1.sndcdn.com/artworks-000489731772-cm7d0a-t500x500.jpg"
     },
     {
       "id": "21",
@@ -957,7 +987,8 @@
       "file_url": "",
       "views": 1800000,
       "created_at": "2017-12-03T00:00:00Z",
-      "updated_at": "2017-12-03T00:00:00Z"
+      "updated_at": "2017-12-03T00:00:00Z",
+      "cover_image": "https://i.ytimg.com/vi/51AhXswRDgQ/maxresdefault.jpg"
     },
     {
       "id": "22",
@@ -972,7 +1003,8 @@
       "file_url": "",
       "views": 900000,
       "created_at": "2021-04-25T00:00:00Z",
-      "updated_at": "2021-04-25T00:00:00Z"
+      "updated_at": "2021-04-25T00:00:00Z",
+      "cover_image": "https://bloganchoi.com/wp-content/uploads/2024/07/hao-quang-lyrics-anh-trai-say-hi-1-696x464.jpg"
     },
     {
       "id": "23",
@@ -986,7 +1018,8 @@
       "file_url": "",
       "views": 1600000,
       "created_at": "2021-04-25T00:00:00Z",
-      "updated_at": "2021-04-25T00:00:00Z"
+      "updated_at": "2021-04-25T00:00:00Z",
+      "cover_image": "https://i.ytimg.com/vi/NYvJ3m0M9r8/maxresdefault.jpg"
     },
     {
       "id": "24",
@@ -1000,7 +1033,8 @@
       "file_url": "",
       "views": 1100000,
       "created_at": "2021-04-25T00:00:00Z",
-      "updated_at": "2021-04-25T00:00:00Z"
+      "updated_at": "2021-04-25T00:00:00Z",
+      "cover_image": "https://upload.wikimedia.org/wikipedia/vi/4/4c/C%C3%B4_g%C3%A1i_%C4%91%E1%BA%BFn_t%E1%BB%AB_h%C3%B4m_qua_Poster.jpg"
     },
     {
       "id": "25",
@@ -1015,7 +1049,8 @@
       "file_url": "",
       "views": 5000000,
       "created_at": "2003-05-15T00:00:00Z",
-      "updated_at": "2003-05-15T00:00:00Z"
+      "updated_at": "2003-05-15T00:00:00Z",
+      "cover_image": "https://i.ytimg.com/vi/Rz5YSC9ND6g/maxresdefault.jpg"
     },
     {
       "id": "26",
@@ -1029,7 +1064,8 @@
       "file_url": "",
       "views": 3200000,
       "created_at": "2003-05-15T00:00:00Z",
-      "updated_at": "2003-05-15T00:00:00Z"
+      "updated_at": "2003-05-15T00:00:00Z",
+      "cover_image": "https://i1.sndcdn.com/artworks-000250088890-7s0icv-t500x500.jpg"
     },
     {
       "id": "27",
@@ -1043,7 +1079,8 @@
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-9.mp3",
       "views": 2000000,
       "created_at": "2003-05-15T00:00:00Z",
-      "updated_at": "2003-05-15T00:00:00Z"
+      "updated_at": "2003-05-15T00:00:00Z",
+      "cover_image": "https://i.ytimg.com/vi/Q8qRrO06iqA/maxresdefault.jpg"
     },
     {
       "id": "28",
@@ -1058,7 +1095,8 @@
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-10.mp3",
       "views": 3200000,
       "created_at": "2019-09-14T00:00:00Z",
-      "updated_at": "2019-09-14T00:00:00Z"
+      "updated_at": "2019-09-14T00:00:00Z",
+      "cover_image": "https://i.ytimg.com/vi/0VC6euBtKkk/maxresdefault.jpg"
     },
     {
       "id": "29",
@@ -1072,7 +1110,8 @@
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-10.mp3",
       "views": 1100000,
       "created_at": "2019-09-14T00:00:00Z",
-      "updated_at": "2019-09-14T00:00:00Z"
+      "updated_at": "2019-09-14T00:00:00Z",
+      "cover_image": "https://i.ytimg.com/vi/wDNZ1omk9uE/sddefault.jpg"
     },
     {
       "id": "30",
@@ -1086,7 +1125,8 @@
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-10.mp3",
       "views": 1500000,
       "created_at": "2019-09-14T00:00:00Z",
-      "updated_at": "2019-09-14T00:00:00Z"
+      "updated_at": "2019-09-14T00:00:00Z",
+      "cover_image": "https://i.ytimg.com/vi/q94pPO4C0hM/maxresdefault.jpg"
     },
     {
       "id": "31",
@@ -1100,7 +1140,8 @@
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-11.mp3",
       "views": 4100000,
       "created_at": "2016-10-10T00:00:00Z",
-      "updated_at": "2016-10-10T00:00:00Z"
+      "updated_at": "2016-10-10T00:00:00Z",
+      "cover_image": "https://i.ytimg.com/vi/UCXao7aTDQM/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLDL5EYnWfufHGVT9Fgd2FsmAVrFXw"
     },
     {
       "id": "32",
@@ -1114,7 +1155,8 @@
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-11.mp3",
       "views": 2100000,
       "created_at": "2016-10-10T00:00:00Z",
-      "updated_at": "2016-10-10T00:00:00Z"
+      "updated_at": "2016-10-10T00:00:00Z",
+      "cover_image": "https://photo-resize-zmp3.zadn.vn/w600_r1x1_jpeg/cover/1/0/a/6/10a6a546e85a0f185840b281d2fafed8.jpg"
     },
     {
       "id": "33",
@@ -1128,7 +1170,8 @@
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-11.mp3",
       "views": 1800000,
       "created_at": "2016-10-10T00:00:00Z",
-      "updated_at": "2016-10-10T00:00:00Z"
+      "updated_at": "2016-10-10T00:00:00Z",
+      "cover_image": "https://image-cdn.nct.vn/song/2020/11/17/b/e/e/2/1605596266129_300.jpg"
     },
     {
       "id": "34",
@@ -1142,7 +1185,8 @@
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-12.mp3",
       "views": 2500000,
       "created_at": "2017-06-05T00:00:00Z",
-      "updated_at": "2017-06-05T00:00:00Z"
+      "updated_at": "2017-06-05T00:00:00Z",
+      "cover_image": "https://photo-resize-zmp3.zmdcdn.me/w256_r1x1_jpeg/covers/6/a/6a2a34ad78550e5b3f51f6d954f51ca5_1505190964.jpg"
     },
     {
       "id": "35",
@@ -1157,7 +1201,8 @@
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-12.mp3",
       "views": 2200000,
       "created_at": "2017-06-05T00:00:00Z",
-      "updated_at": "2017-06-05T00:00:00Z"
+      "updated_at": "2017-06-05T00:00:00Z",
+      "cover_image": "https://popsimg.akamaized.net/api/v2/containers/file2/cms_thumbnails/em_a-5a19ad97f906-1608191067705-gBuh7fQm.png?v=0&maxW=600&format=jpg"
     },
     {
       "id": "36",
@@ -1172,7 +1217,8 @@
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-12.mp3",
       "views": 1500000,
       "created_at": "2017-06-05T00:00:00Z",
-      "updated_at": "2017-06-05T00:00:00Z"
+      "updated_at": "2017-06-05T00:00:00Z",
+      "cover_image": "https://photo-resize-zmp3.zadn.vn/w600_r1x1_jpeg/cover/2/d/b/9/2db9a78a4bb650f5f79a094d6a142bf6.jpg"
     },
     {
       "id": "37",
@@ -1187,7 +1233,8 @@
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-13.mp3",
       "views": 6000000,
       "created_at": "2022-08-11T00:00:00Z",
-      "updated_at": "2022-08-11T00:00:00Z"
+      "updated_at": "2022-08-11T00:00:00Z",
+      "cover_image": "https://photo-resize-zmp3.zadn.vn/w600_r1x1_jpeg/cover/8/a/7/b/8a7b7505e362a7c7ec23fc1a7118bf9b.jpg"
     },
     {
       "id": "38",
@@ -1201,7 +1248,8 @@
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-13.mp3",
       "views": 3000000,
       "created_at": "2022-08-11T00:00:00Z",
-      "updated_at": "2022-08-11T00:00:00Z"
+      "updated_at": "2022-08-11T00:00:00Z",
+      "cover_image": "https://photo-resize-zmp3.zadn.vn/w600_r1x1_jpeg/cover/2/a/5/4/2a54c9326166419c4e88cd466a0d7c6a.jpg"
     },
     {
       "id": "39",
@@ -1216,7 +1264,8 @@
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-13.mp3",
       "views": 2800000,
       "created_at": "2022-08-11T00:00:00Z",
-      "updated_at": "2022-08-11T00:00:00Z"
+      "updated_at": "2022-08-11T00:00:00Z",
+      "cover_image": "https://i1.sndcdn.com/artworks-DWjLjRzXBUbt1ecI-8aWWHw-t500x500.jpg"
     },
     {
       "id": "40",
@@ -1230,7 +1279,8 @@
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-14.mp3",
       "views": 4500000,
       "created_at": "2019-10-20T00:00:00Z",
-      "updated_at": "2019-10-20T00:00:00Z"
+      "updated_at": "2019-10-20T00:00:00Z",
+      "cover_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbm914ocfW9vGBRCPRUjefHavjtBHPSrQVtA&s"
     },
     {
       "id": "41",
@@ -1244,7 +1294,8 @@
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-14.mp3",
       "views": 3200000,
       "created_at": "2019-10-20T00:00:00Z",
-      "updated_at": "2019-10-20T00:00:00Z"
+      "updated_at": "2019-10-20T00:00:00Z",
+      "cover_image": "https://i1.sndcdn.com/artworks-000659196076-t3u3de-t500x500.jpg"
     },
     {
       "id": "42",
@@ -1259,7 +1310,8 @@
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-14.mp3",
       "views": 2900000,
       "created_at": "2019-10-20T00:00:00Z",
-      "updated_at": "2019-10-20T00:00:00Z"
+      "updated_at": "2019-10-20T00:00:00Z",
+      "cover_image": "https://i1.sndcdn.com/artworks-A5PuyNd8qe2mkrCF-Gr7eag-t500x500.jpg"
     },
     {
       "id": "43",
@@ -1274,7 +1326,8 @@
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-15.mp3",
       "views": 500000,
       "created_at": "2023-09-29T00:00:00Z",
-      "updated_at": "2023-09-29T00:00:00Z"
+      "updated_at": "2023-09-29T00:00:00Z",
+      "cover_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoQi_Ef7u4pR-zapMyNfr2sUAnGXnGx6jK9A&s"
     },
     {
       "id": "44",
@@ -1289,7 +1342,8 @@
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-15.mp3",
       "views": 450000,
       "created_at": "2023-09-29T00:00:00Z",
-      "updated_at": "2023-09-29T00:00:00Z"
+      "updated_at": "2023-09-29T00:00:00Z",
+      "cover_image": "https://images.genius.com/4a04ce19395587eb7cdf2a721cac48d7.300x300x1.png"
     },
     {
       "id": "45",
@@ -1304,7 +1358,8 @@
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-15.mp3",
       "views": 600000,
       "created_at": "2023-09-29T00:00:00Z",
-      "updated_at": "2023-09-29T00:00:00Z"
+      "updated_at": "2023-09-29T00:00:00Z",
+      "cover_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDO5Ax7d3Z4XSDJHti1DZ1rZpAEPb0uLK9Sw&s"
     },
     {
       "id": "46",
@@ -1318,7 +1373,8 @@
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
       "views": 5500000,
       "created_at": "2020-07-05T00:00:00Z",
-      "updated_at": "2020-07-05T00:00:00Z"
+      "updated_at": "2020-07-05T00:00:00Z",
+      "cover_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnr99N7DPEnPkzRNAOwKcjENovOGO-rMFkcg&s"
     },
     {
       "id": "47",
@@ -1333,7 +1389,8 @@
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
       "views": 2100000,
       "created_at": "2020-07-05T00:00:00Z",
-      "updated_at": "2020-07-05T00:00:00Z"
+      "updated_at": "2020-07-05T00:00:00Z",
+      "cover_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsBi5IgGRohvyQxI8mUQZLTFCPR65fsYnK4w&s"
     },
     {
       "id": "48",
@@ -1347,7 +1404,8 @@
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
       "views": 2600000,
       "created_at": "2020-07-05T00:00:00Z",
-      "updated_at": "2020-07-05T00:00:00Z"
+      "updated_at": "2020-07-05T00:00:00Z",
+      "cover_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsNMMHx76v3eJK7PkBGgXoksI0nYpGZIryoQ&s"
     },
     {
       "id": "49",
@@ -1361,7 +1419,8 @@
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
       "views": 1800000,
       "created_at": "2020-10-04T00:00:00Z",
-      "updated_at": "2020-10-04T00:00:00Z"
+      "updated_at": "2020-10-04T00:00:00Z",
+      "cover_image": "https://photo-resize-zmp3.zadn.vn/w600_r1x1_jpeg/cover/c/5/6/6/c566d162bef8d7e7bac56a10e67ab8f9.jpg"
     },
     {
       "id": "50",
@@ -1376,7 +1435,8 @@
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
       "views": 1500000,
       "created_at": "2020-10-04T00:00:00Z",
-      "updated_at": "2020-10-04T00:00:00Z"
+      "updated_at": "2020-10-04T00:00:00Z",
+      "cover_image": "https://photo-resize-zmp3.zadn.vn/w600_r1x1_jpeg/cover/e/a/8/5/ea85dbdab0c424246456d552e40e7a2c.jpg"
     },
     {
       "id": "51",
@@ -1390,7 +1450,8 @@
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
       "views": 2200000,
       "created_at": "2020-10-04T00:00:00Z",
-      "updated_at": "2020-10-04T00:00:00Z"
+      "updated_at": "2020-10-04T00:00:00Z",
+      "cover_image": "https://photo-resize-zmp3.zadn.vn/w600_r1x1_jpeg/cover/4/0/5/6/40564f839b476fd66838e497796a3d5f.jpg"
     },
     {
       "id": "52",
@@ -1405,7 +1466,8 @@
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3",
       "views": 1500000,
       "created_at": "2021-12-15T00:00:00Z",
-      "updated_at": "2021-12-15T00:00:00Z"
+      "updated_at": "2021-12-15T00:00:00Z",
+      "cover_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvjvC1rfM9f1NVkPdxVC4HA5fmhQKeqAOfGw&s"
     },
     {
       "id": "53",
@@ -1420,7 +1482,8 @@
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3",
       "views": 2800000,
       "created_at": "2021-12-15T00:00:00Z",
-      "updated_at": "2021-12-15T00:00:00Z"
+      "updated_at": "2021-12-15T00:00:00Z",
+      "cover_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZcmNBiRYVgfAc6SED9MTPXO2UMXfpYTxuuw&s"
     },
     {
       "id": "54",
@@ -1435,7 +1498,8 @@
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3",
       "views": 2100000,
       "created_at": "2021-12-15T00:00:00Z",
-      "updated_at": "2021-12-15T00:00:00Z"
+      "updated_at": "2021-12-15T00:00:00Z",
+      "cover_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHoWgwt0ZrrmFGHQSnXqGTdOwsh288-SU9QA&s"
     },
     {
       "id": "55",
@@ -1449,7 +1513,8 @@
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3",
       "views": 3800000,
       "created_at": "2019-11-20T00:00:00Z",
-      "updated_at": "2019-11-20T00:00:00Z"
+      "updated_at": "2019-11-20T00:00:00Z",
+      "cover_image": "https://i.ytimg.com/vi/0VC6euBtKkk/maxresdefault.jpg"
     },
     {
       "id": "56",
@@ -1463,7 +1528,8 @@
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3",
       "views": 2000000,
       "created_at": "2019-11-20T00:00:00Z",
-      "updated_at": "2019-11-20T00:00:00Z"
+      "updated_at": "2019-11-20T00:00:00Z",
+      "cover_image": "https://photo-resize-zmp3.zmdcdn.me/w600_r300x169_jpeg/thumb_video/e/d/e/2/ede2d9d97edefd39641bdcc6c0a25af2.jpg"
     },
     {
       "id": "57",
@@ -1477,7 +1543,8 @@
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3",
       "views": 1200000,
       "created_at": "2019-11-20T00:00:00Z",
-      "updated_at": "2019-11-20T00:00:00Z"
+      "updated_at": "2019-11-20T00:00:00Z",
+      "cover_image": "https://photo-resize-zmp3.zadn.vn/w600_r1x1_jpeg/cover/f/4/b/e/f4be0685cad8734de407caa764392a34.jpg"
     },
     {
       "id": "58",
@@ -1491,7 +1558,8 @@
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3",
       "views": 2900000,
       "created_at": "2017-03-08T00:00:00Z",
-      "updated_at": "2017-03-08T00:00:00Z"
+      "updated_at": "2017-03-08T00:00:00Z",
+      "cover_image": "https://i.ytimg.com/vi/HsgTIMDA6ps/maxresdefault.jpg"
     },
     {
       "id": "59",
@@ -1505,7 +1573,8 @@
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3",
       "views": 1800000,
       "created_at": "2017-03-08T00:00:00Z",
-      "updated_at": "2017-03-08T00:00:00Z"
+      "updated_at": "2017-03-08T00:00:00Z",
+      "cover_image": "https://i.ytimg.com/vi/xuakxSnFUxc/maxresdefault.jpg"
     },
     {
       "id": "60",
@@ -1519,7 +1588,8 @@
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3",
       "views": 1500000,
       "created_at": "2017-03-08T00:00:00Z",
-      "updated_at": "2017-03-08T00:00:00Z"
+      "updated_at": "2017-03-08T00:00:00Z",
+      "cover_image": "https://i.ytimg.com/vi/9ue1DivJxes/sddefault.jpg"
     },
     {
       "id": "61",
@@ -1533,7 +1603,8 @@
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3",
       "views": 9000000,
       "created_at": "2015-09-15T00:00:00Z",
-      "updated_at": "2015-09-15T00:00:00Z"
+      "updated_at": "2015-09-15T00:00:00Z",
+      "cover_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMRRWNB9JI9BRlRoOp6S-qs27qoNXnTgGnkw&s"
     },
     {
       "id": "62",
@@ -1547,7 +1618,8 @@
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3",
       "views": 1200000,
       "created_at": "2015-09-15T00:00:00Z",
-      "updated_at": "2015-09-15T00:00:00Z"
+      "updated_at": "2015-09-15T00:00:00Z",
+      "cover_image": "https://i1.sndcdn.com/artworks-w5QPPj84fwJaOCOW-svTiwQ-t500x500.jpg"
     },
     {
       "id": "63",
@@ -1561,7 +1633,8 @@
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3",
       "views": 2500000,
       "created_at": "2015-09-15T00:00:00Z",
-      "updated_at": "2015-09-15T00:00:00Z"
+      "updated_at": "2015-09-15T00:00:00Z",
+      "cover_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6WPUSryh76vims2wpmbOE3gYoaulweE2pbg&s"
     },
     {
       "id": "64",
@@ -1576,7 +1649,8 @@
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3",
       "views": 4800000,
       "created_at": "2014-05-20T00:00:00Z",
-      "updated_at": "2014-05-20T00:00:00Z"
+      "updated_at": "2014-05-20T00:00:00Z",
+      "cover_image": "https://i1.sndcdn.com/artworks-r69juSNvR6HpKqfD-5DRVTg-t500x500.jpg"
     },
     {
       "id": "65",
@@ -1590,7 +1664,8 @@
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3",
       "views": 3100000,
       "created_at": "2014-05-20T00:00:00Z",
-      "updated_at": "2014-05-20T00:00:00Z"
+      "updated_at": "2014-05-20T00:00:00Z",
+      "cover_image": "https://photo-resize-zmp3.zadn.vn/w600_r1x1_jpeg/covers/d/a/dae7488899bf6ee55f4127cb6a889391_1510557125.jpg"
     },
     {
       "id": "66",
@@ -1604,7 +1679,8 @@
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3",
       "views": 1800000,
       "created_at": "2014-05-20T00:00:00Z",
-      "updated_at": "2014-05-20T00:00:00Z"
+      "updated_at": "2014-05-20T00:00:00Z",
+      "cover_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgdhRndYur_AUjP0_pnfTR0vty85gVpeg-hQ&s"
     },
     {
       "id": "67",
@@ -1618,7 +1694,8 @@
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3",
       "views": 3500000,
       "created_at": "2013-02-14T00:00:00Z",
-      "updated_at": "2013-02-14T00:00:00Z"
+      "updated_at": "2013-02-14T00:00:00Z",
+      "cover_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQb8l_iHFfWdAsZJthUubzUbgXtDhofiOMezQ&s"
     },
     {
       "id": "68",
@@ -1632,7 +1709,8 @@
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3",
       "views": 2900000,
       "created_at": "2013-02-14T00:00:00Z",
-      "updated_at": "2013-02-14T00:00:00Z"
+      "updated_at": "2013-02-14T00:00:00Z",
+      "cover_image": "https://photo-resize-zmp3.zadn.vn/w600_r1x1_jpeg/covers/d/7/d725d8a6616c05c932fbe047c15baa59_1397467708.jpg"
     },
     {
       "id": "69",
@@ -1647,7 +1725,8 @@
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3",
       "views": 1500000,
       "created_at": "2013-02-14T00:00:00Z",
-      "updated_at": "2013-02-14T00:00:00Z"
+      "updated_at": "2013-02-14T00:00:00Z",
+      "cover_image": "https://i1.sndcdn.com/artworks-Kkmejmpb0CBd2Tu9-qRNEFQ-t500x500.jpg"
     },
     {
       "id": "70",
@@ -1661,7 +1740,8 @@
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-9.mp3",
       "views": 2700000,
       "created_at": "2018-08-08T00:00:00Z",
-      "updated_at": "2018-08-08T00:00:00Z"
+      "updated_at": "2018-08-08T00:00:00Z",
+      "cover_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWy9WNpAbYa9-8z3EewyddMnizuGseVX-zaw&s"
     },
     {
       "id": "71",
@@ -1676,7 +1756,8 @@
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-9.mp3",
       "views": 5000000,
       "created_at": "2018-08-08T00:00:00Z",
-      "updated_at": "2018-08-08T00:00:00Z"
+      "updated_at": "2018-08-08T00:00:00Z",
+      "cover_image": "https://www.woay.vn/public/uploads/mv-di-ve-nha.jpg"
     },
     {
       "id": "72",
@@ -1691,7 +1772,8 @@
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-9.mp3",
       "views": 1200000,
       "created_at": "2018-08-08T00:00:00Z",
-      "updated_at": "2018-08-08T00:00:00Z"
+      "updated_at": "2018-08-08T00:00:00Z",
+      "cover_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0CzEwnO5h6a5NYS6DUTKNGXk_P9UXzgxeZg&s"
     },
     {
       "id": "73",
@@ -1706,7 +1788,8 @@
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-10.mp3",
       "views": 2000000,
       "created_at": "2022-11-01T00:00:00Z",
-      "updated_at": "2022-11-01T00:00:00Z"
+      "updated_at": "2022-11-01T00:00:00Z",
+      "cover_image": "https://baochauelec.com/cdn/images/tin-tuc/loi-bai-hat-906090-toc-tien-ban-chuan.jpg"
     },
     {
       "id": "74",
@@ -1721,7 +1804,8 @@
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-10.mp3",
       "views": 1500000,
       "created_at": "2022-11-01T00:00:00Z",
-      "updated_at": "2022-11-01T00:00:00Z"
+      "updated_at": "2022-11-01T00:00:00Z",
+      "cover_image": "https://i.scdn.co/image/ab67616d0000b27376f8fda93eeb0f443ab92225"
     },
     {
       "id": "75",
@@ -1736,7 +1820,8 @@
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-10.mp3",
       "views": 1000000,
       "created_at": "2022-11-01T00:00:00Z",
-      "updated_at": "2022-11-01T00:00:00Z"
+      "updated_at": "2022-11-01T00:00:00Z",
+      "cover_image": "https://photo-resize-zmp3.zmdcdn.me/w600_r300x169_jpeg/cover/7/a/d/0/7ad0863ed1c59d7b5713886b676b4cb6.jpg"
     },
     {
       "id": "76",
@@ -1750,7 +1835,8 @@
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-11.mp3",
       "views": 4000000,
       "created_at": "2015-05-05T00:00:00Z",
-      "updated_at": "2015-05-05T00:00:00Z"
+      "updated_at": "2015-05-05T00:00:00Z",
+      "cover_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtH35rdVTTvjaJCAbBT1C3d1vDjXxsK6S5Ng&s"
     },
     {
       "id": "77",
@@ -1764,7 +1850,8 @@
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-11.mp3",
       "views": 2800000,
       "created_at": "2015-05-05T00:00:00Z",
-      "updated_at": "2015-05-05T00:00:00Z"
+      "updated_at": "2015-05-05T00:00:00Z",
+      "cover_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUmQK9gI4R861pCGr6cBGGq9CfcIgueZYmow&s"
     },
     {
       "id": "78",
@@ -1779,7 +1866,8 @@
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-11.mp3",
       "views": 1200000,
       "created_at": "2015-05-05T00:00:00Z",
-      "updated_at": "2015-05-05T00:00:00Z"
+      "updated_at": "2015-05-05T00:00:00Z",
+      "cover_image": "https://photo-resize-zmp3.zmdcdn.me/w256_r1x1_jpeg/covers/3/4/34726cb8119d72ac4e1be3fa6b92f425_1435592790.jpg"
     },
     {
       "id": "79",
@@ -1794,7 +1882,8 @@
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-12.mp3",
       "views": 3500000,
       "created_at": "2016-07-07T00:00:00Z",
-      "updated_at": "2016-07-07T00:00:00Z"
+      "updated_at": "2016-07-07T00:00:00Z",
+      "cover_image": "https://i.scdn.co/image/ab67616d0000b273f7f36f33a9f857d12b00df42"
     },
     {
       "id": "80",
@@ -1808,7 +1897,8 @@
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-12.mp3",
       "views": 3200000,
       "created_at": "2016-07-07T00:00:00Z",
-      "updated_at": "2016-07-07T00:00:00Z"
+      "updated_at": "2016-07-07T00:00:00Z",
+      "cover_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlLI26eomlFCy7K_oD7OhO6n4UgkTZXWmlGA&s"
     },
     {
       "id": "81",
@@ -1822,7 +1912,8 @@
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-12.mp3",
       "views": 2500000,
       "created_at": "2016-07-07T00:00:00Z",
-      "updated_at": "2016-07-07T00:00:00Z"
+      "updated_at": "2016-07-07T00:00:00Z",
+      "cover_image": "https://i.scdn.co/image/ab67616d0000b273b374423d258fe4f7eb4888c3"
     },
     {
       "id": "82",
@@ -1837,7 +1928,8 @@
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-13.mp3",
       "views": 4200000,
       "created_at": "2022-05-12T00:00:00Z",
-      "updated_at": "2022-05-12T00:00:00Z"
+      "updated_at": "2022-05-12T00:00:00Z",
+      "cover_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTo-0hEU6pN1gxJ76QakBA0TLjhiyj3g96AVw&s"
     },
     {
       "id": "83",
@@ -1851,7 +1943,8 @@
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-13.mp3",
       "views": 2500000,
       "created_at": "2022-05-12T00:00:00Z",
-      "updated_at": "2022-05-12T00:00:00Z"
+      "updated_at": "2022-05-12T00:00:00Z",
+      "cover_image": "https://i.scdn.co/image/ab67616d0000b273f1271839f8ad535dcb6c799c"
     },
     {
       "id": "84",
@@ -1865,7 +1958,8 @@
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-13.mp3",
       "views": 2800000,
       "created_at": "2022-05-12T00:00:00Z",
-      "updated_at": "2022-05-12T00:00:00Z"
+      "updated_at": "2022-05-12T00:00:00Z",
+      "cover_image": "https://upload.wikimedia.org/wikipedia/vi/thumb/f/fa/Nguoitacothuongminhdau.jpg/250px-Nguoitacothuongminhdau.jpg"
     },
     {
       "id": "85",
@@ -1879,7 +1973,8 @@
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-14.mp3",
       "views": 5100000,
       "created_at": "2019-07-31T00:00:00Z",
-      "updated_at": "2019-07-31T00:00:00Z"
+      "updated_at": "2019-07-31T00:00:00Z",
+      "cover_image": "https://image-cdn.nct.vn/song/2019/08/05/1/9/9/6/1564990539735_300.jpg"
     },
     {
       "id": "86",
@@ -1893,7 +1988,8 @@
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-14.mp3",
       "views": 3900000,
       "created_at": "2019-07-31T00:00:00Z",
-      "updated_at": "2019-07-31T00:00:00Z"
+      "updated_at": "2019-07-31T00:00:00Z",
+      "cover_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqyElM4vlM-DunUpABwGNWsDVWDLtW_ygalw&s"
     },
     {
       "id": "87",
@@ -1908,7 +2004,8 @@
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-14.mp3",
       "views": 1200000,
       "created_at": "2019-07-31T00:00:00Z",
-      "updated_at": "2019-07-31T00:00:00Z"
+      "updated_at": "2019-07-31T00:00:00Z",
+      "cover_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-hYYxur1bvsB2tZtn9ur4OEKwl-VBOzYf3g&s"
     },
     {
       "id": "88",
@@ -1922,7 +2019,8 @@
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-15.mp3",
       "views": 6000000,
       "created_at": "2014-06-17T00:00:00Z",
-      "updated_at": "2014-06-17T00:00:00Z"
+      "updated_at": "2014-06-17T00:00:00Z",
+      "cover_image": "https://www.elle.vn/app/uploads/2014/09/24/trucnhan-bonchulam-e1411503121252.jpg"
     },
     {
       "id": "89",
@@ -1937,7 +2035,8 @@
       "file_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-15.mp3",
       "views": 1500000,
       "created_at": "2014-06-17T00:00:00Z",
-      "updated_at": "2014-06-17T00:00:00Z"
+      "updated_at": "2014-06-17T00:00:00Z",
+      "cover_image": "https://image-cdn.nct.vn/song/2013/11/06/c/c/a/8/1383713430518_300.jpg"
     },
     {
       "id": "90",
@@ -1994,8 +2093,9 @@
       "file_url": "https://res.cloudinary.com/douhnxire/video/upload/v1767619660/tpqic0dfvjp2jdxoywvb.mp3",
       "duration": "05:22",
       "views": 0,
-      "created_at": "2026-01-05T13:27:41.163Z",
-      "updated_at": "2026-01-05T13:27:41.163Z"
+      "created_at": "2026-01-05T11:44:02.568Z",
+      "updated_at": "2026-01-05T11:44:02.568Z",
+      "cover_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVBdjYArrjA4rfItRy2ifqwOOHKq8M6cMtyA&s"
     }
   ],
   "playlists": [

@@ -1,14 +1,13 @@
+import { useRef } from "react"; 
 import Header from "../../components/Header/Header";
-import Sidebar from "../../components/Header/Sidebar";
+import Sidebar, { useSidebarState } from "../../components/Header/Sidebar";
 import Footer from "../../components/Footer/Footer";
 import Banner from "../../components/Home/HomeBanner";
 import HomePageInfo from "../../components/Home/HomePageInfo"
-import { useRef, useState } from "react";
 
 export default function Home() {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
-
-  const [isNavbarOpen, setIsNavbarOpen] = useState(false);
+  const { isNavbarOpen, toggleSidebar, setSidebarOpen } = useSidebarState();
 
   const scroll = (direction: "left" | "right") => {
     if (scrollContainerRef.current) {
@@ -26,16 +25,14 @@ export default function Home() {
     <div className="w-full min-h-screen bg-[#14182A] flex">
       <Sidebar
         isOpen={isNavbarOpen}
-        toggleSidebar={() => setIsNavbarOpen(!isNavbarOpen)}
+        toggleSidebar={toggleSidebar}
       />
 
       <div
-        className={`
-            flex-1 flex flex-col min-h-screen transition-all duration-300 ease-in-out
-            ${isNavbarOpen ? "ml-45 md:ml-62.5" : "ml-20"} 
-        `}
+        className="flex-1 flex flex-col min-h-screen ml-0 xl:ml-20 transition-all duration-300 ease-in-out"
       >
-        <Header />
+        <Header onMenuClick={() => setSidebarOpen(true)} />
+        
         <main className="bg-[#14182A]">
           <Banner/>
           <HomePageInfo/>

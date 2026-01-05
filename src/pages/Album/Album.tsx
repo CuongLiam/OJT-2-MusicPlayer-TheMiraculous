@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 
 // Layout Components
 import Header from "../../components/Header/Header";
-import Sidebar from "../../components/Header/Sidebar";
+import Sidebar, { useSidebarState } from "../../components/Header/Sidebar";
 import Footer from "../../components/Footer/Footer";
 import MusicPlayerBar from "../../components/Bar/MusicPlayerBar";
 
@@ -18,7 +18,7 @@ import NewReleases from "../../components/Album/NewReleases";
 import { Album, User, Song } from "../../types/music.types";
 
 const AlbumPage: React.FC = () => {
-  const [isNavbarOpen, setIsNavbarOpen] = useState(false);
+  const { isNavbarOpen, toggleSidebar, setSidebarOpen } = useSidebarState();
   
   // State lưu dữ liệu sau khi đã xử lý (merge tên ca sĩ, ảnh bìa...)
   const [albums, setAlbums] = useState<Album[]>([]);
@@ -91,16 +91,16 @@ const AlbumPage: React.FC = () => {
     .slice(0, 15);
 
   return (
-    <div className="w-full min-h-screen bg-[#14182a] flex select-none overflow-hidden">
+    <div className="w-full min-h-screen bg-[#14182a] flex select-none">
       <Sidebar
         isOpen={isNavbarOpen}
-        toggleSidebar={() => setIsNavbarOpen(!isNavbarOpen)}
+        toggleSidebar={toggleSidebar}
       />
 
-      <div className="flex-1 flex flex-col min-h-screen ml-0 xl:ml-20 transition-all">
-        <Header onMenuClick={() => setIsNavbarOpen(true)} />
+      <div className="flex-1 flex flex-col min-h-screen ml-0 xl:ml-20 transition-all duration-300 ease-in-out">
+        <Header onMenuClick={() => setSidebarOpen(true)} />
 
-        <main className="flex-1 w-full bg-[#14182a] overflow-y-auto pb-2 pt-8 px-4 xl:px-8 -ml-5 h-screen scrollbar-hide">
+        <main className="flex-1 w-full bg-[#14182a] overflow-y-auto pb-28 pt-6 sm:pt-8 md:pt-10 px-3 sm:px-4 md:px-8 lg:px-12 transition-all duration-300">
             
             {/* Featured Section */}
             <FeaturedAlbums data={featuredAlbums} />
@@ -122,7 +122,7 @@ const AlbumPage: React.FC = () => {
         <Footer />
       </div>
 
-      <MusicPlayerBar isSidebarOpen={isNavbarOpen} />
+      {/* <MusicPlayerBar isSidebarOpen={isNavbarOpen} /> */}
     </div>
   );
 };

@@ -3,7 +3,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";       
 
 import Header from "../../components/Header/Header";
-import Sidebar from "../../components/Header/Sidebar";
+import Sidebar, { useSidebarState } from "../../components/Header/Sidebar";
 import Footer from "../../components/Footer/Footer";
 import MusicPlayerBar from "../../components/Bar/MusicPlayerBar";
 import AlbumCard from "../../components/Album/AlbumCard"; 
@@ -11,7 +11,7 @@ import AlbumCard from "../../components/Album/AlbumCard";
 import { Album, User } from "../../types/music.types";
 
 const AllTrendingAlbums = () => {
-  const [isNavbarOpen, setIsNavbarOpen] = useState(false);
+  const { isNavbarOpen, toggleSidebar, setSidebarOpen } = useSidebarState();
   const navigate = useNavigate(); 
   const { pathname } = useLocation();
   const mainRef = useRef<HTMLElement>(null);
@@ -53,11 +53,11 @@ const AllTrendingAlbums = () => {
     <div className="w-full min-h-screen bg-[#14182a] flex select-none overflow-hidden">
       <Sidebar
         isOpen={isNavbarOpen}
-        toggleSidebar={() => setIsNavbarOpen(!isNavbarOpen)}
+        toggleSidebar={toggleSidebar}
       />
 
       <div className="flex-1 flex flex-col min-h-screen ml-0 xl:ml-20 transition-all">
-        <Header onMenuClick={() => setIsNavbarOpen(true)} />
+        <Header onMenuClick={() => setSidebarOpen(true)} />
 
         <main 
             ref={mainRef}
@@ -65,10 +65,10 @@ const AllTrendingAlbums = () => {
             className="flex-1 w-full bg-[#14182a] overflow-y-auto pb-2 pt-8 px-4 xl:px-8 -ml-5 h-screen scrollbar-hide"
         >
             <section className="w-full max-w-362.5 mx-auto">
-                <div className="relative mb-8 px-2 xl:px-16 flex flex-col gap-1"> 
+                <div className="flex items-end gap-4 mb-8 pl-4 pr-0 md:pl-8 md:pr-0 xl:px-16">
                     <button 
                       onClick={() => navigate('/album')}
-                      className="absolute left-0 xl:left-4 bottom-2 text-white hover:text-[#3BC8E7] transition-colors cursor-pointer outline-none"
+                      className="text-white hover:text-[#3BC8E7] transition-colors cursor-pointer outline-none shrink-0 mb-1"
                       title="Back"
                     >
                       <ArrowLeft size={32} />

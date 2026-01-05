@@ -53,7 +53,7 @@ const TrendingAlbums: React.FC<TrendingAlbumsProps> = ({ data }) => {
         
         <div 
           ref={scrollRef}
-          className="flex gap-6 overflow-x-auto scrollbar-hide scroll-smooth w-full max-w-292.5"
+          className="flex gap-6 overflow-x-auto scrollbar-hide scroll-smooth w-full xl:max-w-292.5"
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
           {data.map((album) => (

@@ -1,6 +1,6 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import Header from '../../components/Header/Header';
-import Sidebar from '../../components/Header/Sidebar';
+import Sidebar, { useSidebarState } from '../../components/Header/Sidebar';
 import Footer from '../../components/Footer/Footer';
 import MusicPlayerBar from '../../components/Bar/MusicPlayerBar';
 import '../../assets/css/Font.css';
@@ -12,30 +12,13 @@ interface Artist {
   isActive?: boolean;
 }
 
-const FEATURED_ARTISTS: Artist[] = [
-  { id: 1, name: "Best Of Ava Cornish", image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=400&auto=format&fit=crop" },
-  { id: 2, name: "Until I Met You", image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=400&auto=format&fit=crop" },
-  { id: 3, name: "Gimme Some Courage", image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=400&auto=format&fit=crop" },
-  { id: 4, name: "Dark Alley Acoustic", image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=400&auto=format&fit=crop" },
-  { id: 5, name: "Walking Promises", image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=400&auto=format&fit=crop" },
-  { id: 6, name: "Desired Games", image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&auto=format&fit=crop" },
-  { id: 7, name: "Midnight Echoes", image: "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=400&auto=format&fit=crop" },
-];
-
-const ALL_ARTISTS: Artist[] = [
-  { id: 101, name: "Claire Hudson", image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=400&auto=format&fit=crop" },
-  { id: 102, name: "Carl Brown", image: "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?q=80&w=400&auto=format&fit=crop" },
-  { id: 103, name: "Virginia Harris", image: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=400&auto=format&fit=crop" },
-  { id: 104, name: "Max Glover", image: "https://images.unsplash.com/photo-1504257432389-52343af06ae3?q=80&w=400&auto=format&fit=crop"},
-  { id: 105, name: "Jennifer Kelly", image: "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?q=80&w=400&auto=format&fit=crop" },
-  { id: 106, name: "Harry Jackson", image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=400&auto=format&fit=crop" },
-  { id: 107, name: "Kevin Buckland", image: "https://images.unsplash.com/photo-1463453091185-61582044d556?q=80&w=400&auto=format&fit=crop" },
-  { id: 108, name: "Anna Ellison", image: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?q=80&w=400&auto=format&fit=crop" },
-  { id: 109, name: "Kylie Greene", image: "https://images.unsplash.com/photo-1517365830460-955ce3ccd263?q=80&w=400&auto=format&fit=crop" },
-  { id: 110, name: "Sarah Wilson", image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=400&auto=format&fit=crop" },
-  { id: 111, name: "Jennifer Kelly", image: "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?q=80&w=400&auto=format&fit=crop" },
-  { id: 112, name: "Steven Walker", image: "https://images.unsplash.com/photo-1480455624313-e29b44bbfde1?q=80&w=400&auto=format&fit=crop" },
-];
+interface User {
+  id: number;
+  first_name: string;
+  last_name: string;
+  profile_image: string;
+  roles: string[];
+}
 
 const SectionHeader = ({ title, showViewMore = false }: { title: string, showViewMore?: boolean }) => (
   <div className="flex justify-between items-end mb-6 md:mb-8 border-b border-gray-800 pb-2">
@@ -73,8 +56,36 @@ const ArtistCard = ({ artist }: { artist: Artist }) => {
 
 const Artists: React.FC = () => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const { isNavbarOpen, toggleSidebar, setSidebarOpen } = useSidebarState();
 
-  const [isNavbarOpen, setIsNavbarOpen] = useState(false);
+  const [allArtists, setAllArtists] = useState<Artist[]>([]);
+  const [featuredArtists, setFeaturedArtists] = useState<Artist[]>([]);
+
+  useEffect(() => {
+    const fetchArtists = async () => {
+      try {
+        const response = await fetch('http://localhost:3000/users');
+        const data: User[] = await response.json();
+
+        const artistUsers = data.filter(user => user.roles.includes('ROLE_ARTIST'));
+
+        const formattedArtists: Artist[] = artistUsers.map(user => ({
+          id: user.id,
+          name: `${user.first_name} ${user.last_name}`, 
+          image: user.profile_image,
+          isActive: false
+        }));
+
+        setAllArtists(formattedArtists);
+        setFeaturedArtists(formattedArtists.slice(0, 7));
+
+      } catch (error) {
+        console.error("Error fetching artists:", error);
+      }
+    };
+
+    fetchArtists();
+  }, []);
 
   const scroll = (direction: 'left' | 'right') => {
     if (scrollContainerRef.current) {
@@ -89,17 +100,17 @@ const Artists: React.FC = () => {
   };
 
   return (
-    <div className="w-full max-w-360 min-h-screen bg-[#14182a] flex select-none">
+    <div className="w-full min-h-screen bg-[#14182a] flex select-none">
 
       <Sidebar
         isOpen={isNavbarOpen}
-        toggleSidebar={() => setIsNavbarOpen(!isNavbarOpen)}
+        toggleSidebar={toggleSidebar}
       />
 
       <div
         className="flex-1 flex flex-col min-h-screen ml-0 xl:ml-20 transition-all duration-300 ease-in-out"
       >
-        <Header />
+        <Header onMenuClick={() => setSidebarOpen(true)} />
 
         <main className="flex-1 max-w-360 mx-auto w-full text-white p-3 sm:p-5 md:py-8 md:px-16 font-sans overflow-x-hidden bg-[#14182a] pb-28 artists-josefin">
 
@@ -125,11 +136,15 @@ const Artists: React.FC = () => {
               className="flex gap-3 sm:gap-4 md:gap-6 overflow-x-auto pb-4 scrollbar-hide snap-x snap-mandatory scroll-smooth"
               style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
             >
-              {FEATURED_ARTISTS.map((artist) => (
-                <div key={artist.id} className="min-w-32 sm:min-w-40 md:min-w-50 snap-start">
-                  <ArtistCard artist={artist} />
-                </div>
-              ))}
+              {featuredArtists.length > 0 ? (
+                featuredArtists.map((artist) => (
+                  <div key={artist.id} className="min-w-32 sm:min-w-40 md:min-w-50 snap-start">
+                    <ArtistCard artist={artist} />
+                  </div>
+                ))
+              ) : (
+                 <div className="text-gray-400 italic pl-2">Loading featured artists...</div>
+              )}
             </div>
           </section>
 
@@ -137,15 +152,19 @@ const Artists: React.FC = () => {
             <SectionHeader title="Top Artists" showViewMore={true} />
 
             <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3 sm:gap-4 md:gap-6">
-              {ALL_ARTISTS.map((artist) => (
-                <ArtistCard key={artist.id} artist={artist} />
-              ))}
+              {allArtists.length > 0 ? (
+                allArtists.map((artist) => (
+                  <ArtistCard key={artist.id} artist={artist} />
+                ))
+              ) : (
+                <div className="col-span-full text-center text-gray-500 py-10">Loading artists...</div>
+              )}
             </div>
           </section>
         </main>
 
         <Footer />
-        <MusicPlayerBar isSidebarOpen={isNavbarOpen} />
+        {/* <MusicPlayerBar isSidebarOpen={isNavbarOpen} /> */}
       </div>
     </div>
   );

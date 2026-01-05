@@ -1,13 +1,35 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import headphoneIcon from '../../assets/headphone.png';
 import { Apis } from '../../api';
 import { message } from 'antd';
 
 const SignInModal = ({ onClose }: { onClose?: () => void }) => {
-  const [visible, setVisible] = useState(true);
+  const [isVisible, setIsVisible] = useState(false);
   const [form, setForm] = useState({ emailOrUserName: '', password: '' });
   const [remember, setRemember] = useState(false);
   const [errors, setErrors] = useState<{ emailOrUserName?: string; password?: string }>({});
+
+  useEffect(() => {
+    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+    document.body.style.overflow = 'hidden';
+    document.body.style.paddingRight = `${scrollbarWidth}px`;
+
+    requestAnimationFrame(() => {
+      setIsVisible(true);
+    });
+
+    return () => {
+      document.body.style.overflow = 'unset';
+      document.body.style.paddingRight = '0px';
+    };
+  }, []);
+
+  const handleClose = () => {
+    setIsVisible(false);
+    setTimeout(() => {
+      onClose?.();
+    }, 300);
+  };
 
   function validate() {
     const newErrors: { emailOrUserName?: string; password?: string } = {};
@@ -21,82 +43,87 @@ const SignInModal = ({ onClose }: { onClose?: () => void }) => {
   }
 
   async function handleSignIn(e?: React.FormEvent) {
-  e?.preventDefault();
-  const newErrors = validate();
-  setErrors(newErrors);
-  if (Object.keys(newErrors).length > 0) return;
+    e?.preventDefault();
+    const newErrors = validate();
+    setErrors(newErrors);
+    if (Object.keys(newErrors).length > 0) return;
 
-  try {
-    const result = await Apis.user.signin({
-      emailOrUserName: form.emailOrUserName,
-      password: form.password,
-    });
+    try {
+      const result = await Apis.user.signin({
+        emailOrUserName: form.emailOrUserName,
+        password: form.password,
+      });
 
-    // result shape may vary: sometimes API returns { data: { user, accessToken } } or { data: user }
-    const payload = result?.data ?? result;
-    let userRecord = payload?.user ?? payload;
+      const payload = result?.data ?? result;
+      let userRecord = payload?.user ?? payload;
 
-    if (!userRecord) throw new Error('Unexpected signin response');
+      if (!userRecord) throw new Error('Unexpected signin response');
 
-    // Normalize roles -> ensure userRecord.roles is an array of ROLE_* strings
-    if (!Array.isArray(userRecord.roles)) {
-      if (typeof userRecord.role === 'string') {
-        const r = userRecord.role.trim();
-        userRecord.roles = r.startsWith('ROLE_') ? [r] : [`ROLE_${r.toUpperCase()}`];
-      } else if (typeof userRecord.roleName === 'string') {
-        const r = userRecord.roleName.trim();
-        userRecord.roles = r.startsWith('ROLE_') ? [r] : [`ROLE_${r.toUpperCase()}`];
-      } else {
-        // default to ROLE_USER if nothing provided
-        userRecord.roles = ['ROLE_USER'];
+      if (!Array.isArray(userRecord.roles)) {
+        if (typeof userRecord.role === 'string') {
+          const r = userRecord.role.trim();
+          userRecord.roles = r.startsWith('ROLE_') ? [r] : [`ROLE_${r.toUpperCase()}`];
+        } else if (typeof userRecord.roleName === 'string') {
+          const r = userRecord.roleName.trim();
+          userRecord.roles = r.startsWith('ROLE_') ? [r] : [`ROLE_${r.toUpperCase()}`];
+        } else {
+          userRecord.roles = ['ROLE_USER'];
+        }
       }
-    }
 
-    // persist user
-    if (remember) {
-      localStorage.setItem('userLogin', JSON.stringify(userRecord));
-      sessionStorage.removeItem('userLogin');
-    } else {
-      sessionStorage.setItem('userLogin', JSON.stringify(userRecord));
-      localStorage.removeItem('userLogin');
-    }
-
-    // close modal and give feedback
-    setVisible(false);
-    onClose?.();
-    message.success(result?.message || 'Logged in');
-
-    // Redirect based on roles (only admins go to /admin)
-    const roles = userRecord.roles || [];
-    const isAdmin = roles.includes('ROLE_ADMIN');
-    // small delay so message shows briefly
-    setTimeout(() => {
-      if (isAdmin) {
-        window.location.href = '/admin';
+      if (remember) {
+        localStorage.setItem('userLogin', JSON.stringify(userRecord));
+        sessionStorage.removeItem('userLogin');
       } else {
-        window.location.href = '/';
+        sessionStorage.setItem('userLogin', JSON.stringify(userRecord));
+        localStorage.removeItem('userLogin');
       }
-    }, 700);
-  } catch (err: any) {
-    const msg = err?.message || (err && err.toString()) || 'Signin failed';
-    message.error(msg);
+
+      setIsVisible(false);
+      onClose?.();
+      message.success(result?.message || 'Logged in');
+
+      const roles = userRecord.roles || [];
+      const isAdmin = roles.includes('ROLE_ADMIN');
+      
+      setTimeout(() => {
+        if (isAdmin) {
+          window.location.href = '/admin';
+        } else {
+          window.location.href = '/';
+        }
+      }, 700);
+    } catch (err: any) {
+      const msg = err?.message || (err && err.toString()) || 'Signin failed';
+      message.error(msg);
+    }
   }
-}
 
-
-  if (!visible) return null;
+  const switchModal = (e: React.MouseEvent) => {
+    e.preventDefault();
+    setIsVisible(false);
+    setTimeout(() => {
+      onClose?.();
+      window.dispatchEvent(new CustomEvent('open-signup'));
+    }, 300);
+  };
 
   return (
-    <div className="fixed inset-0 bg-black/60 flex items-center justify-center p-4 z-50">
-      <div className="relative bg-linear-to-br from-cyan-400 to-cyan-500 rounded-3xl shadow-2xl w-full h-auto max-w-83.5 max-h-104 md:max-w-174.5 md:max-h-115 lg:max-w-7xl lg:max-h-152">
-        <button onClick={() => { setVisible(false); onClose?.(); }} className="absolute top-4 right-4 lg:top-6 lg:right-6 text-white hover:text-gray-200 transition-colors z-10">
+    <div 
+      className={`fixed inset-0 bg-black/60 flex items-center justify-center p-4 z-50 transition-opacity duration-300 ease-in-out ${isVisible ? 'opacity-100' : 'opacity-0'}`}
+    >
+      <div className="absolute inset-0" onClick={handleClose}></div>
+
+      <div 
+        className={`relative bg-linear-to-br from-cyan-400 to-cyan-500 rounded-3xl shadow-2xl w-full h-auto max-w-83.5 max-h-104 md:max-w-174.5 md:max-h-115 lg:max-w-7xl lg:max-h-152 transition-all duration-300 ease-in-out transform ${isVisible ? 'scale-100 opacity-100 translate-y-0' : 'scale-95 opacity-0 translate-y-4'}`}
+      >
+        <button onClick={handleClose} className="absolute top-4 right-4 lg:top-6 lg:right-6 text-white hover:text-gray-200 transition-colors z-10 cursor-pointer">
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
             <line x1="18" y1="6" x2="6" y2="18"></line>
             <line x1="6" y1="6" x2="18" y2="18"></line>
           </svg>
         </button>
 
-        {/* Content Container */}
         <div className="flex flex-col lg:flex-row items-center justify-between p-6 md:p-8 lg:p-16 gap-6 lg:gap-8 h-full">
           <div className="shrink-0 hidden lg:block">
             <img
@@ -106,14 +133,12 @@ const SignInModal = ({ onClose }: { onClose?: () => void }) => {
             />
           </div>
 
-          {/* Right Side - Form */}
           <div className="flex-1 w-full max-w-md">
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white text-center mb-6 lg:mb-8">
               Login / Sign In
             </h2>
 
             <form onSubmit={handleSignIn} className="space-y-4 md:space-y-5">
-              {/* Email Input */}
               <div className="relative">
                 <input
                   name="emailOrUserName"
@@ -130,7 +155,6 @@ const SignInModal = ({ onClose }: { onClose?: () => void }) => {
                 {errors.emailOrUserName && <div className="text-red-500 text-xs mt-2">{errors.emailOrUserName}</div>}
               </div>
 
-              {/* Password Input */}
               <div className="relative">
                 <input
                   name="password"
@@ -147,7 +171,6 @@ const SignInModal = ({ onClose }: { onClose?: () => void }) => {
                 {errors.password && <div className="text-red-500 text-xs mt-2">{errors.password}</div>}
               </div>
 
-              {/* Keep Me Signed In & Forgot Password */}
               <div className="flex items-center justify-between text-white text-xs md:text-sm">
                 <label className="flex items-center gap-2 cursor-pointer">
                     <input
@@ -163,22 +186,15 @@ const SignInModal = ({ onClose }: { onClose?: () => void }) => {
                 </a>
               </div>
 
-              {/* Sign In Button */}
-              <button type="submit" className="w-full py-3 md:py-3.5 mt-4 md:mt-6 rounded-full bg-transparent border-2 border-white text-white font-semibold hover:bg-white hover:text-cyan-500 transition-all duration-300">
+              <button type="submit" className="w-full py-3 md:py-3.5 mt-4 md:mt-6 rounded-full bg-transparent border-2 border-white text-white font-semibold hover:bg-white hover:text-cyan-500 transition-all duration-300 cursor-pointer">
                 Sign In
               </button>
 
-              {/* Sign Up Link */}
               <p className="text-center text-white text-xs md:text-sm mt-3 md:mt-4">
                 Don't Have An Account?{' '}
                 <a
                   href="#"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    setVisible(false);
-                    onClose?.();
-                    window.dispatchEvent(new CustomEvent('open-signup'));
-                  }}
+                  onClick={switchModal}
                   className="font-semibold underline hover:text-gray-100 transition-colors"
                 >
                   Register Here
@@ -187,8 +203,6 @@ const SignInModal = ({ onClose }: { onClose?: () => void }) => {
             </form>
           </div>
         </div>
-
-   
       </div>
     </div>
   );

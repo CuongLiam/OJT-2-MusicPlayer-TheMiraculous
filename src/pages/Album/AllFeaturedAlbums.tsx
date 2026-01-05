@@ -3,7 +3,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 
 import Header from "../../components/Header/Header";
-import Sidebar from "../../components/Header/Sidebar";
+import Sidebar, { useSidebarState } from "../../components/Header/Sidebar";
 import Footer from "../../components/Footer/Footer";
 import MusicPlayerBar from "../../components/Bar/MusicPlayerBar";
 import AlbumCard from "../../components/Album/AlbumCard";
@@ -11,7 +11,7 @@ import AlbumCard from "../../components/Album/AlbumCard";
 import { Album, User } from "../../types/music.types";
 
 const AllFeaturedAlbums = () => {
-  const [isNavbarOpen, setIsNavbarOpen] = useState(false);
+  const { isNavbarOpen, toggleSidebar, setSidebarOpen } = useSidebarState();
   const navigate = useNavigate();
   const { pathname } = useLocation();
   const mainRef = useRef<HTMLElement>(null);
@@ -56,11 +56,11 @@ const AllFeaturedAlbums = () => {
     <div className="w-full min-h-screen bg-[#14182a] flex select-none overflow-hidden">
       <Sidebar
         isOpen={isNavbarOpen}
-        toggleSidebar={() => setIsNavbarOpen(!isNavbarOpen)}
+        toggleSidebar={toggleSidebar}
       />
 
       <div className="flex-1 flex flex-col min-h-screen ml-0 xl:ml-20 transition-all">
-        <Header onMenuClick={() => setIsNavbarOpen(true)} />
+        <Header onMenuClick={() => setSidebarOpen(true)} />
 
         <main
           ref={mainRef}

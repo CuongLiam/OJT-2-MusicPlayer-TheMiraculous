@@ -1,12 +1,41 @@
-import { useRef, useState } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { useLocation } from 'react-router'; 
 import Header from '../../components/Header/Header';
-import Sidebar from '../../components/Header/Sidebar';
+import Sidebar, { useSidebarState } from '../../components/Header/Sidebar';
 import Footer from '../../components/Footer/Footer';
 import '../../assets/css/Font.css';
 
-interface Song {
-  id: number;
+interface DBGenre {
+  id: string | number;
+  genre_name: string;
+  cover_image: string;
+}
+
+interface DBSong {
+  id: number | string;
+  title: string;
+  artist_id: number;
+  album_id: number;
+  genre_ids: number[];
+  cover_image?: string;
+}
+
+interface DBUser {
+  id: number | string;
+  first_name: string;
+  last_name: string;
+  roles: string[];
+}
+
+interface DBAlbum {
+  id: number | string;
+  title: string;
+  cover_image: string;
+}
+
+interface SongUI {
+  id: number | string;
   title: string;
   artist: string;
   image: string;
@@ -14,49 +43,125 @@ interface Song {
 
 interface GenreSection {
   title: string;
-  songs: Song[];
+  songs: SongUI[];
 }
-
-const MOCK_DATA: GenreSection[] = [
-  {
-    title: 'Romantics',
-    songs: [
-      { id: 1, title: 'Dream Your Moments (Duet)', artist: 'Ava Cornish & Brian Hill', image: 'https://images.unsplash.com/photo-1516575334481-f85287c2c81d?w=500&q=80' },
-      { id: 2, title: 'Until I Met You', artist: 'Ava Cornish & Brian Hill', image: 'https://images.unsplash.com/photo-1516280440614-6697288d5d38?w=500&q=80' },
-      { id: 3, title: 'Gimme Some Courage', artist: 'Ava Cornish & Brian Hill', image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=500&q=80' },
-      { id: 4, title: 'Dark Alley Acoustic', artist: 'Ava Cornish & Brian Hill', image: 'https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?w=500&q=80' },
-      { id: 5, title: 'Walking Promises', artist: 'Ava Cornish & Brian Hill', image: 'https://images.unsplash.com/photo-1519750783826-e2420f4d687f?w=500&q=80' },
-      { id: 6, title: 'Desired Games', artist: 'Ava Cornish & Brian Hill', image: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=500&q=80' },
-      { id: 7, title: 'Extra Song 1', artist: 'Ava Cornish & Brian Hill', image: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=500&q=80' },
-    ],
-  },
-  {
-    title: 'Pure Love',
-    songs: [
-      { id: 8, title: 'Bloodlust', artist: 'Ava Cornish & Brian Hill', image: 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=500&q=80' },
-      { id: 9, title: 'Time flies', artist: 'Ava Cornish & Brian Hill', image: 'https://images.unsplash.com/photo-1530268729831-4b0b9e170218?w=500&q=80' },
-      { id: 10, title: 'Dark matters', artist: 'Ava Cornish & Brian Hill', image: 'https://images.unsplash.com/photo-1505312926838-89269550e416?w=500&q=80' },
-      { id: 11, title: 'Eye to eye', artist: 'Ava Cornish & Brian Hill', image: 'https://images.unsplash.com/photo-1504703395950-b89145a5425b?w=500&q=80' },
-      { id: 12, title: 'Cloud nine', artist: 'Ava Cornish & Brian Hill', image: 'https://images.unsplash.com/photo-1513279922550-250c2129b7b0?w=500&q=80' },
-      { id: 13, title: 'Cobweb of lies', artist: 'Ava Cornish & Brian Hill', image: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=500&q=80' },
-    ],
-  },
-  {
-    title: 'Love At First Sight',
-    songs: [
-      { id: 14, title: 'First Glance', artist: 'Ava Cornish & Brian Hill', image: 'https://images.unsplash.com/photo-1621784563330-caee0b138a00?w=500&q=80' },
-      { id: 15, title: 'Heartbeat', artist: 'Ava Cornish & Brian Hill', image: 'https://images.unsplash.com/photo-1518568814500-bf0f8d125f46?w=500&q=80' },
-      { id: 16, title: 'Destiny Calls', artist: 'Ava Cornish & Brian Hill', image: 'https://images.unsplash.com/photo-1516575150278-77136aed6920?w=500&q=80' },
-      { id: 17, title: 'Soulmates', artist: 'Ava Cornish & Brian Hill', image: 'https://images.unsplash.com/photo-1523307730650-5945347a2a29?w=500&q=80' },
-      { id: 18, title: 'Forever', artist: 'Ava Cornish & Brian Hill', image: 'https://images.unsplash.com/photo-1511988617509-a57c8a288659?w=500&q=80' },
-      { id: 19, title: 'Magic Moment', artist: 'Ava Cornish & Brian Hill', image: 'https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=500&q=80' },
-    ],
-  },
-];
 
 export default function MoreGenres() {
   const rowRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const [isNavbarOpen, setIsNavbarOpen] = useState(false);
+  const sectionRefs = useRef<(HTMLDivElement | null)[]>([]);
+  
+  const { isNavbarOpen, toggleSidebar, setSidebarOpen } = useSidebarState();
+  const [sections, setSections] = useState<GenreSection[]>([]);
+  
+  const location = useLocation();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const [genresRes, songsRes, usersRes, albumsRes] = await Promise.all([
+          fetch('http://localhost:3000/genres'),
+          fetch('http://localhost:3000/songs'),
+          fetch('http://localhost:3000/users'),
+          fetch('http://localhost:3000/albums')
+        ]);
+
+        const genres: DBGenre[] = await genresRes.json();
+        const songs: DBSong[] = await songsRes.json();
+        const users: DBUser[] = await usersRes.json();
+        const albums: DBAlbum[] = await albumsRes.json();
+
+        const targetSongId = location.state?.targetSongId;
+
+        if (targetSongId) {
+          const foundSong = songs.find(s => String(s.id) === String(targetSongId));
+
+          if (foundSong) {
+            const artist = users.find(u => String(u.id) === String(foundSong.artist_id));
+            const artistName = artist ? `${artist.first_name} ${artist.last_name}` : 'Unknown Artist';
+            const album = albums.find(a => String(a.id) === String(foundSong.album_id));
+            
+            let finalImage = 'https://placehold.co/400'; 
+            if (foundSong.cover_image) {
+              finalImage = foundSong.cover_image;
+            } else if (album && album.cover_image) {
+              finalImage = album.cover_image;
+            }
+
+            const uiSong: SongUI = {
+              id: foundSong.id,
+              title: foundSong.title,
+              artist: artistName,
+              image: finalImage
+            };
+
+            setSections([{
+              title: "Search Result",
+              songs: [uiSong]
+            }]);
+
+            return;
+          }
+        }
+
+        const newSections: GenreSection[] = genres.map((genre) => {
+          const genreSongs = songs.filter((song) => 
+            Array.isArray(song.genre_ids) && song.genre_ids.includes(Number(genre.id))
+          );
+
+          const uiSongs: SongUI[] = genreSongs.map((song) => {
+            const artist = users.find(u => String(u.id) === String(song.artist_id));
+            const artistName = artist ? `${artist.first_name} ${artist.last_name}` : 'Unknown Artist';
+
+            const album = albums.find(a => String(a.id) === String(song.album_id));
+            
+            let finalImage = 'https://placehold.co/400'; 
+            
+            if (song.cover_image) {
+              finalImage = song.cover_image;
+            } else if (album && album.cover_image) {
+              finalImage = album.cover_image;
+            }
+
+            return {
+              id: song.id,
+              title: song.title,
+              artist: artistName,
+              image: finalImage
+            };
+          });
+
+          return {
+            title: genre.genre_name,
+            songs: uiSongs,
+          };
+        });
+
+        setSections(newSections.filter(section => section.songs.length > 0));
+
+      } catch (error) {
+        console.error("Failed to fetch data:", error);
+      }
+    };
+
+    fetchData();
+  }, [location.state]);
+
+  useEffect(() => {
+    if (location.state?.targetGenre && sections.length > 0) {
+      const targetGenreName = location.state.targetGenre;
+      
+      const index = sections.findIndex(s => s.title === targetGenreName);
+      
+      if (index !== -1 && sectionRefs.current[index]) {
+        setTimeout(() => {
+          sectionRefs.current[index]?.scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'start' 
+          });
+        }, 100);
+      }
+    }
+  }, [sections, location.state]);
 
   const handleScroll = (index: number, direction: 'left' | 'right') => {
     const row = rowRefs.current[index];
@@ -67,38 +172,40 @@ export default function MoreGenres() {
   };
 
   return (
-    <div className="w-full max-w-360 min-h-screen bg-[#14182a] flex select-none">
+    <div className="w-full min-h-screen bg-[#14182a] flex select-none">
       <Sidebar
         isOpen={isNavbarOpen}
-        toggleSidebar={() => setIsNavbarOpen(!isNavbarOpen)}
+        toggleSidebar={toggleSidebar}
       />
 
-      <div
-        className="flex-1 flex flex-col min-h-screen ml-20 transition-all duration-300 ease-in-out"
-      >
-        <Header />
+      <div className="flex-1 flex flex-col min-h-screen ml-0 xl:ml-20 transition-all duration-300 ease-in-out">
+        <Header onMenuClick={() => setSidebarOpen(true)} />
 
-        <main className="flex-1 max-w-360 mx-auto w-full text-white p-4 md:py-8 md:px-16 more-genres-josefin pb-28 bg-[#14182a]">
-          <div className="max-w-350uto">
-            {MOCK_DATA.map((section, idx) => (
-              <div key={idx} className="mb-10 last:mb-0 relative group">
-                <div className="flex justify-between items-end mb-4 px-4 md:px-0">
-                  <h2 className="text-xl md:text-2xl font-bold text-[#19A7CE] tracking-wide relative inline-block">
+        <main className="flex-1 mx-auto w-full text-white p-4 md:py-12 md:px-20 more-genres-josefin pb-28 bg-[#14182a]">
+          <div className="max-w-400 mx-auto">
+            {sections.map((section, idx) => (
+              <div 
+                key={idx} 
+                ref={(el) => { sectionRefs.current[idx] = el; }}
+                className="mb-10 last:mb-0 relative group pt-4"
+              >
+                <div className="flex justify-between items-end mb-6 px-4 md:px-0">
+                  <h2 className="text-xl md:text-2xl font-bold text-[#4fd1c5] tracking-wide relative inline-block">
                     {section.title}
-                    <span className="absolute -bottom-2 left-0 w-1/2 h-0.75 bg-[#19A7CE] rounded-full"></span>
+                    <span className="absolute -bottom-2 left-0 w-1/2 h-0.75 bg-[#4fd1c5] rounded-full"></span>
                   </h2>
-                  <a href="#" className="text-gray-400 hover:text-white text-xs md:text-sm font-medium transition-colors">View More</a>
                 </div>
 
                 <button
                   onClick={() => handleScroll(idx, 'left')}
-                  className="absolute -left-12 top-1/2 -translate-y-1/2 z-10 bg-black/50 hover:bg-black/80 p-2 rounded-full text-white hidden md:group-hover:block transition-all backdrop-blur-sm"
+                  className="absolute -left-4 md:-left-12 top-1/2 -translate-y-1/2 z-10 bg-black/50 hover:bg-black/80 p-2 rounded-full text-white hidden md:block opacity-0 group-hover:opacity-100 transition-all duration-300 backdrop-blur-sm cursor-pointer"
                 >
                   <ChevronLeft size={24} />
                 </button>
+                
                 <button
                   onClick={() => handleScroll(idx, 'right')}
-                  className="absolute -right-12 top-1/2 -translate-y-1/2 z-10 bg-black/50 hover:bg-black/80 p-2 rounded-full text-white hidden md:group-hover:block transition-all backdrop-blur-sm"
+                  className="absolute -right-4 md:-right-12 top-1/2 -translate-y-1/2 z-10 bg-black/50 hover:bg-black/80 p-2 rounded-full text-white hidden md:block opacity-0 group-hover:opacity-100 transition-all duration-300 backdrop-blur-sm cursor-pointer"
                 >
                   <ChevronRight size={24} />
                 </button>
@@ -109,20 +216,32 @@ export default function MoreGenres() {
                   style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
                 >
                   {section.songs.map((song) => (
-                    <div key={song.id} className="flex-none w-full md:w-[calc(50%-12px)] lg:w-[calc(16.666%-20px)] snap-start group/card cursor-pointer">
-                      <div className="relative aspect-square overflow-hidden rounded-lg mb-3">
-                        <img src={song.image} alt={song.title} className="w-full h-full object-cover transition-transform duration-500 group-hover/card:scale-110" />
+                    <div key={song.id} className="flex-none w-40 md:w-50 lg:w-55 snap-start group/card cursor-pointer">
+                      <div className="relative aspect-square overflow-hidden rounded-lg mb-3 shadow-lg">
+                        <img 
+                          src={song.image} 
+                          alt={song.title} 
+                          className="w-full h-full object-cover transition-transform duration-500 group-hover/card:scale-110" 
+                        />
                         <div className="absolute inset-0 bg-black/20 opacity-0 group-hover/card:opacity-100 transition-opacity duration-300" />
                       </div>
                       <div className="flex flex-col">
-                        <h3 className="text-white font-bold text-base md:text-lg leading-tight truncate">{song.title}</h3>
-                        <p className="text-gray-400 text-xs md:text-sm truncate mt-1">{song.artist}</p>
+                        <h3 className="text-white font-bold text-sm md:text-base leading-tight truncate" title={song.title}>
+                          {song.title}
+                        </h3>
+                        <p className="text-gray-400 text-xs md:text-sm truncate mt-1">
+                          {song.artist}
+                        </p>
                       </div>
                     </div>
                   ))}
                 </div>
               </div>
             ))}
+            
+            {sections.length === 0 && (
+               <div className="text-center text-gray-400 mt-20">Loading genres and songs...</div>
+            )}
           </div>
         </main>
 
