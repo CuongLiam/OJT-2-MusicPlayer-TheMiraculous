@@ -19,7 +19,7 @@ export const fetchSongs = createAsyncThunk('admin/fetchSongs', async () => {
   return response;
 });
 
-export const deleteSongAsync = createAsyncThunk('admin/deleteSong', async (id: number) => {
+export const deleteSongAsync = createAsyncThunk('admin/deleteSong', async (id: string) => {
   await deleteSongApi(id);
   return id;
 });
@@ -28,7 +28,7 @@ const adminSongSlice = createSlice({
   name: 'adminSong',
   initialState,
   reducers: {
-    removeSong: (state, action: PayloadAction<number>) => {
+    removeSong: (state, action: PayloadAction<string>) => {
       state.songs = state.songs.filter(s => s.id !== action.payload);
     },
   },
@@ -47,7 +47,7 @@ const adminSongSlice = createSlice({
         state.error = action.error.message || 'Failed to fetch songs';
       });
 
-    builder.addCase(deleteSongAsync.fulfilled, (state, action: PayloadAction<number>) => {
+    builder.addCase(deleteSongAsync.fulfilled, (state, action: PayloadAction<string>) => {
       state.songs = state.songs.filter(s => s.id !== action.payload);
     });
   },
