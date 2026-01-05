@@ -1,6 +1,6 @@
-// src/pages/Album/AllAlbumsByArtists.tsx
-import { useEffect, useRef, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom"; 
+// src/pages/Album/AllNewReleases.tsx
+import { useState, useEffect, useRef } from "react";
+import { useNavigate, useLocation } from "react-router-dom"; 
 import { ArrowLeft } from "lucide-react";       
 
 // Components
@@ -13,14 +13,14 @@ import AlbumCard from "../../components/Album/AlbumCard";
 // Types
 import { Album, User } from "../../types/music.types";
 
-const AllAlbumsByArtists = () => {
+const AllNewReleases = () => {
   const [isNavbarOpen, setIsNavbarOpen] = useState(false);
-  const navigate = useNavigate();
+  const navigate = useNavigate(); 
   const { pathname } = useLocation();
   const mainRef = useRef<HTMLElement>(null);
 
-  // State lưu trữ Albums thật
-  const [albums, setAlbums] = useState<Album[]>([]);
+  // State lưu trữ New Releases Albums
+  const [newReleases, setNewReleases] = useState<Album[]>([]);
 
   // 1. Fetch và Xử lý dữ liệu
   useEffect(() => {
@@ -30,7 +30,7 @@ const AllAlbumsByArtists = () => {
     ])
     .then(([usersData, albumsData]) => {
       
-      // Tạo Map Artist Name: { "5": "Sơn Tùng M-TP", ... }
+      // Tạo Map Artist Name
       const artistMap: Record<string, string> = {};
       usersData.forEach((u: User) => {
         if (u.roles.includes("ROLE_ARTIST")) {
@@ -44,7 +44,12 @@ const AllAlbumsByArtists = () => {
         artist_name: artistMap[String(album.artist_id)] || "Unknown Artist"
       }));
 
-      setAlbums(mergedAlbums);
+      // --- LOGIC QUAN TRỌNG: Sắp xếp theo ngày phát hành giảm dần ---
+      const sortedAlbums = mergedAlbums.sort((a: Album, b: Album) => 
+        new Date(b.release_date).getTime() - new Date(a.release_date).getTime()
+      );
+
+      setNewReleases(sortedAlbums);
     })
     .catch(err => console.error("Lỗi tải dữ liệu:", err));
   }, []);
@@ -70,49 +75,44 @@ const AllAlbumsByArtists = () => {
 
       <div className="flex-1 flex flex-col min-h-screen ml-0 xl:ml-20 transition-all">
         <Header onMenuClick={() => setIsNavbarOpen(true)} />
-        
+
         <main 
             ref={mainRef}
             id="scrolling-container"
             className="flex-1 w-full bg-[#14182a] overflow-y-auto pb-2 pt-8 px-4 xl:px-8 -ml-5 h-screen scrollbar-hide"
         >
             <section className="w-full max-w-362.5 mx-auto">
-                {/* Header Section: Back Button + Title */}
                 <div className="relative mb-8 px-2 xl:px-16 flex flex-col gap-1"> 
                     <button 
-                      onClick={() => navigate('/album')} // Quay về trang Album chính
+                      onClick={() => navigate('/album')}
                       className="absolute left-0 xl:left-4 bottom-2 text-white hover:text-[#3BC8E7] transition-colors cursor-pointer outline-none"
                       title="Back"
                     >
                       <ArrowLeft size={32} />
                     </button>
-
                     <h2 className="text-xl md:text-2xl font-bold text-[#3BC8E7] tracking-wide">
-                        Albums By Artists
+                        All New Releases
                     </h2>
                     <div className="h-0.75 w-12 bg-[#3BC8E7] rounded-full mt-1"></div>
                 </div>
-                
-                {/* Grid hiển thị Albums thật */}
+
+                {/* Grid hiển thị All New Releases */}
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-x-6 gap-y-8 px-2 xl:px-16 pb-20 justify-items-start">
-                    {albums.length > 0 ? (
-                      albums.map((album) => (
-                          <AlbumCard key={album.id} album={album} />
-                      ))
+                    {newReleases.length > 0 ? (
+                        newReleases.map((album) => (
+                            <AlbumCard key={album.id} album={album} />
+                        ))
                     ) : (
-                      <p className="text-gray-400 col-span-full text-center">Đang tải albums...</p>
+                        <p className="text-gray-400 col-span-full text-center">Đang tải albums...</p>
                     )}
                 </div>
-
             </section>
         </main>
-
         <Footer />
       </div>
-
       <MusicPlayerBar isSidebarOpen={isNavbarOpen} />
     </div>
   );
 };
 
-export default AllAlbumsByArtists;
+export default AllNewReleases;

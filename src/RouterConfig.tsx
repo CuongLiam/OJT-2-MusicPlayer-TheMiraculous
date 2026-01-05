@@ -22,6 +22,7 @@ import SignInModal from './components/auth/SignInModal'
 import SignUpModal from './components/auth/SignUpModal'
 import Favourite from  './pages/Favourite/Favourite'
 import TopTrack from './pages/TopTracks/TopTrack'
+import AllNewReleases from './pages/Album/AllNewReleasesAlbum'
 
 export default function RouterConfig() {
   return (
@@ -58,6 +59,7 @@ export default function RouterConfig() {
       <Route path='/album/artists-albums' element = {<AllAlbumsByArtists/>}></Route>
       <Route path='/favourite' element = {<Favourite/>}></Route>
       <Route path='/top-track' element = {<TopTrack/>}></Route>
+      <Route path="/album/new-releases" element={<AllNewReleases />} />
     </Routes>
   )
 }

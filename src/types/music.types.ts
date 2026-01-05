@@ -4,20 +4,20 @@ export interface Genre {
 }
 
 export interface Song {
-  id: number;
+  id: string; 
   title: string;
   duration: string;
-  album_id?: number | null;
+  album_id: number;
   artist_id: number;
+  genre_ids: number[];
   file_url: string;
   views: number;
   created_at: string;
   updated_at: string;
 
-  // API / UI only
-  genres?: Genre[];
-  artist_name?: string;
-  album?: Album; 
+
+  artist_name?: string;   // Để hiển thị tên ca sĩ
+  album_cover?: string;   // Để hiển thị ảnh bìa album trong list bài hát
 }
 
 export enum AlbumType {
@@ -26,13 +26,31 @@ export enum AlbumType {
 }
 
 export interface Album {
-  id: number;
+  id: string;
   title: string;
   release_date: string;
   artist_id: number;
   cover_image: string;
-  type: AlbumType;
+  type: 'PREMIUM' | 'FREE';
   created_at: string;
   updated_at: string;
-  songs?: Song[];
+
+  artist_name?: string;
+  artist_avatar?: string;
+}
+
+
+export interface User {
+  id: string;
+  first_name: string;
+  last_name: string;
+  email: string;
+  username?: string;
+  password?: string;
+  profile_image: string | null;
+  bio: string | null;
+  status: string;
+  roles: string[];
+  created_at: string;
+  updated_at: string;
 }
