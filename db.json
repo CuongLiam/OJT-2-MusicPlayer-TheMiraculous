@@ -646,13 +646,13 @@
       "updated_at": "2014-06-17T00:00:00Z"
     },
     {
-      "id": "e82e",
-      "title": "Test Album",
+      "id": "4ea0",
+      "title": "Test Add New Album",
       "artist_id": 6,
-      "cover_image": "https://res.cloudinary.com/douhnxire/image/upload/v1767614513/krxvdyewiacwks2hzlre.webp",
+      "cover_image": "https://res.cloudinary.com/douhnxire/image/upload/v1767619633/gwij7tgm8brm3dtdcbaw.webp",
       "type": "PREMIUM",
       "release_date": "2026-01-05",
-      "updated_at": "2026-01-05T12:01:54.469Z"
+      "updated_at": "2026-01-05T13:27:14.133Z"
     }
   ],
   "songs": [
@@ -2054,21 +2054,6 @@
       "updated_at": "2014-06-17T00:00:00Z"
     },
     {
-      "id": "38c2",
-      "title": "Vị nhà",
-      "artist_id": 6,
-      "album_id": 6,
-      "genre_ids": [
-        3,
-        2
-      ],
-      "file_url": "https://res.cloudinary.com/douhnxire/video/upload/v1767612615/rlxzmfmvqo0q2wdghpmr.mp3",
-      "duration": "05:15",
-      "views": 0,
-      "created_at": "2026-01-05T11:30:18.083Z",
-      "updated_at": "2026-01-05T11:30:18.084Z"
-    },
-    {
       "id": "0d68",
       "title": "Lãng Đãng",
       "artist_id": 6,
@@ -2077,6 +2062,35 @@
         2
       ],
       "file_url": "https://res.cloudinary.com/douhnxire/video/upload/v1767613443/zid5dthzwgqqksv7sn5q.mp3",
+      "duration": "05:22",
+      "views": 0,
+      "created_at": "2026-01-05T11:44:02.568Z",
+      "updated_at": "2026-01-05T11:44:02.568Z"
+    },
+    {
+      "id": "3473",
+      "title": "Vị nhà",
+      "artist_id": 6,
+      "album_id": 6,
+      "genre_ids": [
+        "3",
+        "2"
+      ],
+      "file_url": "https://res.cloudinary.com/douhnxire/video/upload/v1767619230/domwwffxjsbfnhcaefgw.mp3",
+      "duration": "05:15",
+      "views": 0,
+      "created_at": "2026-01-05T13:20:30.716Z",
+      "updated_at": "2026-01-05T13:20:30.716Z"
+    },
+    {
+      "id": "4912",
+      "title": "Test Add New Song",
+      "artist_id": "6",
+      "album_id": "4ea0",
+      "genre_ids": [
+        "2"
+      ],
+      "file_url": "https://res.cloudinary.com/douhnxire/video/upload/v1767619660/tpqic0dfvjp2jdxoywvb.mp3",
       "duration": "05:22",
       "views": 0,
       "created_at": "2026-01-05T11:44:02.568Z",

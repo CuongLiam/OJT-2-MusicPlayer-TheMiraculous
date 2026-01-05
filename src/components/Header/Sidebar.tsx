@@ -40,26 +40,28 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
       return 'Genres';
     }
 
-    const activeMainItem = mainMenuItems.find((item) => {
+    const allItems = [...mainMenuItems, ...secondaryMenuItems];
+
+    const activeItem = allItems.find((item) => {
       if (!item.path) return false;
       if (item.path === '/') return pathname === '/';
       return pathname.startsWith(item.path);
     });
     
-    return activeMainItem ? activeMainItem.name : 'Discover';
+    return activeItem ? activeItem.name : 'Discover';
   };
 
   const [activeItem, setActiveItem] = useState(() => getActiveItemFromUrl(location.pathname));
 
   useEffect(() => {
     setActiveItem(getActiveItemFromUrl(location.pathname));
-  }, [location.pathname, mainMenuItems]);
+  }, [location.pathname, mainMenuItems, secondaryMenuItems]);
 
   const handleItemClick = (item: { name: string; path?: string }) => {
+    setActiveItem(item.name);
+    
     if (item.path) {
       navigate(item.path);
-    } else {
-      setActiveItem(item.name);
     }
   };
 

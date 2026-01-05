@@ -1,5 +1,6 @@
 import { useRef, useEffect, useState } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { useLocation } from 'react-router'; 
 import Header from '../../components/Header/Header';
 import Sidebar, { useSidebarState } from '../../components/Header/Sidebar';
 import Footer from '../../components/Footer/Footer';
@@ -47,8 +48,12 @@ interface GenreSection {
 
 export default function MoreGenres() {
   const rowRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const sectionRefs = useRef<(HTMLDivElement | null)[]>([]);
+  
   const { isNavbarOpen, toggleSidebar, setSidebarOpen } = useSidebarState();
   const [sections, setSections] = useState<GenreSection[]>([]);
+  
+  const location = useLocation();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -64,6 +69,39 @@ export default function MoreGenres() {
         const songs: DBSong[] = await songsRes.json();
         const users: DBUser[] = await usersRes.json();
         const albums: DBAlbum[] = await albumsRes.json();
+
+        const targetSongId = location.state?.targetSongId;
+
+        if (targetSongId) {
+          const foundSong = songs.find(s => String(s.id) === String(targetSongId));
+
+          if (foundSong) {
+            const artist = users.find(u => String(u.id) === String(foundSong.artist_id));
+            const artistName = artist ? `${artist.first_name} ${artist.last_name}` : 'Unknown Artist';
+            const album = albums.find(a => String(a.id) === String(foundSong.album_id));
+            
+            let finalImage = 'https://placehold.co/400'; 
+            if (foundSong.cover_image) {
+              finalImage = foundSong.cover_image;
+            } else if (album && album.cover_image) {
+              finalImage = album.cover_image;
+            }
+
+            const uiSong: SongUI = {
+              id: foundSong.id,
+              title: foundSong.title,
+              artist: artistName,
+              image: finalImage
+            };
+
+            setSections([{
+              title: "Search Result",
+              songs: [uiSong]
+            }]);
+
+            return;
+          }
+        }
 
         const newSections: GenreSection[] = genres.map((genre) => {
           const genreSongs = songs.filter((song) => 
@@ -106,7 +144,24 @@ export default function MoreGenres() {
     };
 
     fetchData();
-  }, []);
+  }, [location.state]);
+
+  useEffect(() => {
+    if (location.state?.targetGenre && sections.length > 0) {
+      const targetGenreName = location.state.targetGenre;
+      
+      const index = sections.findIndex(s => s.title === targetGenreName);
+      
+      if (index !== -1 && sectionRefs.current[index]) {
+        setTimeout(() => {
+          sectionRefs.current[index]?.scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'start' 
+          });
+        }, 100);
+      }
+    }
+  }, [sections, location.state]);
 
   const handleScroll = (index: number, direction: 'left' | 'right') => {
     const row = rowRefs.current[index];
@@ -129,7 +184,11 @@ export default function MoreGenres() {
         <main className="flex-1 mx-auto w-full text-white p-4 md:py-12 md:px-20 more-genres-josefin pb-28 bg-[#14182a]">
           <div className="max-w-400 mx-auto">
             {sections.map((section, idx) => (
-              <div key={idx} className="mb-10 last:mb-0 relative group">
+              <div 
+                key={idx} 
+                ref={(el) => { sectionRefs.current[idx] = el; }}
+                className="mb-10 last:mb-0 relative group pt-4"
+              >
                 <div className="flex justify-between items-end mb-6 px-4 md:px-0">
                   <h2 className="text-xl md:text-2xl font-bold text-[#4fd1c5] tracking-wide relative inline-block">
                     {section.title}

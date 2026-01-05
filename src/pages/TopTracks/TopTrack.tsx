@@ -1,7 +1,7 @@
 import Header from "../../components/Header/Header";
-import Sidebar from "../../components/Header/Sidebar";
+import Sidebar, { useSidebarState } from "../../components/Header/Sidebar";
 import Footer from "../../components/Footer/Footer";
-import { useRef, useState } from "react";
+import { useRef } from "react";
 
 interface TopSong {
     rank: number;
@@ -365,7 +365,7 @@ export default function TopTrack() {
     const scrollContainerRef = useRef<HTMLDivElement>(null);
     const releaseScrollRef = useRef<HTMLDivElement>(null);
 
-    const [isNavbarOpen, setIsNavbarOpen] = useState(false);
+    const { isNavbarOpen, toggleSidebar, setSidebarOpen } = useSidebarState();
 
     const scroll = (
         direction: "left" | "right",
@@ -382,20 +382,18 @@ export default function TopTrack() {
         }
     };
     return (
-        <div className="w-full min-h-screen bg-[#14182A] flex">
+        <div className="w-full min-h-screen bg-[#14182A] flex select-none">
             <Sidebar
                 isOpen={isNavbarOpen}
-                toggleSidebar={() => setIsNavbarOpen(!isNavbarOpen)}
+                toggleSidebar={toggleSidebar}
             />
 
             <div
-                className={`
-            flex-1 flex flex-col min-h-screen transition-all duration-300 ease-in-out
-            ${isNavbarOpen ? "ml-45 md:ml-62.5" : "ml-20"} 
-        `}
+                className="flex-1 flex flex-col min-h-screen ml-0 xl:ml-20 transition-all duration-300 ease-in-out"
             >
-                <Header />
-                <main className="bg-[#14182A]">
+                <Header onMenuClick={() => setSidebarOpen(true)} />
+                
+                <main className="bg-[#14182A] w-full">
                     <section className="relative w-full overflow-hidden mt-10.75">
                         <div className="max-w-340 mx-auto px-6 md:px-8 lg:px-12">
                             <SectionHeader title="Weekly Top 15" />

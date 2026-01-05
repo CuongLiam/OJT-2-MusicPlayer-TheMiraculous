@@ -1,20 +1,21 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { FaSearch, FaBars, FaUserPlus, FaUser, FaPlayCircle } from 'react-icons/fa';
+import { useNavigate } from 'react-router'; 
 import SignInModal from '../auth/SignInModal';
 import SignUpModal from '../auth/SignUpModal';
 import LanguageIcon from '../../assets/Header/LanguageIcon.png';
 import '../../assets/css/Font.css';
 
 interface Song {
-  id: number;
+  id: number | string;
   title: string;
-  artist_id: number;
+  artist_id: number | string;
   duration: string;
   cover_image?: string; 
 }
 
 interface User {
-  id: number;
+  id: number | string;
   first_name: string;
   last_name: string;
   roles: string[];
@@ -38,6 +39,8 @@ const Header: React.FC<HeaderProps> = ({ onMenuClick }) => {
   const [searchResults, setSearchResults] = useState<SearchResult[]>([]);
   const [showDropdown, setShowDropdown] = useState(false);
   const searchRef = useRef<HTMLDivElement>(null);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -72,7 +75,7 @@ const Header: React.FC<HeaderProps> = ({ onMenuClick }) => {
     const filtered = allSongs.filter(song => 
       song.title.toLowerCase().includes(lowerTerm)
     ).map(song => {
-      const artist = allArtists.find(a => a.id === song.artist_id);
+      const artist = allArtists.find(a => String(a.id) === String(song.artist_id));
       const artistName = artist ? `${artist.first_name} ${artist.last_name}` : 'Unknown Artist';
       
       return {
@@ -96,15 +99,17 @@ const Header: React.FC<HeaderProps> = ({ onMenuClick }) => {
   }, []);
 
   useEffect(() => {
-    if (showSignIn || showSignUp) {
+    if (showDropdown) {
       document.body.style.overflow = 'hidden';
-    } else {
+    } else if (!showSignIn && !showSignUp) {
       document.body.style.overflow = 'unset';
     }
     return () => {
-      document.body.style.overflow = 'unset';
+        if(!showSignIn && !showSignUp) {
+             document.body.style.overflow = 'unset';
+        }
     };
-  }, [showSignIn, showSignUp]);
+  }, [showDropdown, showSignIn, showSignUp]);
 
   return (
     <>
@@ -139,9 +144,9 @@ const Header: React.FC<HeaderProps> = ({ onMenuClick }) => {
                           key={song.id}
                           className="px-4 py-3 hover:bg-gray-100 cursor-pointer border-b border-gray-100 last:border-none flex items-center justify-between group transition-colors"
                           onClick={() => {
-                            console.log("Play song:", song.title);
-                            // TODO: Thêm logic điều hướng hoặc phát nhạc tại đây
-                            setSearchTerm(''); // Xóa tìm kiếm sau khi chọn
+                            navigate('/more-genres', { state: { targetSongId: song.id } });
+                            setSearchTerm('');
+                            setShowDropdown(false);
                           }}
                         >
                           <div className="flex flex-col">

@@ -16,26 +16,23 @@ const Genre = () => {
   const navigate = useNavigate();
   const [genres, setGenres] = useState<GenreItem[]>([]);
 
-  // Hàm để gán class layout dựa trên index (để giữ giao diện giống bản cũ)
   const getGridClass = (index: number) => {
     const pattern = [
-      'lg:row-span-2', // 0: Lớn
-      'lg:col-span-1', // 1: Nhỏ
-      'lg:col-span-1', // 2: Nhỏ
-      'lg:row-span-2', // 3: Lớn
-      'lg:col-span-1', // 4: Nhỏ
-      'lg:col-span-1', // 5: Nhỏ
-      'lg:col-span-1', // 6: Nhỏ
-      'lg:col-span-1', // 7: Nhỏ
-      'lg:row-span-2', // 8: Lớn
-      'lg:col-span-2 lg:row-span-2', // 9: Rất lớn
+      'lg:row-span-2',
+      'lg:col-span-1',
+      'lg:col-span-1',
+      'lg:row-span-2',
+      'lg:col-span-1',
+      'lg:col-span-1',
+      'lg:col-span-1',
+      'lg:col-span-1',
+      'lg:row-span-2',
+      'lg:col-span-2 lg:row-span-2',
     ];
-    // Lặp lại pattern nếu danh sách dài hơn
     return pattern[index % pattern.length] || 'lg:col-span-1';
   };
 
   useEffect(() => {
-    // Fetch dữ liệu Genres từ db.json
     fetch('http://localhost:3000/genres')
       .then((res) => res.json())
       .then((data) => {
@@ -43,6 +40,10 @@ const Genre = () => {
       })
       .catch((err) => console.error('Error fetching genres:', err));
   }, []);
+
+  const handleGenreClick = (genreName: string) => {
+    navigate('/more-genres', { state: { targetGenre: genreName } });
+  };
 
   return (
     <div className="w-full min-h-screen bg-[#14182a] flex select-none">
@@ -73,6 +74,7 @@ const Genre = () => {
               {genres.map((genre, index) => (
                 <div
                   key={genre.id}
+                  onClick={() => handleGenreClick(genre.genre_name)}
                   className={`group relative overflow-hidden rounded-2xl cursor-pointer shadow-lg ${getGridClass(index)}`}
                 >
                   <img
@@ -88,7 +90,6 @@ const Genre = () => {
                       {genre.genre_name}
                     </span>
                     
-                    {/* Chỉ hiển thị action text ở một số ô lớn để đỡ rối */}
                     {(index === 0 || index === 9) && (
                       <span className="text-xs text-gray-200 hover:text-white font-light mb-1">
                         View Songs

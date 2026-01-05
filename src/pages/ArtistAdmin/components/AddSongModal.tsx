@@ -33,9 +33,10 @@ const AddSongModal: React.FC<AddSongModalProps> = ({
   const [genresList, setGenresList] = useState<Genre[]>([]);
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   
+  // 1. Cập nhật genre_ids thành string[]
   const [newSong, setNewSong] = useState({
     title: "",
-    genre_ids: [] as number[],
+    genre_ids: [] as string[], 
     album_id: "",
     duration: "",
   });
@@ -61,7 +62,7 @@ const AddSongModal: React.FC<AddSongModalProps> = ({
       if (initialData) {
         setNewSong({
           title: initialData.title,
-          genre_ids: initialData.genre_ids || [],
+          genre_ids: (initialData.genre_ids || []).map((id: any) => String(id)),
           album_id: initialData.album_id ? String(initialData.album_id) : "",
           duration: initialData.duration || "--:--"
         });
@@ -116,8 +117,8 @@ const AddSongModal: React.FC<AddSongModalProps> = ({
 
       const songData = {
         title: newSong.title,
-        artist_id: Number(artistId),
-        album_id: Number(newSong.album_id),
+        artist_id: String(artistId),
+        album_id: String(newSong.album_id),
         genre_ids: newSong.genre_ids,
         file_url: finalFileUrl,
         duration: newSong.duration,
@@ -135,7 +136,8 @@ const AddSongModal: React.FC<AddSongModalProps> = ({
     }
   };
 
-  const getGenreName = (id: number) => genresList.find(g => Number(g.id) === id)?.genre_name || "Unknown";
+  // 3. Xử lý tìm tên thể loại bằng string ID
+  const getGenreName = (id: string) => genresList.find(g => String(g.id) === String(id))?.genre_name || "Unknown";
 
   if (!isOpen) return null;
 
@@ -151,7 +153,7 @@ const AddSongModal: React.FC<AddSongModalProps> = ({
           {generalError && <div className="mb-6 p-4 rounded-xl border bg-red-500/10 border-red-500/20 text-red-400 flex items-center gap-3"><AlertCircle size={20} /><span>{generalError}</span></div>}
           <form id="add-song-form" onSubmit={handleSubmit} className="flex flex-col gap-6" noValidate>
             <div className="space-y-2">
-              <label className="text-sm font-bold text-gray-300">Audio files{isEditMode ? "(Select to change)" : "(*)"}</label>
+              <label className="text-sm font-bold text-gray-300">Audio files{isEditMode ? " (Select to change)" : " (*)"}</label>
               <div onClick={() => fileInputRef.current?.click()} className={`border-2 border-dashed rounded-xl p-8 flex flex-col items-center justify-center cursor-pointer transition-all ${errors.file ? 'border-red-500 bg-red-500/5' : selectedFile ? 'border-emerald-500/50 bg-emerald-500/5' : 'border-[#3c314b] hover:border-[#8c2bee]'}`}>
                 {selectedFile ? <div className="text-emerald-500 flex flex-col items-center"><Check size={32} /><span className="text-sm font-bold">{selectedFile.name}</span></div> : <div className="text-gray-400 flex flex-col items-center"><UploadCloud size={32} /><span className="text-sm">Click to select music (MP3, WAV)</span></div>}
                 <input type="file" ref={fileInputRef} className="hidden" accept="audio/*" onChange={handleFileChange} />
@@ -168,8 +170,28 @@ const AddSongModal: React.FC<AddSongModalProps> = ({
 
               <div className="space-y-2">
                 <label className="text-sm font-medium text-gray-300">Genre (*)</label>
-                <select className={`w-full bg-[#191022] border rounded-lg px-4 py-3 text-white appearance-none ${errors.genre ? 'border-red-500' : 'border-[#3c314b]'}`} onChange={e => { const id = Number(e.target.value); if(id && !newSong.genre_ids.includes(id)) setNewSong({...newSong, genre_ids: [...newSong.genre_ids, id]}); setErrors({...errors, genre: undefined}); e.target.value = ""}} defaultValue=""><option value="" disabled>-- Choose genre --</option>{genresList.map(g => <option key={g.id} value={g.id}>{g.genre_name}</option>)}</select>
-                <div className="flex flex-wrap gap-2 pt-2">{newSong.genre_ids.map(id => <span key={id} className="bg-[#8c2bee]/20 text-[#8c2bee] px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1">{getGenreName(id)}<button type="button" onClick={() => setNewSong({...newSong, genre_ids: newSong.genre_ids.filter(i => i !== id)})}><X size={12}/></button></span>)}</div>
+                {/* 4. Select xử lý ID là string */}
+                <select 
+                  className={`w-full bg-[#191022] border rounded-lg px-4 py-3 text-white appearance-none ${errors.genre ? 'border-red-500' : 'border-[#3c314b]'}`} 
+                  onChange={e => { 
+                    const id = e.target.value; 
+                    if(id && !newSong.genre_ids.includes(id)) setNewSong(prev => ({...prev, genre_ids: [...prev.genre_ids, id]})); 
+                    setErrors(prev => ({...prev, genre: undefined})); 
+                    e.target.value = ""
+                  }} 
+                  defaultValue=""
+                >
+                  <option value="" disabled>-- Choose genre --</option>
+                  {genresList.map(g => <option key={g.id} value={g.id}>{g.genre_name}</option>)}
+                </select>
+                <div className="flex flex-wrap gap-2 pt-2">
+                  {newSong.genre_ids.map(id => (
+                    <span key={id} className="bg-[#8c2bee]/20 text-[#8c2bee] px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1">
+                      {getGenreName(id)}
+                      <button type="button" onClick={() => setNewSong(prev => ({...prev, genre_ids: prev.genre_ids.filter(i => i !== id)}))}><X size={12}/></button>
+                    </span>
+                  ))}
+                </div>
                 {errors.genre && <p className="text-red-500 text-xs">{errors.genre}</p>}
               </div>
             </div>
