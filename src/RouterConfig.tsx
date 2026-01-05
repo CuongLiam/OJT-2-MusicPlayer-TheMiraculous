@@ -31,6 +31,7 @@ import Settings from './pages/ArtistAdmin/components/Settings'
 import ArtistLogin from './pages/ArtistAdmin/auth/ArtistLogin'
 import ArtistRegis from './pages/ArtistAdmin/auth/ArtistRegis'
 import History from './pages/History/history'
+import Download from './pages/Download/Download'
 
 export default function RouterConfig() {
   return (
@@ -145,6 +146,15 @@ export default function RouterConfig() {
         element={
           <RequireAuth>
             <TopTrack />
+          </RequireAuth>
+        }
+      />
+
+      <Route
+        path="/download"
+        element={
+          <RequireAuth>
+            <Download />
           </RequireAuth>
         }
       />

@@ -62,7 +62,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
   ], []);
 
   const secondaryMenuItems = useMemo(() => [
-    { name: 'Downloads', icon: DownloadsIcon },
+    { name: 'Downloads', icon: DownloadsIcon, path: '/download' },
     { name: 'Favourites', icon: FavoritesIcon, path: '/favourite' },
     { name: 'History', icon: HistoryIcon, path: '/history' },
   ], []);
