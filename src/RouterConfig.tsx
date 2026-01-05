@@ -1,6 +1,6 @@
 import { Navigate, Route, Routes } from 'react-router'
 import Artists from './pages/Artist/Artists'
-import Home from './pages/Home/Home'
+import Home from './pages/home/Home'
 import Genre from './pages/Genre/Genre'
 import MoreGenres from './pages/Genre/MoreGenres'
 import Album from './pages/Album/Album'
@@ -30,7 +30,7 @@ import AlbumManagement from './pages/ArtistAdmin/components/AlbumManagement'
 import Settings from './pages/ArtistAdmin/components/Settings'
 import ArtistLogin from './pages/ArtistAdmin/auth/ArtistLogin'
 import ArtistRegis from './pages/ArtistAdmin/auth/ArtistRegis'
-import History from './pages/History/History'
+import History from './pages/History/history'
 
 export default function RouterConfig() {
   return (
@@ -149,18 +149,7 @@ export default function RouterConfig() {
         }
       />
 
-      {/* --- PUBLIC USER ROUTES --- */}
-      <Route path='/artists' element = {<Artists/>}></Route>
-      <Route path='/genre' element = {<Genre/>}></Route>
-      <Route path='/more-genres' element = {<MoreGenres/>}></Route>
-      <Route path='/album' element = {<Album/>}></Route>
-      <Route path='/album/featured-albums' element = {<AllFeaturedAlbums/>}></Route>
-      <Route path='/album/trending-albums' element = {<AllTrendingAlbums/>}></Route>
-      <Route path='/album/artists-albums' element = {<AllAlbumsByArtists/>}></Route>
-      <Route path='/favourite' element = {<Favourite/>}></Route>
-      <Route path='/top-track' element = {<TopTrack/>}></Route>
-      <Route path="/album/new-releases" element={<AllNewReleases />} />
-
+    
       <Route path='/artist/login' element={<ArtistLogin />} />
       <Route path='/artist/register' element={<ArtistRegis />} />
 
@@ -172,7 +161,11 @@ export default function RouterConfig() {
         <Route path="/artist/settings" element={<Settings />} />
       </Route>
 
-      <Route path='/history' element={<History/>}></Route>
+      <Route path='/history' element={
+          <RequireAdmin>
+            <History/>
+          </RequireAdmin>
+        }></Route>
 
     </Routes>
   )
