@@ -193,10 +193,7 @@ const SignUpModal = ({ onClose }: { onClose?: () => void }) => {
           </div>
         </div>
 
-        {/* Dimension Label */}
-        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-blue-600 text-white px-4 py-1 rounded text-sm font-mono hidden lg:block">
-          1280 × 608
-        </div>
+      
       </div>
     </div>
   );

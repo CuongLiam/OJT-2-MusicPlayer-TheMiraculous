@@ -20,6 +20,8 @@ import AdminSubscription from './pages/Admin/Subscriptions'
 import AdminArtists from './pages/Admin/Artists'
 import SignInModal from './components/auth/SignInModal'
 import SignUpModal from './components/auth/SignUpModal'
+import Favourite from  './pages/Favourite/Favourite'
+import TopTrack from './pages/TopTracks/TopTrack'
 
 export default function RouterConfig() {
   return (
@@ -54,6 +56,8 @@ export default function RouterConfig() {
       <Route path='/album/featured-albums' element = {<AllFeaturedAlbums/>}></Route>
       <Route path='/album/trending-albums' element = {<AllTrendingAlbums/>}></Route>
       <Route path='/album/artists-albums' element = {<AllAlbumsByArtists/>}></Route>
+      <Route path='/favourite' element = {<Favourite/>}></Route>
+      <Route path='/top-track' element = {<TopTrack/>}></Route>
     </Routes>
   )
 }
