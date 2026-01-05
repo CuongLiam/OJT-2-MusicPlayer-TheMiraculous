@@ -1,9 +1,8 @@
 import React, { useRef } from 'react';
 import { Link } from 'react-router-dom';
-import AlbumCard from './AlbumCard'; // Import component đã sửa ở các bước trước
-import { Album } from '../../types/music.types'; // Import Interface chuẩn
+import AlbumCard from './AlbumCard';
+import { Album } from '../../types/music.types';
 
-// Định nghĩa props nhận vào là mảng Album thật
 interface AlbumsByArtistsProps {
   data: Album[]; 
 }
@@ -14,7 +13,7 @@ const AlbumsByArtists: React.FC<AlbumsByArtistsProps> = ({ data }) => {
   const scroll = (direction: 'left' | 'right') => {
     if (scrollRef.current) {
       const { current } = scrollRef;
-      const scrollAmount = 199; // Giữ nguyên con số 199 như code cũ của bạn
+      const scrollAmount = 199;
       if (direction === 'left') {
         current.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
       } else {
@@ -23,12 +22,10 @@ const AlbumsByArtists: React.FC<AlbumsByArtistsProps> = ({ data }) => {
     }
   };
 
-  // Nếu không có dữ liệu thì không hiển thị
   if (!data || data.length === 0) return null;
 
   return (
     <section className="w-full max-w-362.5 mx-auto mt-12 mb-16">
-      {/* Header giữ nguyên CSS cũ */}
       <div className="flex justify-between items-end mb-2 px-2 xl:px-16">
         <div className="flex flex-col gap-1">
           <h2 className="text-xl md:text-2xl font-bold text-[#3BC8E7] tracking-wide">
