@@ -50,25 +50,3 @@ export const uploadToCloudinary = async (
     throw error;
   }
 };
-
-//=====================================================================================
-// // 1. Hàm xử lý khi chọn ẢNH BÌA
-// const handleUploadCover = async (e: React.ChangeEvent<HTMLInputElement>) => {
-//   const file = e.target.files?.[0];
-//   if (file) {
-//     // Truyền 'image' -> Code sẽ dùng preset music-images -> Vào folder ảnh
-//     const data = await uploadToCloudinary(file, 'image');
-//     console.log("Link Ảnh:", data.secure_url); 
-//   }
-// };
-
-// // 2. Hàm xử lý khi chọn FILE NHẠC
-// const handleUploadSong = async (e: React.ChangeEvent<HTMLInputElement>) => {
-//   const file = e.target.files?.[0];
-//   if (file) {
-//     // Truyền 'video' -> Code sẽ dùng preset music-songs -> Vào folder nhạc
-//     const data = await uploadToCloudinary(file, 'video');
-//     console.log("Link Nhạc:", data.secure_url);
-//     console.log("Thời lượng bài hát:", data.duration, "giây");
-//   }
-// };

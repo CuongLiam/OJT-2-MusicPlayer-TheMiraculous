@@ -1,5 +1,5 @@
 export interface Genre {
-  id: number;
+  id: string;
   genre_name: string;
 }
 
@@ -7,9 +7,9 @@ export interface Song {
   id: string; 
   title: string;
   duration: string;
-  album_id: number;
-  artist_id: number;
-  genre_ids: number[];
+  album_id: string;
+  artist_id: string;
+  genre_ids: string[];
   file_url: string;
   views: number;
   created_at: string;

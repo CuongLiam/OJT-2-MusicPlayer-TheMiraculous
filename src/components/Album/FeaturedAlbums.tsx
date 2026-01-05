@@ -1,9 +1,8 @@
 import React, { useRef } from 'react';
 import { Link } from 'react-router-dom';
-import AlbumCard from './AlbumCard'; // Import component AlbumCard đã sửa
-import { Album } from '../../types/music.types'; // Import Interface chuẩn
+import AlbumCard from './AlbumCard'; 
+import { Album } from '../../types/music.types'; 
 
-// Định nghĩa Props nhận vào data
 interface FeaturedAlbumsProps {
   data: Album[];
 }
@@ -14,7 +13,7 @@ const FeaturedAlbums: React.FC<FeaturedAlbumsProps> = ({ data }) => {
   const scroll = (direction: 'left' | 'right') => {
     if (scrollRef.current) {
       const { current } = scrollRef;
-      const scrollAmount = 199; // Giữ nguyên thông số cuộn của bạn
+      const scrollAmount = 199;
       if (direction === 'left') {
         current.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
       } else {
@@ -23,12 +22,10 @@ const FeaturedAlbums: React.FC<FeaturedAlbumsProps> = ({ data }) => {
     }
   };
 
-  // Nếu chưa có data thì không hiển thị
   if (!data || data.length === 0) return null;
 
   return (
     <section className="w-full max-w-362.5 mx-auto">
-      {/* Header giữ nguyên */}
       <div className="flex justify-between items-end mb-2 px-2 xl:px-16">
         <div className="flex flex-col gap-1">
           <h2 className="text-xl md:text-2xl font-bold text-[#3BC8E7] tracking-wide">
@@ -44,7 +41,6 @@ const FeaturedAlbums: React.FC<FeaturedAlbumsProps> = ({ data }) => {
         </Link>
       </div>
 
-      {/* Body giữ nguyên */}
       <div className="flex items-center justify-center gap-6 mt-10 w-full">
         <button 
           onClick={() => scroll('left')}
@@ -60,7 +56,6 @@ const FeaturedAlbums: React.FC<FeaturedAlbumsProps> = ({ data }) => {
           className="flex gap-6 overflow-x-auto scrollbar-hide scroll-smooth w-full max-w-292.5"
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
-          {/* Thay thế FEATURED_ALBUMS.map bằng data.map */}
           {data.map((album) => (
             <AlbumCard key={album.id} album={album} />
           ))}
