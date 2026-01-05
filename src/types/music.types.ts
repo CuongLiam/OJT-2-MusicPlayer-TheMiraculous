@@ -39,6 +39,12 @@ export interface Album {
   artist_avatar?: string;
 }
 
+export interface Downloads {
+  id : string;
+  user_id : string;
+  song_id : string;
+  downloaded_at : string;
+}
 
 export interface User {
   id: string;

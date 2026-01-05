@@ -11,6 +11,8 @@ import {
 import '../../assets/css/Font.css';
 import { usePlayer } from '../../contexts/PlayerContext';
 import { WishlistAPI } from '../../api/core/favourite.api';
+import { DownloadAPI } from '../../api/core/download.api';
+
 
 // helper to format seconds to mm:ss
 function fmtTime(sec: number) {
@@ -122,6 +124,36 @@ const MusicPlayerBar: React.FC<MusicPlayerBarProps> = ({ isSidebarOpen }) => {
     seekTo(seconds);
   }
 
+
+  const handleDownload = async () => {
+  if (!currentSong) return;
+
+  const userStr = localStorage.getItem('userLogin');
+  const userId = userStr ? JSON.parse(userStr).id : null;
+
+  try {
+    // 1. Download file to computer
+    await DownloadAPI.downloadSongFile(
+      currentSong.file_url,
+      `${currentSong.title} - ${currentSong.artist_name}`
+    );
+
+    // 2. Save to downloads page
+    if (userId) {
+      await DownloadAPI.addToDownloads(
+        String(userId),
+        String(currentSong.id)
+      );
+    }
+
+    console.log('✅ Download completed');
+  } catch (err) {
+    console.error('❌ Download failed', err);
+    alert('Download failed');
+  }
+};
+
+
   return (
     <div 
       className={`
@@ -231,7 +263,10 @@ const MusicPlayerBar: React.FC<MusicPlayerBarProps> = ({ isSidebarOpen }) => {
             <BsHeart size={18} />
           </button>
 
-          <button className="cursor-pointer hidden sm:block text-gray-300 hover:text-[#38bdf8] hover:scale-110 transition-all">
+          <button
+            onClick={handleDownload}
+            className="cursor-pointer hidden sm:block text-gray-300 hover:text-[#38bdf8] hover:scale-110 transition-all"
+          >
             <BsDownload size={18} />
           </button>
         </div>

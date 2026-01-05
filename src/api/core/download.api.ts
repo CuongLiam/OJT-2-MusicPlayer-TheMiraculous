@@ -66,33 +66,44 @@ export const DownloadAPI = {
         try {
             console.log('📥 Fetching free downloads...');
 
-            // Fetch parallel for better performance
-            const [songs, albums, users] = await Promise.all([
-                axios.get(`${API_URL}/songs`).then(res => res.data),
-                axios.get(`${API_URL}/albums`).then(res => res.data),
-                axios.get(`${API_URL}/users`).then(res => res.data),
+            // 1️⃣ Fetch everything needed
+            const [downloads, songs, albums, users] = await Promise.all([
+            axios.get(`${API_URL}/downloads`).then(res => res.data),
+            axios.get(`${API_URL}/songs`).then(res => res.data),
+            axios.get(`${API_URL}/albums`).then(res => res.data),
+            axios.get(`${API_URL}/users`).then(res => res.data),
             ]);
 
-            // Sort by views (descending) and take top 15
-            const topSongs = [...songs]
-                .sort((a: Song, b: Song) => b.views - a.views)
-                .slice(0, 15);
+            if (downloads.length === 0) {
+            console.log('ℹ️ No downloads found');
+            return [];
+            }
 
-            // Map to table format with joined data
-            const tableData: DownloadTableSong[] = topSongs.map((song: Song) => {
-                const album = albums.find((a: Album) => String(a.id) === String(song.album_id));
-                const artist = users.find((u: User) => String(u.id) === String(song.artist_id));
+            // 2️⃣ Convert downloads → song IDs
+            const downloadedSongIds = downloads.map((d: any) =>
+            String(d.song_id)
+            );
 
-                return {
-                    id: song.id,
-                    title: song.title,
-                    album: album?.title || "Unknown Album",
-                    duration: song.duration,
-                    artist_name: artist 
-                        ? `${artist.first_name} ${artist.last_name}`.trim()
-                        : "Unknown Artist",
-                    album_cover: album?.cover_image || song.cover_image || "",
-                };
+            // 3️⃣ Get only downloaded songs
+            const downloadedSongs = songs.filter((s: Song) =>
+            downloadedSongIds.includes(String(s.id))
+            );
+
+            // 4️⃣ Map to table format
+            const tableData: DownloadTableSong[] = downloadedSongs.map((song: Song) => {
+            const album = albums.find((a: Album) => String(a.id) === String(song.album_id));
+            const artist = users.find((u: User) => String(u.id) === String(song.artist_id));
+
+            return {
+                id: song.id,
+                title: song.title,
+                album: album?.title || "Unknown Album",
+                duration: song.duration,
+                artist_name: artist
+                ? `${artist.first_name} ${artist.last_name}`.trim()
+                : "Unknown Artist",
+                album_cover: album?.cover_image || song.cover_image || "",
+            };
             });
 
             console.log('✅ Free downloads loaded:', tableData.length, 'songs');
@@ -103,6 +114,7 @@ export const DownloadAPI = {
             throw error;
         }
     },
+
 
     /**
      * =================================================================
@@ -292,4 +304,35 @@ export const DownloadAPI = {
             throw error;
         }
     },
+
+    downloadSongFile: async (fileUrl: string, filename: string) => {
+        const response = await fetch(fileUrl);
+        const blob = await response.blob();
+
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `${filename}.mp3`;
+        document.body.appendChild(a);
+        a.click();
+
+        a.remove();
+        window.URL.revokeObjectURL(url);
+        },
+
+        addToDownloads: async (userId: string, songId: string) => {
+        // avoid duplicates
+        const exists = await axios.get(
+            `${API_URL}/downloads?user_id=${userId}&song_id=${songId}`
+        );
+
+        if (exists.data.length > 0) return;
+
+        await axios.post(`${API_URL}/downloads`, {
+            user_id: Number(userId),
+            song_id: Number(songId),
+            downloaded_at: new Date().toISOString(),
+        });
+    },
+
 };
