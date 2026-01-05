@@ -667,7 +667,7 @@
         4
       ],
       "file_url": "https://res.cloudinary.com/douhnxire/video/upload/v1767541711/hciesnufi2uwzxzdtiwn.mp3",
-      "views": 1500000,
+      "views": 1500001,
       "created_at": "2024-03-08T00:00:00Z",
       "updated_at": "2024-03-08T00:00:00Z",
       "cover_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_kadkizjBcU7kPybuBEO0l1TN5ADzHThv1w&s"
@@ -732,7 +732,7 @@
         5
       ],
       "file_url": "https://res.cloudinary.com/douhnxire/video/upload/v1767542156/ocmxon3ln79d4osi6cjk.mp3",
-      "views": 2500000,
+      "views": 2500002,
       "created_at": "2020-06-12T00:00:00Z",
       "updated_at": "2020-06-12T00:00:00Z",
       "cover_image": "https://i.scdn.co/image/ab67616d00001e023403b37254ffacb7732e92da"
@@ -780,7 +780,7 @@
         6
       ],
       "file_url": "https://res.cloudinary.com/douhnxire/video/upload/v1767542469/hmpye2aqtvvc9s6vzgfa.mp3",
-      "views": 1000000,
+      "views": 1000001,
       "created_at": "2018-01-01T00:00:00Z",
       "updated_at": "2018-01-01T00:00:00Z",
       "cover_image": "https://photos.eruce.com/thumbs/40b/32b/ab7/32b/88d/c4e/6d2c813016ecccf21537395d051edfcc_500x500.jpg"
@@ -923,7 +923,7 @@
         1
       ],
       "file_url": "https://res.cloudinary.com/douhnxire/video/upload/v1767542852/bencbuxa1lxwole0uqjq.mp3",
-      "views": 4000000,
+      "views": 4000001,
       "created_at": "2019-05-19T00:00:00Z",
       "updated_at": "2019-05-19T00:00:00Z",
       "cover_image": "https://www.woay.vn/public/uploads/mv-di-ve-nha.jpg"
@@ -985,7 +985,7 @@
         2
       ],
       "file_url": "",
-      "views": 1800000,
+      "views": 1800001,
       "created_at": "2017-12-03T00:00:00Z",
       "updated_at": "2017-12-03T00:00:00Z",
       "cover_image": "https://i.ytimg.com/vi/51AhXswRDgQ/maxresdefault.jpg"
@@ -2227,6 +2227,11 @@
       "id": "5",
       "user_id": 5,
       "song_id": 10
+    },
+    {
+      "id": "2567",
+      "user_id": null,
+      "song_id": 5
     }
   ],
   "history": [
