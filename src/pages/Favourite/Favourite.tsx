@@ -51,7 +51,7 @@ export default function Favourite() {
 
     // Lấy user từ localStorage
     const getUserId = () => {
-        const userStr = localStorage.getItem('user');
+        const userStr = localStorage.getItem('userLogin');
         return userStr ? JSON.parse(userStr).id : null;
     };
 
