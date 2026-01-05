@@ -5,13 +5,12 @@ import SignUpModal from '../auth/SignUpModal';
 import LanguageIcon from '../../assets/Header/LanguageIcon.png';
 import '../../assets/css/Font.css';
 
-// 1. Định nghĩa Interface cho dữ liệu
 interface Song {
   id: number;
   title: string;
   artist_id: number;
   duration: string;
-  cover_image?: string; // Tùy chọn nếu bạn muốn hiển thị ảnh
+  cover_image?: string; 
 }
 
 interface User {
@@ -33,7 +32,6 @@ const Header: React.FC<HeaderProps> = ({ onMenuClick }) => {
   const [showSignIn, setShowSignIn] = useState(false);
   const [showSignUp, setShowSignUp] = useState(false);
   
-  // State cho tìm kiếm
   const [searchTerm, setSearchTerm] = useState('');
   const [allSongs, setAllSongs] = useState<Song[]>([]);
   const [allArtists, setAllArtists] = useState<User[]>([]);
@@ -41,11 +39,9 @@ const Header: React.FC<HeaderProps> = ({ onMenuClick }) => {
   const [showDropdown, setShowDropdown] = useState(false);
   const searchRef = useRef<HTMLDivElement>(null);
 
-  // 2. Fetch dữ liệu khi Header được mount (chạy 1 lần)
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // Dùng Promise.all để gọi song song cả 2 API
         const [songsRes, usersRes] = await Promise.all([
           fetch('http://localhost:3000/songs'),
           fetch('http://localhost:3000/users')
@@ -55,7 +51,6 @@ const Header: React.FC<HeaderProps> = ({ onMenuClick }) => {
         const usersData = await usersRes.json();
 
         setAllSongs(songsData);
-        // Chỉ lấy user là Artist để tối ưu
         setAllArtists(usersData.filter((u: User) => u.roles.includes('ROLE_ARTIST')));
       } catch (error) {
         console.error("Lỗi khi tải dữ liệu tìm kiếm:", error);
@@ -65,7 +60,6 @@ const Header: React.FC<HeaderProps> = ({ onMenuClick }) => {
     fetchData();
   }, []);
 
-  // 3. Logic lọc kết quả tìm kiếm
   useEffect(() => {
     if (searchTerm.trim() === '') {
       setSearchResults([]);
@@ -75,11 +69,9 @@ const Header: React.FC<HeaderProps> = ({ onMenuClick }) => {
 
     const lowerTerm = searchTerm.toLowerCase();
 
-    // Lọc bài hát khớp tiêu đề
     const filtered = allSongs.filter(song => 
       song.title.toLowerCase().includes(lowerTerm)
     ).map(song => {
-      // Tìm tên ca sĩ dựa trên artist_id
       const artist = allArtists.find(a => a.id === song.artist_id);
       const artistName = artist ? `${artist.first_name} ${artist.last_name}` : 'Unknown Artist';
       
@@ -93,7 +85,6 @@ const Header: React.FC<HeaderProps> = ({ onMenuClick }) => {
     setShowDropdown(true);
   }, [searchTerm, allSongs, allArtists]);
 
-  // Xử lý đóng dropdown khi click ra ngoài
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (searchRef.current && !searchRef.current.contains(event.target as Node)) {
@@ -104,7 +95,6 @@ const Header: React.FC<HeaderProps> = ({ onMenuClick }) => {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  // Xử lý overflow body khi modal mở
   useEffect(() => {
     if (showSignIn || showSignUp) {
       document.body.style.overflow = 'hidden';
@@ -125,7 +115,6 @@ const Header: React.FC<HeaderProps> = ({ onMenuClick }) => {
         <div className="container mx-auto flex items-center justify-between">
           
           <div className="flex items-center gap-4 flex-1 h-20">
-            {/* Vùng tìm kiếm được bọc bởi ref để xử lý click outside */}
             <div className="relative w-full max-w-65 md:max-w-75" ref={searchRef}>
               <div className="flex items-center bg-white rounded overflow-hidden h-10 w-full transition-all duration-300">
                 <input 
@@ -141,7 +130,6 @@ const Header: React.FC<HeaderProps> = ({ onMenuClick }) => {
                 </button>
               </div>
 
-              {/* DROPDOWN KẾT QUẢ TÌM KIẾM */}
               {showDropdown && (
                 <div className="absolute top-12 left-0 w-full bg-white rounded-md shadow-2xl overflow-hidden z-50 max-h-80 overflow-y-auto">
                   {searchResults.length > 0 ? (
