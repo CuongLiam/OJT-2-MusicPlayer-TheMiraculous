@@ -8,7 +8,6 @@ import AllFeaturedAlbums from './pages/Album/AllFeaturedAlbums'
 import AllTrendingAlbums from './pages/Album/AllTrendingAlbums'
 import AllAlbumsByArtists from './pages/Album/AllAlbumsByArtists'
 import Admin from './pages/Admin/Admin'
-import ProtectedAdmin from './pages/Admin/auth/ProtectedAdmin'
 import AdminDashboard from './pages/Admin/Dashboard'
 import AdminUser from './pages/Admin/Users'
 import AdminGenre from './pages/Admin/Genres'
@@ -22,6 +21,8 @@ import SignUpModal from './components/auth/SignUpModal'
 import Favourite from  './pages/Favourite/Favourite'
 import TopTrack from './pages/TopTracks/TopTrack'
 import AllNewReleases from './pages/Album/AllNewReleasesAlbum'
+import RequireAdmin from './pages/Admin/auth/RequireAdmin'
+import RequireAuth from './components/auth/RequireAuth'
 import ArtistLogin from './pages/ArtistAdmin/auth/ArtistLogin'
 import ArtistRegis from './pages/ArtistAdmin/auth/ArtistRegis'
 import ArtistDashboard from './pages/ArtistAdmin/components/ArtistDashboard'
@@ -33,8 +34,18 @@ import Settings from './pages/ArtistAdmin/components/Settings'
 export default function RouterConfig() {
   return (
     <Routes>
+      {/* PUBLIC */}
       <Route path='/' element = {<Home/>}></Route>
 
+      {/* ADMIN */}
+      <Route
+        path="/admin"
+        element={
+          <RequireAdmin>
+            <Admin />
+          </RequireAdmin>
+        }
+      >
       <Route path='/signin' element = {<SignInModal/>}></Route>
       <Route path='/signup' element = {<SignUpModal/>}></Route>
 
@@ -55,6 +66,96 @@ export default function RouterConfig() {
         <Route path="artists" element={<AdminArtists />} />
       </Route>
 
+      {/* PROTECTED USER ROUTES */}
+      <Route
+        path="/artists"
+        element={
+          <RequireAuth>
+            <Artists />
+          </RequireAuth>
+        }
+      />
+
+      <Route
+        path="/genre"
+        element={
+          <RequireAuth>
+            <Genre />
+          </RequireAuth>
+        }
+      />
+
+      <Route
+        path="/more-genres"
+        element={
+          <RequireAuth>
+            <MoreGenres />
+          </RequireAuth>
+        }
+      />
+
+      <Route
+        path="/album"
+        element={
+          <RequireAuth>
+            <Album />
+          </RequireAuth>
+        }
+      />
+
+      <Route
+        path="/album/featured-albums"
+        element={
+          <RequireAuth>
+            <AllFeaturedAlbums />
+          </RequireAuth>
+        }
+      />
+
+      <Route
+        path="/album/trending-albums"
+        element={
+          <RequireAuth>
+            <AllTrendingAlbums />
+          </RequireAuth>
+        }
+      />
+
+      <Route
+        path="/album/artists-albums"
+        element={
+          <RequireAuth>
+            <AllAlbumsByArtists />
+          </RequireAuth>
+        }
+      />
+
+      <Route
+        path="/album/new-releases"
+        element={
+          <RequireAuth>
+            <AllNewReleases />
+          </RequireAuth>
+        }
+      />
+
+      <Route
+        path="/favourite"
+        element={
+          <RequireAuth>
+            <Favourite />
+          </RequireAuth>
+        }
+      />
+
+      <Route
+        path="/top-track"
+        element={
+          <RequireAuth>
+            <TopTrack />
+          </RequireAuth>
+        }
+      />
       {/* --- PUBLIC USER ROUTES --- */}
       <Route path='/artists' element = {<Artists/>}></Route>
       <Route path='/genre' element = {<Genre/>}></Route>

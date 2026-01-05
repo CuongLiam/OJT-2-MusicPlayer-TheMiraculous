@@ -21,44 +21,68 @@ const SignInModal = ({ onClose }: { onClose?: () => void }) => {
   }
 
   async function handleSignIn(e?: React.FormEvent) {
-    e?.preventDefault();
-    const newErrors = validate();
-    setErrors(newErrors);
-    if (Object.keys(newErrors).length > 0) return;
+  e?.preventDefault();
+  const newErrors = validate();
+  setErrors(newErrors);
+  if (Object.keys(newErrors).length > 0) return;
 
-    try {
-      const result = await Apis.user.signin({
-        emailOrUserName: form.emailOrUserName,
-        password: form.password,
-      });
-      const userRecord = result?.data;
-      if (!userRecord) throw new Error('Unexpected signin response');
-      // store normalized user (API already sets `role`)
-      if (remember) {
-        localStorage.setItem('userLogin', JSON.stringify(userRecord));
-        sessionStorage.removeItem('userLogin');
+  try {
+    const result = await Apis.user.signin({
+      emailOrUserName: form.emailOrUserName,
+      password: form.password,
+    });
+
+    // result shape may vary: sometimes API returns { data: { user, accessToken } } or { data: user }
+    const payload = result?.data ?? result;
+    let userRecord = payload?.user ?? payload;
+
+    if (!userRecord) throw new Error('Unexpected signin response');
+
+    // Normalize roles -> ensure userRecord.roles is an array of ROLE_* strings
+    if (!Array.isArray(userRecord.roles)) {
+      if (typeof userRecord.role === 'string') {
+        const r = userRecord.role.trim();
+        userRecord.roles = r.startsWith('ROLE_') ? [r] : [`ROLE_${r.toUpperCase()}`];
+      } else if (typeof userRecord.roleName === 'string') {
+        const r = userRecord.roleName.trim();
+        userRecord.roles = r.startsWith('ROLE_') ? [r] : [`ROLE_${r.toUpperCase()}`];
       } else {
-        sessionStorage.setItem('userLogin', JSON.stringify(userRecord));
-        localStorage.removeItem('userLogin');
+        // default to ROLE_USER if nothing provided
+        userRecord.roles = ['ROLE_USER'];
       }
-      // close modal and redirect
-      setVisible(false);
-      onClose?.();
-      message.success(result.message || 'Logged in');
-      const mappedRole = userRecord.role || 'USER';
-      // delay navigation slightly so message is visible
-      setTimeout(() => {
-        if (mappedRole === 'ADMIN' || mappedRole === 'MASTER') {
-          window.location.href = '/admin';
-        } else {
-          window.location.href = '/';
-        }
-      }, 700);
-    } catch (err: any) {
-      const msg = err?.message || (err && err.toString()) || 'Signin failed';
-      message.error(msg);
     }
+
+    // persist user
+    if (remember) {
+      localStorage.setItem('userLogin', JSON.stringify(userRecord));
+      sessionStorage.removeItem('userLogin');
+    } else {
+      sessionStorage.setItem('userLogin', JSON.stringify(userRecord));
+      localStorage.removeItem('userLogin');
+    }
+
+    // close modal and give feedback
+    setVisible(false);
+    onClose?.();
+    message.success(result?.message || 'Logged in');
+
+    // Redirect based on roles (only admins go to /admin)
+    const roles = userRecord.roles || [];
+    const isAdmin = roles.includes('ROLE_ADMIN');
+    // small delay so message shows briefly
+    setTimeout(() => {
+      if (isAdmin) {
+        window.location.href = '/admin';
+      } else {
+        window.location.href = '/';
+      }
+    }, 700);
+  } catch (err: any) {
+    const msg = err?.message || (err && err.toString()) || 'Signin failed';
+    message.error(msg);
   }
+}
+
 
   if (!visible) return null;
 
