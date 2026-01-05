@@ -24,12 +24,12 @@ export const addGenreAsync = createAsyncThunk('admin/addGenre', async (payload: 
   return response;
 });
 
-export const updateGenreAsync = createAsyncThunk('admin/updateGenre', async ({ id, payload }:{id:number; payload: Partial<Genre>}) => {
+export const updateGenreAsync = createAsyncThunk('admin/updateGenre', async ({ id, payload }:{id:string; payload: Partial<Genre>}) => {
   const response = await updateGenreApi(id, payload);
   return response;
 });
 
-export const deleteGenreAsync = createAsyncThunk('admin/deleteGenre', async (id: number) => {
+export const deleteGenreAsync = createAsyncThunk('admin/deleteGenre', async (id: string) => {
   await deleteGenreApi(id);
   return id;
 });
@@ -47,7 +47,7 @@ const adminGenreSlice = createSlice({
         state.genres[index] = action.payload;
       }
     },
-    removeGenre: (state, action: PayloadAction<number>) => {
+    removeGenre: (state, action: PayloadAction<string>) => {
       state.genres = state.genres.filter(g => g.id !== action.payload);
     },
   },
@@ -74,7 +74,7 @@ const adminGenreSlice = createSlice({
         const idx = state.genres.findIndex(g => g.id === action.payload.id);
         if (idx !== -1) state.genres[idx] = action.payload;
       })
-      .addCase(deleteGenreAsync.fulfilled, (state, action: PayloadAction<number>) => {
+      .addCase(deleteGenreAsync.fulfilled, (state, action: PayloadAction<string>) => {
         state.genres = state.genres.filter(g => g.id !== action.payload);
       });
   },

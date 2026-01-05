@@ -31,7 +31,7 @@ const AdminGenre: React.FC = () => {
     setIsModalOpen(true);
   };
 
-  const handleDelete = (genreId: number) => {
+  const handleDelete = (genreId: string) => {
     if (window.confirm('Are you sure you want to delete this genre?')) {
       dispatch(deleteGenreAsync(genreId));
     }
