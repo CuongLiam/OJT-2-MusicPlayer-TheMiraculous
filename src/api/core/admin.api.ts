@@ -38,12 +38,12 @@ export const createGenre = async (payload: Partial<Genre>): Promise<Genre> => {
   return response.data;
 };
 
-export const updateGenreApi = async (id: number, payload: Partial<Genre>): Promise<Genre> => {
+export const updateGenreApi = async (id: string, payload: Partial<Genre>): Promise<Genre> => {
   const response = await axios.put(`${API_URL}/genres/${id}`, payload);
   return response.data;
 };
 
-export const deleteGenreApi = async (id: number): Promise<void> => {
+export const deleteGenreApi = async (id: string): Promise<void> => {
   await axios.delete(`${API_URL}/genres/${id}`);
 };
 
@@ -60,7 +60,7 @@ export const deleteAlbumApi = async (id: string): Promise<void> => {
   await axios.delete(`${API_URL}/albums/${id}`);
 };
 
-export const deleteSongApi = async (id: number): Promise<void> => {
+export const deleteSongApi = async (id: string): Promise<void> => {
   await axios.delete(`${API_URL}/songs/${id}`);
 };
 
