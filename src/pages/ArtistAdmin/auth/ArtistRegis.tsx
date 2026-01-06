@@ -144,7 +144,7 @@ const ArtistRegister = () => {
         <div
           className="absolute inset-0 bg-cover bg-center opacity-60 mix-blend-overlay transition-opacity duration-700 hover:opacity-70"
           style={{
-            backgroundImage: "url('https://images.unsplash.com/photo-1514525253440-b393452e8d26?q=80&w=1974&auto=format&fit=crop')",
+            backgroundImage: "url('https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=2070&auto=format&fit=crop')",
           }}
         ></div>
         <div className="absolute inset-0 bg-linear-to-t from-[#191022] via-[#8c2bee]/20 to-transparent"></div>
