@@ -59,6 +59,11 @@ const SignInModal = ({ onClose }: { onClose?: () => void }) => {
 
       if (!userRecord) throw new Error('Unexpected signin response');
 
+      if (typeof userRecord.status === 'string' && userRecord.status.toUpperCase() === 'BLOCKED') {
+        message.error('Your account has been blocked. Please contact support.');
+        return;
+      }
+
       if (!Array.isArray(userRecord.roles)) {
         if (typeof userRecord.role === 'string') {
           const r = userRecord.role.trim();
